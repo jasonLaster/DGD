@@ -1,4 +1,8 @@
-%div 
-  CATEGORIES
+#directory
   - @categories.each do |c|
-    %p= c.category + ":  " + c.groups.map(&:name).join(" - ")
+    .category 
+      = link_to c.category, "#"
+      %ul.groups
+        - c.groups.each do |g|
+          %li.group 
+            = link_to g.name, "#"
