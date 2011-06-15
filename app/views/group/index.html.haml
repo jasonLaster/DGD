@@ -1,1 +1,10 @@
-%h1 INDEX
+%div 
+  CATEGORIES
+  - @categories.each do |c|
+    %p= c.category
+    
+    
+%div{:style => "margin-top:20px;"}
+  GROUPS
+  - @groups.each do |g|
+    %p= g.name

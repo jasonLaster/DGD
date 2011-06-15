@@ -2,6 +2,7 @@ class GroupController < ActionController::Base
   layout 'application'
   
   def index
+    @categories = Category.find(:all)
     @groups = Group.find(:all)
   end
   

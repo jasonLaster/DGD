@@ -15,5 +15,7 @@ body {}
 }
 
 #body {
-	height:100px;
+	.content {
+		width:1024px; margin:20px auto;
+	}
 }
