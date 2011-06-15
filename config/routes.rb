@@ -1,7 +1,8 @@
 DGD::Application.routes.draw do
 
-  resources :group, :only => [:index, :show]
-
+  resources :group, :only => [:index, :show] do
+    resources :description
+  end
 
 
   # The priority is based upon order of creation:
