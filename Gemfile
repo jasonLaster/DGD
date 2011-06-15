@@ -11,8 +11,10 @@ gem 'sqlite3'
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'uglifier'
-
+gem 'haml'
+gem 'haml-rails', :group => :development
 gem 'jquery-rails'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'

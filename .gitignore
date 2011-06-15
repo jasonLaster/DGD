@@ -4,3 +4,6 @@ log/*.log
 tmp/
 .sass-cache/
 .DS_Store
+
+/db/schema.rb
+/Gemfile.lock

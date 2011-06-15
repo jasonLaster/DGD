@@ -1,4 +1,9 @@
 DGD::Application.routes.draw do
+
+  resources :group, :only => [:index, :show]
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +53,7 @@ DGD::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'group#index'
 
   # See how all your routes lay out with "rake routes"
 
