@@ -6,7 +6,8 @@ class GroupController < ActionController::Base
   end
   
   def show
-    @group = Group.find(params[:id])
+    @group = Group.includes(:descriptions).find(params[:id])
+    @description = @group.descriptions.order("created_at DESC").first
   end
 
 end

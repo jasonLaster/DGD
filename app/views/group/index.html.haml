@@ -5,4 +5,4 @@
       %ul.groups
         - c.groups.each do |g|
           %li.group 
-            = link_to g.name, "#"
+            = link_to g.name, group_path(g)
