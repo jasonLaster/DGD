@@ -1,15 +1,42 @@
+@mixin columns($count){
+	-moz-column-count: $count;
+	-webkit-column-count: $count;
+}
+
+@mixin column-gap($gap){
+	-moz-column-gap: $gap;
+	-webkit-column-gap: $gap;	
+}
+
 
 #directory {
+
+	@include columns(3);
+	@include column-gap(22px);
+	
+	width:770px; height:2600px;
 	.category {
 		margin-top:20px;
-		a {color:blue; text-decoration:underline; font-weight:bold;}
+		div {
+			a {color:blue; text-decoration:underline; font-weight:bold; font-size:16px; line-height:24px;}	
+			background-color:#ececec; border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding:4px 0px;
+		}
+		
 		ul.groups {
+			margin-top:10px;
 			li.group {
-				a {color:blue; text-decoration:underline; font-weight:normal;}
+				a {color:blue; text-decoration:underline; font-weight:normal; font-size:12px; line-height:15px;}
+			}
+			&.columns {
+				@include columns(2); 
+				@include column-gap(10px);
+				
 			}
 		}
 	}
+
 }
+
 
 #group {
 	h2 {font-size:20px; font-weight:bold;}
@@ -24,4 +51,7 @@
 			font-size:14px;
 		}
 	}
+}
+
+.blogPost div {
 }

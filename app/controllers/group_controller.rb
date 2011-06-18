@@ -2,7 +2,8 @@ class GroupController < ActionController::Base
   layout 'application'
   
   def index
-    @categories = Category.includes(:groups).find(:all)
+    @categories = Category.includes(:groups).find(:all).sort_by {|c| c.category}
+    
   end
   
   def show
