@@ -17,5 +17,12 @@ body {}
 #body {
 	.content {
 		width:1024px; margin:20px auto;
+		#left_sidebar {
+			float:left; width:200px; height:600px;
+			background-color:#efefef; border:1px solid #ccc;
+		}
+		#main_content {
+			float:left; margin-left:20px;
+		}
 	}
 }
