@@ -4,7 +4,7 @@
       .category 
         %div
           = link_to c.category, "#"
-        - cols = [1052035169, 1052035183, 1052035182, 1052035181].any? {|id| id == c.id} ?  "columns" : ""
+        - cols = [1052035169, 1052035183, 1052035182, 1052035181, 1052035185, 1052035186].any? {|id| id == c.id} ?  "columns" : ""
         - h = 1052035169 == c.id ? "tall" : "short"
         %ul{:class => "groups #{cols} #{h}"}
           - c.groups.each do |g|
