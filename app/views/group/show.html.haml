@@ -2,12 +2,12 @@
 
   %h2= @group.name
   
-  - if @description.presence
-    #description
-      .body= @description.description
+
+  #description
+    .body= @markdown
+    - if @description.presence
       .info
         %div written by
         %div= @description.created_at.strftime("updated %b %d")
         %div= link_to "edit", edit_group_description_path(@group, @description)
         %div= link_to "history", group_description_index_path(@group)
-
