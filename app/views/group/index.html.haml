@@ -13,6 +13,8 @@
         %ul{:class => "groups #{"columns" if c.two_cols}"}
           - c.groups.each do |g|
             %li.group 
-              - g_name = c.two_cols ? g.name.sub(/Dartmouth /,"").truncate(18) : g.name.truncate(45)
+              - t = c.two_cols ? 18 : 45
+              - g_name = g.name.sub(/Dartmouth /,"").truncate(t)
               = link_to g_name, group_path(g)
+ 
         
