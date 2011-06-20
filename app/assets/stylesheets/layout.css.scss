@@ -8,9 +8,15 @@ p,h2,h3,h4,h5 {margin:10px 0;}
 	.content {
 		width:1024px; height:35px; margin:0px auto; padding-top:18px;
 		input {
-			height:30px; width:365px; border:0px;
+			float:left; height:30px; width:365px; border:0px;
 			font-size:14px; line-height:20px;
 			&:focus {outline: 0px solid transparent;}
+		}
+		h1 {
+		  float:left; margin-left:20px;
+		  line-height:30px;
+		  color:white;
+		  
 		}
 	}
 }
