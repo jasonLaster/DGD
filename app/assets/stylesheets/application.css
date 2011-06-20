@@ -6,5 +6,6 @@
 */
 
 @import "reset.css";
+@import "jquery-ui-1.8.4.custom.css";
 @import "layout";  
 @import "groups";
