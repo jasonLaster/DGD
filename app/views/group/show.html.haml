@@ -5,9 +5,12 @@
 
   #description
     .body= @markdown
-    - if @description.presence
-      .info
-        %div written by
-        %div= @description.created_at.strftime("updated %b %d")
-        %div= link_to "edit", edit_group_description_path(@group, @description)
-        %div= link_to "history", group_description_index_path(@group)
+    .info
+    - if @description.description != Description.default_description
+      %div written by
+      %div= @description.created_at.strftime("updated %b %d")
+
+      %div= link_to "Edit", edit_group_description_path(@group, @description)
+      %div= link_to "History", group_description_index_path(@group)
+    - else
+      %div= link_to "+ Add description", new_group_description_path(@group, @description)
