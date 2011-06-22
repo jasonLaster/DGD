@@ -17,6 +17,5 @@ class GroupController < ActionController::Base
       @description = Description.new
       @description.description = Description.default_description
     end
-    @markdown = Redcarpet.new(@description.description).to_html.html_safe    
   end
 end
