@@ -1,6 +1,6 @@
 class Description < ActiveRecord::Base
 
-  has_one :group
+  belongs_to :group
 
   def self.default_description
     File.open("public/empty_group_page.txt").read
