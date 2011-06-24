@@ -17,7 +17,10 @@ strong {font-weight:bold;}
 		  float:left; margin-left:20px;
 		  line-height:30px; font-size:16px; font-family:'helvetica';
 		  color:white;
-		  
+		}
+		#user_nav {
+		  float:right;
+		  a {color:white; font-family:'helvetica'; font-size:13px; line-height:30px;}
 		}
 	}
 }

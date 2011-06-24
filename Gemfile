@@ -15,7 +15,9 @@ gem 'haml'
 gem 'haml-rails', :group => :development
 gem 'jquery-rails'
 
+
 gem 'redcarpet'
+gem 'omniauth'
 
 # Use unicorn as the web server
 # gem 'unicorn'
