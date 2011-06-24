@@ -18,4 +18,13 @@ class GroupController < ActionController::Base
       @description.description = Description.default_description
     end
   end
+  
+  def leaderboard
+  end
+  
+  def recently_updated
+  end
+  
+  def least_updated
+  end
 end

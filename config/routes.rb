@@ -1,6 +1,11 @@
 DGD::Application.routes.draw do
 
   resources :group, :only => [:index, :show] do
+    collection do
+      get 'leaderboard'
+      get 'recently_updated'
+      get 'least_updated'
+    end
     resources :description
   end
 
