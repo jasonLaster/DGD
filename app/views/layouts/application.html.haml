@@ -16,7 +16,10 @@
         = submit_tag  "search"
       %h1 Dartmouth Group Directory
       #user_nav
-        = link_to "Sign in", "/auth/cas"
+        - if current_user
+          = link_to "Logout, #{current_user.name}", signout_path
+        - else
+          = link_to "Login", "/auth/cas"
       .clear
   
   #body
