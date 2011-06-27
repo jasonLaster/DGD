@@ -3,6 +3,12 @@ class GroupController < ActionController::Base
   before_filter :load_group_hash
   
   def index
+    
+    # search functionality
+    if params[:group_id] && Group.exists?(params[:group_id])
+      redirect_to group_path(Group.find(params[:group_id]))
+    end
+    
     @categories = Category.includes(:groups).find(:all)
     
     # sort the categories and groups

@@ -3,8 +3,8 @@
 # AUTOCOMPLETE
 
 $(document).ready ->
-  $("#header input" ).autocomplete {
+  $("#header input#search}" ).autocomplete {
 		source: groups,
 		select: (event, ui) ->
-      $.get "/group/" + ui.item.id
+		  $('#header input#group_id').val(ui.item.id)
   }
