@@ -1,6 +1,8 @@
-%h3 Add Description
+%h3
+  = @group.to_s + " Page"
 
-%form{method:"post" action:""}
-  %textarea{rows: 10, cols: 75}
+%div
+  = form_tag(group_description_index_path, :method => "post")
+  %textarea{rows: 10, cols: 75, name: "description"}
   %br
   %input{type:"submit", value:"Add Description"}

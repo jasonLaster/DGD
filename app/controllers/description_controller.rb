@@ -7,6 +7,7 @@ class DescriptionController < ActionController::Base
   end
   
   def new
+    @group = Group.find(params[:group_id])
   end
   
   def edit
@@ -21,6 +22,13 @@ class DescriptionController < ActionController::Base
   end
   
   def destroy
+  end
+  
+  def create
+    @group = Group.find(params[:group_id])
+    @descriptions = @group.descriptions.build(:description => params[:description])
+    @descriptions.save
+    redirect_to @group
   end
 
 end
