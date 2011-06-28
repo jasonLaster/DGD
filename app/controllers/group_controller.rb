@@ -1,7 +1,14 @@
 class GroupController < ActionController::Base
   layout 'application'
+  before_filter :load_group_hash
   
   def index
+    
+    # search functionality
+    if params[:group_id] && Group.exists?(params[:group_id])
+      redirect_to group_path(Group.find(params[:group_id]))
+    end
+    
     @categories = Category.includes(:groups).find(:all)
     
     # sort the categories and groups
@@ -27,4 +34,10 @@ class GroupController < ActionController::Base
   
   def least_updated
   end
+  
+  private
+  def load_group_hash
+    @group_hash = Group.all.map {|g| {:label => g.name, :value => g.name, :id => g.id}}
+  end
 end
+

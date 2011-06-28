@@ -8,11 +8,16 @@ strong {font-weight:bold;}
 	background-color:#375482;
 	.content {
 		width:1024px; height:35px; margin:0px auto; padding-top:18px;
-		input {
-			float:left; height:30px; width:365px; margin-left:220px; border:0px;
-			font-size:14px; line-height:20px;
-			&:focus {outline: 0px solid transparent;}
+		form {
+		  float:left; 
+		  input#search {
+  			width:365px; height:30px; margin-left:220px; border:0px;
+  			font-size:14px; line-height:20px;
+  			&:focus {outline: 0px solid transparent;}
+  		}
+  	  input[type="submit"] {margin:6px 0px 0px 5px;}	
 		}
+		
 		h1 {
 		  float:left; margin-left:20px;
 		  line-height:30px; font-size:16px; font-family:'helvetica';
