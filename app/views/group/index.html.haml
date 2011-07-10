@@ -1,11 +1,38 @@
 = content_for :sidebar do
-  .description
-    %p <strong>Lorem ipsum dolor sit</strong> amet, consectetur adipisicing elit, sed do eiusmod.
-    %p Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-  .links
-    %h4 Pages
-    %ul
+  %ul.sections
+    %li COSO
+    %ul.categories
+      %li COSO
+    %li SPORTS
+    %ul.categories
+      %li Mens Varsity Sports
+      %li Womens Varsity Sports
+      %li Intramural Sports
+    %li Greek Life
+    %ul.categories
+      %li Fraternities
+      %li Sororities
+      %li CO-EDs
+    %li Centers
+    %ul.categories
+      %li Rockerfeller Center
+      %li Dickey Center
+      %li Governing Organizations
+    %li Tucker
+    %ul.categories
+      %li Tucker - Faith Programs
+      %li Tucker - Religious Groups
+      %li Tucker - International Service
+      %li Tucker - Local Service   
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 #directory
   %div
@@ -28,27 +55,31 @@
     - rc = Category.includes(:groups).find_by_category("Rockefeller Center")
   
 
-    
-    .header COSO
-    = render :partial => 'category', :locals => {:columns => 5}, :object => coso
-    .clear
-    .header SPORTS
-    = render :partial => 'category', :locals => {:columns => 2}, :object => mens_sports
-    = render :partial => 'category', :locals => {:columns => 2}, :object => womens_sports
-    = render :partial => 'category', :locals => {:columns => 1}, :object => intramurals
-    .clear
-    .header Greek Life
-    = render :partial => 'category', :locals => {:columns => 2}, :object => fraternity
-    = render :partial => 'category', :locals => {:columns => 2}, :object => sorority
-    = render :partial => 'category', :locals => {:columns => 1}, :object => co_ed
-    .clear
-    .header Departmental Organizations
-    = render :partial => 'category', :locals => {:columns => 2}, :object => di
-    = render :partial => 'category', :locals => {:columns => 2}, :object => go
-    = render :partial => 'category', :locals => {:columns => 1}, :object => rc
-    .clear
-    .header TUCKER
-    = render :partial => 'category', :locals => {:columns => 1}, :object => tf
-    = render :partial => 'category', :locals => {:columns => 2}, :object => tr
-    = render :partial => 'category', :locals => {:columns => 2}, :object => tl
-    .clear
+    .section
+      .header{:style => "margin-top:0px;"} COSO
+      = render :partial => 'category', :locals => {:columns => 5}, :object => coso
+      .clear
+    .section
+      .header SPORTS
+      = render :partial => 'category', :locals => {:columns => 2}, :object => mens_sports
+      = render :partial => 'category', :locals => {:columns => 2}, :object => womens_sports
+      = render :partial => 'category', :locals => {:columns => 1}, :object => intramurals
+      .clear
+    .section
+      .header Greek Life
+      = render :partial => 'category', :locals => {:columns => 2}, :object => fraternity
+      = render :partial => 'category', :locals => {:columns => 2}, :object => sorority
+      = render :partial => 'category', :locals => {:columns => 1}, :object => co_ed
+      .clear
+    .section
+      .header Departmental Organizations
+      = render :partial => 'category', :locals => {:columns => 2}, :object => di
+      = render :partial => 'category', :locals => {:columns => 2}, :object => go
+      = render :partial => 'category', :locals => {:columns => 1}, :object => rc
+      .clear
+    .section
+      .header TUCKER
+      = render :partial => 'category', :locals => {:columns => 1}, :object => tf
+      = render :partial => 'category', :locals => {:columns => 2}, :object => tr
+      = render :partial => 'category', :locals => {:columns => 2}, :object => tl
+      .clear
