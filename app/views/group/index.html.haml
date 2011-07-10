@@ -29,21 +29,25 @@
   
 
     
-
+    .header COSO
     = render :partial => 'category', :locals => {:columns => 5}, :object => coso
     .clear
+    .header SPORTS
     = render :partial => 'category', :locals => {:columns => 2}, :object => mens_sports
     = render :partial => 'category', :locals => {:columns => 2}, :object => womens_sports
     = render :partial => 'category', :locals => {:columns => 1}, :object => intramurals
     .clear
+    .header Greek Life
     = render :partial => 'category', :locals => {:columns => 2}, :object => fraternity
     = render :partial => 'category', :locals => {:columns => 2}, :object => sorority
     = render :partial => 'category', :locals => {:columns => 1}, :object => co_ed
     .clear
+    .header Departmental Organizations
     = render :partial => 'category', :locals => {:columns => 2}, :object => di
     = render :partial => 'category', :locals => {:columns => 2}, :object => go
     = render :partial => 'category', :locals => {:columns => 1}, :object => rc
     .clear
+    .header TUCKER
     = render :partial => 'category', :locals => {:columns => 1}, :object => tf
     = render :partial => 'category', :locals => {:columns => 2}, :object => tr
     = render :partial => 'category', :locals => {:columns => 2}, :object => tl

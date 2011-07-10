@@ -12,13 +12,18 @@
 #directory {
 	
 	width:800px; height:2600px;
+	.header {
+	  background-color:#ddd; margin-top:20px;
+	  line-height:30px; height:30px; color:#444; font-size:18px;
+	  border-top:1px solid #ccc;
+	  }
+	
 	.category {
-		float:left; width:100%; margin-top:20px;
+		float:left; width:100%; 
 		div {
 			a {color:blue; text-decoration:underline; font-weight:bold; font-size:16px; line-height:24px;}	
 			background-color:#ececec; border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding:4px 0px;
 		}
-		
 		ul.groups {
 			margin-top:10px;
 			li.group {
