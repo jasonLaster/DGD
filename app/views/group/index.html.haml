@@ -6,21 +6,45 @@
   .links
     %h4 Pages
     %ul
-      %li= link_to "Recently Updated Groups", recently_updated_group_index_path
-      %li= link_to "Least Updated Groups", least_updated_group_index_path
-      %li= link_to "Leaderboard", leaderboard_group_index_path
 
 #directory
   %div
-    - @categories.each do |c|
-      .category 
-        %div
-          = link_to c.category, "#"
-        %ul{:class => "groups #{"columns" if c.two_cols}"}
-          - c.groups.each do |g|
-            %li.group 
-              - t = c.two_cols ? 18 : 45
-              - g_name = g.name.sub(/Dartmouth /,"").truncate(t)
-              = link_to g_name, group_path(g)
- 
-        
+    - coso = Category.includes(:groups).find_by_category("COSO Organizations")
+    - mens_sports = Category.includes(:groups).find_by_category("Men's Varsity Sports")
+    - womens_sports = Category.includes(:groups).find_by_category("Women's Varsity Sports")
+    - intramurals = Category.includes(:groups).find_by_category("Intramurals")
+    - fraternity = Category.includes(:groups).find_by_category("Fraternity")
+    - sorority = Category.includes(:groups).find_by_category("Sorority")
+    - co_ed  = Category.includes(:groups).find_by_category("Co-Ed")
+    - mens_sports = Category.includes(:groups).find_by_category("Men's Varsity Sports")
+    - womens_sports = Category.includes(:groups).find_by_category("Women's Varsity Sports")
+    - intramurals = Category.includes(:groups).find_by_category("Intramurals")
+    - tf = Category.includes(:groups).find_by_category("Tucker - Faith Programs")
+    - tr = Category.includes(:groups).find_by_category("Tucker - Religious Groups")
+    - ti = Category.includes(:groups).find_by_category("Tucker - International Service")
+    - tl = Category.includes(:groups).find_by_category("Tucker - Local Service")
+    - di = Category.includes(:groups).find_by_category("Dickey Center")
+    - go = Category.includes(:groups).find_by_category("Governing Organizations")
+    - rc = Category.includes(:groups).find_by_category("Rockefeller Center")
+  
+
+    
+
+    = render :partial => 'category', :locals => {:columns => 5}, :object => coso
+    .clear
+    = render :partial => 'category', :locals => {:columns => 2}, :object => mens_sports
+    = render :partial => 'category', :locals => {:columns => 2}, :object => womens_sports
+    = render :partial => 'category', :locals => {:columns => 1}, :object => intramurals
+    .clear
+    = render :partial => 'category', :locals => {:columns => 2}, :object => fraternity
+    = render :partial => 'category', :locals => {:columns => 2}, :object => sorority
+    = render :partial => 'category', :locals => {:columns => 1}, :object => co_ed
+    .clear
+    = render :partial => 'category', :locals => {:columns => 2}, :object => di
+    = render :partial => 'category', :locals => {:columns => 2}, :object => go
+    = render :partial => 'category', :locals => {:columns => 1}, :object => rc
+    .clear
+    = render :partial => 'category', :locals => {:columns => 1}, :object => tf
+    = render :partial => 'category', :locals => {:columns => 2}, :object => tr
+    = render :partial => 'category', :locals => {:columns => 2}, :object => tl
+    .clear

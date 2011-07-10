@@ -10,13 +10,10 @@
 
 
 #directory {
-
-	@include columns(3);
-	@include column-gap(22px);
 	
 	width:800px; height:2600px;
 	.category {
-		margin-top:20px;
+		float:left; width:100%; margin-top:20px;
 		div {
 			a {color:blue; text-decoration:underline; font-weight:bold; font-size:16px; line-height:24px;}	
 			background-color:#ececec; border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding:4px 0px;
@@ -28,7 +25,7 @@
 				a {color:blue; text-decoration:underline; font-weight:normal; font-size:12px; line-height:15px;}
 			}
 			&.columns {
-				@include columns(2); 
+				@include columns(5); 
 				@include column-gap(10px);
 				
 			}
