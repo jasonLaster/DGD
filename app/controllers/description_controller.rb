@@ -30,5 +30,13 @@ class DescriptionController < ActionController::Base
     @descriptions.save
     redirect_to @group
   end
+  
+  # GET group/:group_id/description/:id/flag
+  def flag
+    @group = Group.find(params[:group_id])
+    @flag = Flag.new :user_id => session[:user_id], :description_id => params[:description_id]
+    @flag.save
+    redirect_to @group
+  end
 
 end

@@ -12,5 +12,6 @@
 
       %div= link_to "Edit", edit_group_description_path(@group, @description)
       %div= link_to "History", group_description_index_path(@group)
+      %div= link_to "Flag", group_description_flag_path(@group,@description), :method => 'post'
     - else
       %div= link_to "+ Add description", new_group_description_path(@group, @description)

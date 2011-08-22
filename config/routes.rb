@@ -6,7 +6,9 @@ DGD::Application.routes.draw do
       get 'recently_updated'
       get 'least_updated'
     end
-    resources :description
+    resources :description do
+      post 'flag' => 'description#flag'
+    end
   end
 
   match "/auth/:provider/callback" => "sessions#create"  
