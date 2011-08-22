@@ -4,6 +4,7 @@ log/*.log
 tmp/
 .sass-cache/
 .DS_Store
+.rvmrc
 
 /db/schema.rb
 /Gemfile.lock
