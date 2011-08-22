@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   
   # Models the flag relationship
-  has_many: descriptions
+  has_many :descriptions
   
   def self.create_with_omniauth(auth)  
     create! do |user|
