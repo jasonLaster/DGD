@@ -1,9 +1,9 @@
-%table.users
+%table.flags
   %tr
-    %th User ID
     %th Description ID
+    %th Count
 
-  - @flags.each do |flag|
+  - @flags.each_pair do |description_id, count|
     %tr
-      %td= flag.user_id ? flag.user_id : "(not given)"
-      %td= flag.description_id ? flag.description_id : "(not given)"
+      %td= description_id
+      %td= count
