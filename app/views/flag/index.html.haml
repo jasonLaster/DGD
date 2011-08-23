@@ -1,0 +1,9 @@
+%table.users
+  %tr
+    %th User ID
+    %th Description ID
+
+  - @flags.each do |flag|
+    %tr
+      %td= flag.user_id ? flag.user_id : "(not given)"
+      %td= flag.description_id ? flag.description_id : "(not given)"
