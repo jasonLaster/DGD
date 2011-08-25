@@ -40,11 +40,11 @@ ul.ui-autocomplete.ui-menu li:hover {
 }
 
 /* Groups Index Styles */
-#directory ul.groups_list {
-  display: none;
-}
 #directory h4.category_header {
   cursor: pointer;
+}
+.groups_container {
+  display: none;
 }
 
 /* Flags Page Styles */

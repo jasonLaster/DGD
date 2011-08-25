@@ -17,4 +17,10 @@ $(document).ready ->
   # Slide down groups
   $("#directory h4.category_header").click ->
     group = $(this).attr('id')
-    $("#directory ul.groups_list#"+group).slideToggle('fast')
+    $("#directory .groups_container#"+group).slideToggle('fast')
+
+  # Columnize groups list
+  $(".groups_container").each ->
+    number_of_columns = Math.ceil( $(this).find("li").size() / 30 )
+    console.log(number_of_columns)
+    $(this).find("ul").makeacolumnlists({ cols: number_of_columns }) if number_of_columns > 1
