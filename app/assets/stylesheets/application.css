@@ -43,8 +43,14 @@ ul.ui-autocomplete.ui-menu li:hover {
 #directory h4.category_header {
   cursor: pointer;
 }
+#directory h4.category_header:after {
+  content: ' +';
+}
 .groups_container {
   display: none;
+}
+.groups_container li {
+  list-style-type: none;
 }
 
 /* Flags Page Styles */
