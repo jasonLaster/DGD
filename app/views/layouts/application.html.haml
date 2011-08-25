@@ -14,29 +14,25 @@
       .fill
         .container
           %h3
-            %a{ :href => "#"}
-              Dartmouth Group Directory
-          %ul
-            %li
-              %a{ :href => "#"}
-                Link
-            %li
-              %a{ :href => "#"}
-                Link
-            %li
-              %a{ :href => "#"}
-                Link    
+            =link_to 'DGD', root_path
+
           = form_tag(group_index_path, :method => "get") do 
             = hidden_field_tag 'group_id'
             = text_field_tag 'search'
           %ul.nav.secondary-nav
+            %li
+              %a{ :href => "#"}
+                Updated
+            %li
+              %a{ :href => "#"}
+                Leaderboards
             %li.menu
               %a.menu{ :href => "#" }
                 Actions
               %ul.menu-dropdown
                 %li   
                   - if current_user
-                    = link_to "Logout, #{current_user.name}", signout_path
+                    = link_to "Logout #{current_user.name}", signout_path
                   - else
                     = link_to "Login", "/auth/cas"
                 %li.divider
