@@ -38,3 +38,16 @@ ul.ui-autocomplete.ui-menu li:hover {
 .topbar-wrapper {
   margin-bottom: 75px;
 }
+
+/* Groups Index Styles */
+#directory ul.groups_list {
+  display: none;
+}
+#directory h4.category_header {
+  cursor: pointer;
+}
+
+/* Flags Page Styles */
+table.flags {
+  width: 500px;
+}

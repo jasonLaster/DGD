@@ -15,6 +15,25 @@ class GroupController < ActionController::Base
     @categories.sort_by!(&:category)
     @categories.each {|c| c.groups.sort_by!(&:name)}
     
+    @categories_hash = {}
+    @categories_hash[:coso] = Category.includes(:groups).find_by_category("COSO Organizations")
+    @categories_hash[:mens_sports] = Category.includes(:groups).find_by_category("Men's Varsity Sports")
+    @categories_hash[:womens_sports] = Category.includes(:groups).find_by_category("Women's Varsity Sports")
+    @categories_hash[:intramurals] = Category.includes(:groups).find_by_category("Intramurals")
+    @categories_hash[:fraternity] = Category.includes(:groups).find_by_category("Fraternity")
+    @categories_hash[:sorority] = Category.includes(:groups).find_by_category("Sorority")
+    @categories_hash[:co_ed] = Category.includes(:groups).find_by_category("Co-Ed")
+    @categories_hash[:mens_sports] = Category.includes(:groups).find_by_category("Men's Varsity Sports")
+    @categories_hash[:womens_sports] = Category.includes(:groups).find_by_category("Women's Varsity Sports")
+    @categories_hash[:intramurals] = Category.includes(:groups).find_by_category("Intramurals")
+    @categories_hash[:tf] = Category.includes(:groups).find_by_category("Tucker - Faith Programs")
+    @categories_hash[:tr] = Category.includes(:groups).find_by_category("Tucker - Religious Groups")
+    @categories_hash[:ti] = Category.includes(:groups).find_by_category("Tucker - International Service")
+    @categories_hash[:tl] = Category.includes(:groups).find_by_category("Tucker - Local Service")
+    @categories_hash[:di] = Category.includes(:groups).find_by_category("Dickey Center")
+    @categories_hash[:go] = Category.includes(:groups).find_by_category("Governing Organizations")
+    @categories_hash[:rc] = Category.includes(:groups).find_by_category("Rockefeller Center")
+    
   end
   
   def show

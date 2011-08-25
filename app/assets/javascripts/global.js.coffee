@@ -13,3 +13,8 @@ $(document).ready ->
       $(this).addClass("open")
     else
       $(this).removeClass("open")
+  
+  # Slide down groups
+  $("#directory h4.category_header").click ->
+    group = $(this).attr('id')
+    $("#directory ul.groups_list#"+group).slideToggle('fast')

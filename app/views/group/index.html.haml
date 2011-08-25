@@ -25,61 +25,10 @@
       %li Tucker - International Service
       %li Tucker - Local Service   
     
-    
-    
-    
-    
-    
-    
-    
-    
-
 #directory
-  %div
-    - coso = Category.includes(:groups).find_by_category("COSO Organizations")
-    - mens_sports = Category.includes(:groups).find_by_category("Men's Varsity Sports")
-    - womens_sports = Category.includes(:groups).find_by_category("Women's Varsity Sports")
-    - intramurals = Category.includes(:groups).find_by_category("Intramurals")
-    - fraternity = Category.includes(:groups).find_by_category("Fraternity")
-    - sorority = Category.includes(:groups).find_by_category("Sorority")
-    - co_ed  = Category.includes(:groups).find_by_category("Co-Ed")
-    - mens_sports = Category.includes(:groups).find_by_category("Men's Varsity Sports")
-    - womens_sports = Category.includes(:groups).find_by_category("Women's Varsity Sports")
-    - intramurals = Category.includes(:groups).find_by_category("Intramurals")
-    - tf = Category.includes(:groups).find_by_category("Tucker - Faith Programs")
-    - tr = Category.includes(:groups).find_by_category("Tucker - Religious Groups")
-    - ti = Category.includes(:groups).find_by_category("Tucker - International Service")
-    - tl = Category.includes(:groups).find_by_category("Tucker - Local Service")
-    - di = Category.includes(:groups).find_by_category("Dickey Center")
-    - go = Category.includes(:groups).find_by_category("Governing Organizations")
-    - rc = Category.includes(:groups).find_by_category("Rockefeller Center")
-  
-
-    .section
-      .header{:style => "margin-top:0px;"} COSO
-      = render :partial => 'category', :locals => {:columns => 5}, :object => coso
-      .clear
-    .section
-      .header SPORTS
-      = render :partial => 'category', :locals => {:columns => 2}, :object => mens_sports
-      = render :partial => 'category', :locals => {:columns => 2}, :object => womens_sports
-      = render :partial => 'category', :locals => {:columns => 1}, :object => intramurals
-      .clear
-    .section
-      .header Greek Life
-      = render :partial => 'category', :locals => {:columns => 2}, :object => fraternity
-      = render :partial => 'category', :locals => {:columns => 2}, :object => sorority
-      = render :partial => 'category', :locals => {:columns => 1}, :object => co_ed
-      .clear
-    .section
-      .header Departmental Organizations
-      = render :partial => 'category', :locals => {:columns => 2}, :object => di
-      = render :partial => 'category', :locals => {:columns => 2}, :object => go
-      = render :partial => 'category', :locals => {:columns => 1}, :object => rc
-      .clear
-    .section
-      .header TUCKER
-      = render :partial => 'category', :locals => {:columns => 1}, :object => tf
-      = render :partial => 'category', :locals => {:columns => 2}, :object => tr
-      = render :partial => 'category', :locals => {:columns => 2}, :object => tl
-      .clear
+  - @categories_hash.each_pair do |id, category|
+    %h4.category_header{ :id => category.category.gsub(" ","").gsub(/[^[:alnum:]]/, '')  }= category.category
+    %ul.groups_list{ :id => category.category.gsub(" ","").gsub(/[^[:alnum:]]/, '')  }
+      - category.groups.each do |group|
+        %li
+          = link_to group.name.sub(/Dartmouth /,"").truncate(40), group_path(group)
