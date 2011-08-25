@@ -3,33 +3,52 @@
 %head
   %title DGD
   = stylesheet_link_tag    "application"
+  = stylesheet_link_tag    "bootstrap-1.1.0.min"
   = javascript_include_tag "application"
   = csrf_meta_tags
 
 %body
   
-  #header
+  .topbar-wrapper
+    .topbar
+      .fill
+        .container
+          %h3
+            %a{ :href => "#"}
+              Dartmouth Group Directory
+          %ul
+            %li
+              %a{ :href => "#"}
+                Link
+            %li
+              %a{ :href => "#"}
+                Link
+            %li
+              %a{ :href => "#"}
+                Link    
+          = form_tag(group_index_path, :method => "get") do 
+            = hidden_field_tag 'group_id'
+            = text_field_tag 'search'
+          %ul.nav.secondary-nav
+            %li.menu
+              %a.menu{ :href => "#" }
+                Actions
+              %ul.menu-dropdown
+                %li   
+                  - if current_user
+                    = link_to "Logout, #{current_user.name}", signout_path
+                  - else
+                    = link_to "Login", "/auth/cas"
+                %li.divider
+                %li
+                  %a{ :href => "#"}
+                    Another Link
+
+  .container-fluid
+    .sidebar
+      = yield :sidebar
     .content
-      = form_tag(group_index_path, :method => "get") do 
-        = hidden_field_tag 'group_id'
-        = text_field_tag 'search'
-        = submit_tag  "search"
-      %h1 Dartmouth Group Directory
-      #user_nav
-        - if current_user
-          = link_to "Logout, #{current_user.name}", signout_path
-        - else
-          = link_to "Login", "/auth/cas"
-      .clear
-  
-  #body
-    .content
-      #left_sidebar
-        = yield :sidebar
-      #main_content
-        = yield
-      .clear
-      #footer 
+      = yield
     
 :javascript
   var groups = #{@group_hash.to_json};

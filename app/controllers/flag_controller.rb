@@ -1,4 +1,6 @@
-class FlagController < ActionController::Base  
+class FlagController < ActionController::Base
+  layout 'application'
+  
   def index
     @flags = Hash.new(0)
     Flag.all.map do |flag|
