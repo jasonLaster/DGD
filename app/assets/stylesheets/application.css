@@ -44,7 +44,7 @@ ul.ui-autocomplete.ui-menu li:hover {
   cursor: pointer;
 }
 #directory h4.category_header:after {
-  content: ' +';
+  content: ' [+]';
 }
 .groups_container {
   display: none;
