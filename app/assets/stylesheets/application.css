@@ -48,26 +48,25 @@ ul.ui-autocomplete.ui-menu li:hover {
 }
 .groups_container {
   display: none;
-  border-top: 1px solid #CCC;
-  border-left: 1px solid #CCC;
+  border-top: 1px solid #DDD;
   background-image: -webkit-gradient(
       linear,
       left bottom,
       left top,
       color-stop(0.09, rgb(255,255,255)),
       color-stop(0.55, rgb(255,255,255)),
-      color-stop(1, rgb(235,232,235))
+      color-stop(1, rgb(247,244,247))
   );
   background-image: -moz-linear-gradient(
       center bottom,
       rgb(255,255,255) 9%,
       rgb(255,255,255) 55%,
-      rgb(235,232,235) 100%
+      rgb(247,244,247) 100%
   );
-  -moz-border-top-left-radius: 15px;
-  border-top-left-radius: 15px;
-  -moz-border-top-right-radius: 15px;
-  border-top-right-radius: 15px;
+  -moz-border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
+  -moz-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .groups_container li {
   list-style-type: none;
