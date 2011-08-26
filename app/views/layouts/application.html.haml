@@ -42,7 +42,22 @@
 
   .container-fluid
     .sidebar
-      = yield :sidebar
+      .sidebar-info-box
+        .sidebar-header
+          %h3.title Dartmouth Group Directory
+        .sidebar-content
+          %p Welcome to the Dartmouth Group Directory, where your dreams come true. For real. This site is actually amazing beyond all belief.
+      .sidebar-info-box
+        .sidebar-header
+          %h3.title Recently Updated
+        .sidebar-content
+          %p Welcome to the Dartmouth Group Directory, where your dreams come true. For real. This site is actually amazing beyond all belief.
+      .sidebar-info-box
+        .sidebar-header
+          %h3.title Leaderboards
+        .sidebar-content
+          %p Welcome to the Dartmouth Group Directory, where your dreams come true. For real. This site is actually amazing beyond all belief.
+
     .content
       = yield
     

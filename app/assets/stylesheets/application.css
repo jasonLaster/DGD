@@ -39,6 +39,32 @@ ul.ui-autocomplete.ui-menu li:hover {
   margin-bottom: 75px;
 }
 
+/* Sidebar Styles */
+.sidebar-info-box {
+  width: 200px;
+  border: 3px solid black;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.sidebar-header {
+  padding: 1px;
+  border-bottom: 1px solid #EEE;
+  background-color: #F5F5F5;
+  -moz-border-radius: 8px 8px 0 0;
+  border-radius: 8px 8px 0 0;
+}
+.sidebar-header h3 {
+  text-align: center;
+  padding: 10px;
+  line-height: 15px;
+}
+.sidebar-content {
+  border-top: none;
+  padding: 10px;
+  color: #4c4c4c;
+}
+
 /* Groups Index Styles */
 #directory h4.category_header {
   cursor: pointer;
