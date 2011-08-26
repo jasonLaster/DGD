@@ -64,6 +64,10 @@ ul.ui-autocomplete.ui-menu li:hover {
       rgb(255,255,255) 55%,
       rgb(235,232,235) 100%
   );
+  -moz-border-top-left-radius: 15px;
+  border-top-left-radius: 15px;
+  -moz-border-top-right-radius: 15px;
+  border-top-right-radius: 15px;
 }
 .groups_container li {
   list-style-type: none;
