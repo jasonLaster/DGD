@@ -64,6 +64,9 @@ ul.ui-autocomplete.ui-menu li:hover {
   padding: 10px;
   color: #4c4c4c;
 }
+.sidebar-content a {
+  display: block;
+}
 
 /* Groups Index Styles */
 #directory h4.category_header {
