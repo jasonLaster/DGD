@@ -69,29 +69,26 @@ ul.ui-autocomplete.ui-menu li:hover {
 }
 
 /* Groups Index Styles */
+#directory .category_stripe {
+  border-top: 1px solid #CCC;
+  border-bottom: none;
+  background-color: #F5F5F5;
+  display: block;
+}
+#directory .category_nostripe {
+  border-top: 1px solid #CCC;
+  border-bottom: none;
+  display: block;
+}
 #directory h4.category_header {
   cursor: pointer;
+  margin-left: 20px;
 }
 #directory h4.category_header:after {
   content: ' [+]';
 }
 .groups_container {
   display: none;
-  border-top: 1px solid #DDD;
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(0.09, rgb(255,255,255)),
-      color-stop(0.55, rgb(255,255,255)),
-      color-stop(1, rgb(247,244,247))
-  );
-  background-image: -moz-linear-gradient(
-      center bottom,
-      rgb(255,255,255) 9%,
-      rgb(255,255,255) 55%,
-      rgb(247,244,247) 100%
-  );
 }
 .groups_container li {
   list-style-type: none;
