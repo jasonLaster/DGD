@@ -94,6 +94,28 @@ ul.ui-autocomplete.ui-menu li:hover {
   list-style-type: none;
 }
 
+/* Groups Show Styles */
+#group .title {
+  text-align: center;
+  border-bottom: 3px solid #CCC;
+  margin-bottom: 30px;
+}
+#group .title h1 {
+  font-size: 75px;
+}
+#description .action_links {
+  margin-top: 50px;
+  border: 1px solid #CCC;
+  background-color: #F5F5F5;
+  display: block;
+  text-align: center;
+  padding: 15px;
+}
+#description .action_links a {
+  margin: 20px;
+}
+
+
 /* Flags Page Styles */
 table.flags {
   width: 500px;

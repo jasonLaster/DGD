@@ -1,17 +1,18 @@
 #group
 
-  %h2= @group.name
+  .title
+    %h1= @group.name
   
 
   #description
     .body= @description.markdown
     .info
     - if @description.description != Description.default_description
-      %div written by
+      .action_links
+        %span= link_to "Edit", new_group_description_path(@group, @description)
+        %span= link_to "History", group_description_index_path(@group)
+        %span= link_to "Flag", group_description_flag_path(@group,@description), :method => 'post'
+      %div{ :style => "margin-top: 20px;"} written by
       %div= @description.created_at.strftime("updated %b %d")
-
-      %div= link_to "Edit", new_group_description_path(@group, @description)
-      %div= link_to "History", group_description_index_path(@group)
-      %div= link_to "Flag", group_description_flag_path(@group,@description), :method => 'post'
     - else
       %div= link_to "+ Add description", new_group_description_path(@group, @description)
