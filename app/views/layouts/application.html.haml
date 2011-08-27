@@ -32,6 +32,9 @@
   
   .container
     .row
+      .span12.columns
+        = yield
+        
       .span4.columns
         .sidebar-info-box
           .sidebar-header
@@ -49,9 +52,6 @@
             %h3.title Leaderboards
           .sidebar-content
             %p Welcome to the Dartmouth Group Directory, where your dreams come true. For real. This site is actually amazing beyond all belief.
-
-      .span12.columns
-        = yield
     
 :javascript
   var groups = #{@group_hash.to_json};
