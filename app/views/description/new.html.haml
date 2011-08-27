@@ -5,6 +5,6 @@
   = form_tag(group_description_index_path, :method => "post")
   %textarea.xxlarge{rows: 10, cols: 75, name: "description"}
   .actions{ :style => "width: 370px"}
-    %input.btn.primary{type:"submit", value:"Add Description"}
-    %button.btn Cancel
+    %input.btn.primary{type:"submit", value:"Add Description", style:"cursor:pointer;"}
+    .btn= link_to 'Cancel', group_path(@group)
     

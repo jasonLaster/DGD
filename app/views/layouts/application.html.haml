@@ -25,24 +25,10 @@
             = text_field_tag 'search', nil, :placeholder => "Search"
           %ul.nav.secondary-nav
             %li
-              %a{ :href => "#"}
-                Updated
-            %li
-              %a{ :href => "#"}
-                Leaderboards
-            %li.menu
-              %a.menu{ :href => "#" }
-                Actions
-              %ul.menu-dropdown
-                %li   
-                  - if current_user
-                    = link_to "Logout #{current_user.name}", signout_path
-                  - else
-                    = link_to "Login", "/auth/cas"
-                %li.divider
-                %li
-                  %a{ :href => "#"}
-                    Another Link
+              - if current_user
+                = link_to "Logout, #{current_user.name}", signout_path
+              - else
+                = link_to "Login", "/auth/cas"
 
   .container-fluid
     .sidebar
