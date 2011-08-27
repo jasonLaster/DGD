@@ -1,9 +1,12 @@
-%h3
-  = @group.to_s + " Page"
+#group
+
+  .title
+    %h1= "#{@group.name}"
 
 #edit_description
   = form_tag(group_description_index_path, :method => "post")
-  %textarea.xxlarge{rows: 10, cols: 75, name: "description"}
+  %textarea.xxlarge{ :rows => 25, name: "description" }
+    = @description if @description
   .actions{ :style => "width: 370px"}
     %input.btn.primary{type:"submit", value:"Add Description", style:"cursor:pointer;"}
     .btn= link_to 'Cancel', group_path(@group)
