@@ -1,5 +1,10 @@
-%h1= @group.name
+#group
+
+  .title
+    %h1= "#{@group.name} Page History"
 
 - @descriptions.each do |d|
-  %p= d.description
+  %h4= "The #{@group} page as it appeared #{time_ago_in_words d.created_at} ago."
+  = d.markdown
+  .horizontal_rule{ :style => "background-color: #CCC; height: 2px;"}
 
