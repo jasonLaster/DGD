@@ -18,6 +18,10 @@ $(document).ready ->
   $("#directory h4.category_header").click ->
     group = $(this).attr('id')
     $("#directory .groups_container#"+group).slideToggle('fast')
+  $("#directory ul.pills a.expand_all").click ->
+    $("#directory .groups_container").slideDown('fast')
+  $("#directory ul.pills a.collapse_all").click ->
+    $("#directory .groups_container").slideUp('fast')
 
   # Columnize groups list
   $(".groups_container").each ->
