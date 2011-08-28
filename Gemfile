@@ -24,3 +24,9 @@ group :assets do
   gem 'uglifier'
 end
 
+
+
+group :production do
+  gem 'thin'
+  gem 'execjs'
+end
