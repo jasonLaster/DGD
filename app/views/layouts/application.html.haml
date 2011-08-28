@@ -25,6 +25,8 @@
             = text_field_tag 'search', nil, :placeholder => "Search"
           %ul.nav.secondary-nav
             %li
+              = link_to "Browse", group_index_path
+            %li
               - if current_user
                 = link_to "Logout, #{current_user.name}", signout_path
               - else

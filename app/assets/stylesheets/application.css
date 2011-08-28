@@ -83,11 +83,14 @@ ul.ui-autocomplete.ui-menu li:hover {
 #directory h4.category_header:after {
   content: ' [+]';
 }
-.groups_container {
+#directory .groups_container {
   display: none;
 }
-.groups_container li {
+#directory .groups_container li {
   list-style-type: none;
+}
+#directory .expand {
+  margin-bottom: 75px;
 }
 
 /* Groups Show Styles */

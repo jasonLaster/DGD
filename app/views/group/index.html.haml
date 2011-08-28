@@ -4,11 +4,12 @@
     .title
       %h1= "Directory"
 
-  %ul.pills{ :style => "float: right; cursor: pointer;" }
-    %li
-      %a.expand_all Expand All
-    %li
-      %a.collapse_all Collapse All
+  .expand
+    %ul.pills{ :style => "float: right; cursor: pointer;" }
+      %li
+        %a.expand_all Expand All
+      %li
+        %a.collapse_all Collapse All
   
   .categories{ :style => "margin-top: 65px;"}
     - i = 0
