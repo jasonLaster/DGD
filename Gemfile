@@ -2,12 +2,17 @@ source 'http://rubygems.org'
 
 
 gem 'rails', '3.1.0.rc5'
+gem "heroku"
 gem 'haml'
 gem 'haml-rails', :group => :development
 gem 'jquery-rails'
 gem 'redcarpet'
 gem 'omniauth'
 
+
+group :development, :test do
+  gem 'sqlite3'
+end
 
 group :development do
   gem 'ruby-debug19', :require => 'ruby-debug'
