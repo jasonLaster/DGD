@@ -8,6 +8,6 @@
   = Redcarpet.new(d.description).to_html.html_safe
   %form{ :method => "post", :action => group_description_index_path }
     = hidden_field_tag 'description', d.description.gsub("\r\n","\r")
-    %input{ :type => "submit", :value => "Revert to this version"}
+    %input.btn{ :type => "submit", :value => "Revert to this version"}
   .horizontal_rule{ :style => "background-color: #CCC; height: 2px;"}
 
