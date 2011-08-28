@@ -116,3 +116,28 @@ ul.ui-autocomplete.ui-menu li:hover {
 table.flags {
   width: 500px;
 }
+
+/* Splash Page Styles */
+#splash .splash-container {
+  border: 1px solid #CCC;
+  background-color: #F5F5F5;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  height: 200px;
+  width: 350px;
+  padding: 50px;
+}
+#splash .splash-container .search {
+  margin-left: auto;
+  margin-right: auto;
+  width: 217px;
+}
+#splash .splash-container .links {
+  margin-left: auto;
+  margin-right: auto;
+  width: 214px;
+}

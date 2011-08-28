@@ -1,7 +1,7 @@
 $(document).ready ->
   
   # Autocomplete for main nav search bar
-  $(".topbar input#search" ).autocomplete {
+  $("input#search" ).autocomplete {
 		source: groups,
 		select: (event, ui) ->
 		  $("#group_id").val(ui.item.id)
