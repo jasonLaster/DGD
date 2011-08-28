@@ -101,6 +101,8 @@ ul.ui-autocomplete.ui-menu li:hover {
 }
 #group .title h1 {
   font-size: 75px;
+  line-height: 60px;
+  margin-top: -20px;
 }
 #description .action_links {
   margin-top: 50px;
