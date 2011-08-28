@@ -15,8 +15,9 @@
     - i = 0
     - @categories_hash.each_pair do |id, category|
       - i += 1
-      %div{ :class => i % 2 == 0 ? "category_nostripe" : "category_stripe" }
+      .category{ :class => i % 2 == 0 ? "category_nostripe" : "category_stripe" }
         %h4.category_header{ :id => category.category.gsub(" ","").gsub(/[^[:alnum:]]/, '')  }= category.category
+        %span.ui-icon.ui-icon-triangle-1-s{ :style => "float: right; margin-right: 10px; margin-top: -25px;"}
         .groups_container{ :id => category.category.gsub(" ","").gsub(/[^[:alnum:]]/, '')  }
           %ul.groups_list
             - category.groups.each do |group|

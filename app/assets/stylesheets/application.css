@@ -80,9 +80,6 @@ ul.ui-autocomplete.ui-menu li:hover {
   cursor: pointer;
   margin-left: 20px;
 }
-#directory h4.category_header:after {
-  content: ' [+]';
-}
 #directory .groups_container {
   display: none;
 }

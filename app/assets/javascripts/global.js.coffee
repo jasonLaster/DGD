@@ -18,10 +18,16 @@ $(document).ready ->
   $("#directory h4.category_header").click ->
     group = $(this).attr('id')
     $("#directory .groups_container#"+group).slideToggle('fast')
+    if $(this).parent().find(".ui-icon").hasClass("ui-icon-triangle-1-s")
+      $(this).parent().find(".ui-icon").removeClass("ui-icon-triangle-1-s").addClass("ui-icon-triangle-1-n")
+    else
+      $(this).parent().find(".ui-icon").removeClass("ui-icon-triangle-1-n").addClass("ui-icon-triangle-1-s")
   $("#directory ul.pills a.expand_all").click ->
     $("#directory .groups_container").slideDown('fast')
+    $(".ui-icon").removeClass("ui-icon-triangle-1-s").addClass("ui-icon-triangle-1-n")
   $("#directory ul.pills a.collapse_all").click ->
     $("#directory .groups_container").slideUp('fast')
+    $(".ui-icon").removeClass("ui-icon-triangle-1-n").addClass("ui-icon-triangle-1-s")
 
   # Columnize groups list
   $(".groups_container").each ->
