@@ -5,6 +5,7 @@ $(document).ready ->
 		source: groups,
 		select: (event, ui) ->
 		  $("#group_id").val(ui.item.id)
+		  $('input[type="submit"]').click()
   }
   
   # Secondary nav dropdown menu
