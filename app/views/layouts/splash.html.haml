@@ -11,13 +11,10 @@
 
 %body
   
-  = render :partial => "shared/header"
   .container
     .row
       = yield
         
-
-  #footer
 
 :javascript
   var groups = #{@group_hash.to_json};

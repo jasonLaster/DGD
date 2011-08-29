@@ -9,18 +9,16 @@
   = javascript_include_tag "application"
   = csrf_meta_tags
 %body
-  
-  = render :partial => "shared/header"
-  
-  #splash
-    .splash-container
-      %div{ :style => "margin-top:20px; width: 360px; text-align:center;"}
 
-        %div{ :style => "margin: 20px auto 20px 30px; font-size:24px;"}
-          %span{ :style => "color:#38672F; line-height:36px;"}
-            Dartmouth
-          %span
-            Group Directory
+  #splash
+    .splash-container{ :style => "padding: 0px 50px 70px;"}
+      %div{ :style => "margin: 0px auto 20px auto; width: 340px;"}
+        %div{ :style => "margin: 20px auto; font-size:24px;"}
+          .logo{:style => "margin:0px auto; width:80px;"}
+            = image_tag "Shodou.png", :width => '80px', :height => '80px'
+          .title{:style => "margin:20px auto 0px auto; text; text-align:center;"}
+            %span{:style => "color:#38672F;"} Dartmouth 
+            %span{:style => "color:#888;"} Group Directory
       .search
         = form_tag(group_index_path, :method => "get") do 
           = hidden_field_tag 'group_id'
