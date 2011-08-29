@@ -1,4 +1,4 @@
-class GroupController < ActionController::Base
+class GroupController < ApplicationController
   layout 'application'
   before_filter :load_group_hash
   
