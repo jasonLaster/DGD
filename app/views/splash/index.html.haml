@@ -9,7 +9,9 @@
   = javascript_include_tag "application"
   = csrf_meta_tags
 %body
-
+  
+  = render :partial => "shared/header"
+  
   #splash
     .splash-container
       %div{ :style => "margin: 20px auto 20px auto; width: 220px;"}
