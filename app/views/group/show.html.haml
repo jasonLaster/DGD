@@ -3,16 +3,17 @@
   .title
     %h1= @group.name
   
-
   #description
     .body= @description.markdown
     .info
     - if @description.description != Description.default_description
-      .action_links
-        %span= link_to "Edit", new_group_description_path(@group, @description)
-        %span= link_to "History", group_description_index_path(@group)
-        %span= link_to "Flag", group_description_flag_path(@group,@description), :method => 'post'
+      - if current_user.present?
+        .action_links
+          %span= link_to "Edit", new_group_description_path(@group, @description)
+          %span= link_to "History", group_description_index_path(@group)
+          %span= link_to "Flag", group_description_flag_path(@group,@description), :method => 'post'
       %div{ :style => "margin-top: 20px;"} written by #{@description.user.try(:name)}
       %div= @description.created_at.strftime("updated %b %d")
-    - else
+      
+    - elsif current_user.present?
       %div= link_to "+ Add description", new_group_description_path(@group, @description)
