@@ -8,8 +8,8 @@ class DescriptionController < ActionController::Base
   
   def new
     @group = Group.find(params[:group_id])
-    @description = @group.descriptions.order("created_at DESC").first.description if @group.descriptions
-    @description.squeeze(" ").strip.gsub("\r","").gsub("          ","") if @description
+    @description = @group.descriptions.order("created_at DESC").first
+    @description = @description.description.gsub("\r\n","\r") if @description
   end
   
   def edit
