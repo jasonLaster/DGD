@@ -12,13 +12,13 @@
 
   #splash
     .splash-container
-      %div{ :style => "margin: 20px auto 20px auto; width: 220px;"}
-        %span{ :style => "font-family: Bevan, serif; font-size: 100px; font-style: normal; font-weight: 400; color: black;" }
-          %span{ :style => "color: #38672F; padding: 0px; margin-right: -21px;" }d
-          %span{ :style => "margin-bottom: 100px;"}
-            gd
-        %div{ :style => "margin: 20px auto 20px 30px;"}
-          Dartmouth Group Directory
+      %div{ :style => "margin-top:20px; width: 360px; text-align:center;"}
+
+        %div{ :style => "margin: 20px auto 20px 30px; font-size:24px;"}
+          %span{ :style => "color:#38672F; line-height:36px;"}
+            Dartmouth
+          %span
+            Group Directory
       .search
         = form_tag(group_index_path, :method => "get") do 
           = hidden_field_tag 'group_id'
