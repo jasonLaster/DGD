@@ -1,0 +1,22 @@
+.topbar-wrapper
+  .topbar
+    .fill
+      .container
+        %h3
+          %a{ :href => root_path, :style => "margin-bottom: -4px;" }
+            %span{ :style => "font-family: Bevan, serif; font-size: 25px; font-style: normal; font-weight: 400;" }
+              %span{ :style => "color: #38672F; padding: 0px; margin-right: -4px;" }d
+              %span gd
+        %ul
+          %li
+            = link_to "Directory", group_index_path
+        
+        = form_tag(group_index_path, :method => "get") do 
+          = hidden_field_tag 'group_id'
+          = text_field_tag 'search', nil, :placeholder => "Search"
+        %ul.nav.secondary-nav
+          %li
+            - if current_user
+              = link_to "Logout, #{current_user.name}", signout_path
+            - else
+              = link_to "Login", "/auth/cas"
