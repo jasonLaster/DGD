@@ -12,7 +12,7 @@
         %span= link_to "Edit", new_group_description_path(@group, @description)
         %span= link_to "History", group_description_index_path(@group)
         %span= link_to "Flag", group_description_flag_path(@group,@description), :method => 'post'
-      %div{ :style => "margin-top: 20px;"} written by
+      %div{ :style => "margin-top: 20px;"} written by #{@description.user.try(:name)}
       %div= @description.created_at.strftime("updated %b %d")
     - else
       %div= link_to "+ Add description", new_group_description_path(@group, @description)

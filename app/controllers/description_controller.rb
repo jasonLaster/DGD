@@ -1,4 +1,4 @@
-class DescriptionController < ActionController::Base
+class DescriptionController < ApplicationController
   layout 'application'
   
   def index
@@ -28,8 +28,7 @@ class DescriptionController < ActionController::Base
   
   def create
     @group = Group.find(params[:group_id])
-    @descriptions = @group.descriptions.build(:description => params[:description])
-    @descriptions.save
+    @description = @group.descriptions.build(:description => params[:description], :user => @current_user).save
     redirect_to @group
   end
   
