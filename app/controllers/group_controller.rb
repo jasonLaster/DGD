@@ -39,7 +39,10 @@ class GroupController < ApplicationController
   def show
     @group = Group.includes(:descriptions).find(params[:id])
     @description = @group.descriptions.order("created_at DESC").first
-    if (!@description.presence)
+    @flag = Flag.find_by_description_id_and_user_id(@description, @current_user)
+    @flag_count = Flag.find_all_by_description_id(@description).count
+    
+    if @description.nil?
       @description = Description.new
       @description.description = Description.default_description
     end
