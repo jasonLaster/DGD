@@ -1,5 +1,6 @@
 class DescriptionController < ApplicationController
   layout 'application'
+  before_filter :load_group_hash
   
   def index
     @group = Group.includes(:descriptions).find(params[:group_id])
@@ -45,6 +46,11 @@ class DescriptionController < ApplicationController
     end
 
     redirect_to @group
+  end
+  
+  private
+  def load_group_hash
+    @group_hash = Group.all.map {|g| {:label => g.name, :value => g.name, :id => g.id}}
   end
 
 end
