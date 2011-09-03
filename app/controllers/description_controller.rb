@@ -35,8 +35,15 @@ class DescriptionController < ApplicationController
   # GET group/:group_id/description/:id/flag
   def flag
     @group = Group.find(params[:group_id])
-    @flag = Flag.new :user_id => session[:user_id], :description_id => params[:description_id]
-    @flag.save
+    @description = Description.find(params[:description_id])
+    @flag = Flag.find_by_description_id_and_user_id(@description, @current_user)
+
+    if @flag.present?
+      @flag.destroy
+    else
+      Flag.new(:user_id => @current_user, :description_id => params[:description_id]).save
+    end
+
     redirect_to @group
   end
 

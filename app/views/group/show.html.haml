@@ -11,7 +11,7 @@
         .action_links
           %span= link_to "Edit", new_group_description_path(@group, @description)
           %span= link_to "History", group_description_index_path(@group)
-          %span= link_to "Flag", group_description_flag_path(@group,@description), :method => 'post'
+          %span= link_to flag_text, group_description_flag_path(@group,@description), :method => 'post'
       %div{ :style => "margin-top: 20px;"} written by #{@description.user.try(:name)}
       %div= @description.created_at.strftime("updated %b %d")
       
