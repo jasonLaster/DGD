@@ -43,19 +43,20 @@ class GroupController < ApplicationController
     @flag_count = Flag.find_all_by_description_id(@description).count
     
     # Hide email addresses if user isn't logged in
-    @clean_description = Nokogiri::HTML::DocumentFragment.parse(@description.markdown)
-    links = @clean_description.at_css "a"
-    if links
-      if links['href'].include? "mailto:"
-        links['href'] = "/auth/cas"
-        links.content = "<login to see email address>"
+    if ! @description.nil?
+      @clean_description = Nokogiri::HTML::DocumentFragment.parse(@description.markdown)
+      links = @clean_description.at_css "a"
+      if links
+        if links['href'].include? "mailto:"
+          links['href'] = "/auth/cas"
+          links.content = "<login to see email address>"
+        end
       end
-    end
-    @clean_description = @clean_description.to_html.html_safe
-    
-    if @description.nil?
+      @clean_description = @clean_description.to_html.html_safe
+    else
       @description = Description.new
       @description.description = Description.default_description
+      @clean_description = @description
     end
   end
   
