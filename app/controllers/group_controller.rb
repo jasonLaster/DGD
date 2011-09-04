@@ -7,6 +7,8 @@ class GroupController < ApplicationController
     # search functionality
     if params[:group_id] && Group.exists?(params[:group_id])
       redirect_to group_path(Group.find(params[:group_id]))
+    elsif params[:search] && group = Group.all.select { |group| group.name.downcase =~ Regexp.new(params[:search].downcase) }.first
+      redirect_to group_path(group)
     end
     
     @categories = Category.includes(:groups).find(:all)
