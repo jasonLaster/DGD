@@ -4,7 +4,11 @@
     %h1= @group.name
   
   #description
-    .body= @description.markdown
+    .body
+      - if current_user.present?
+        = @description.markdown
+      - else
+        = @clean_description
     .info
     - if @description.description != Description.default_description
       - if current_user.present?
