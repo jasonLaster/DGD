@@ -160,9 +160,11 @@ table.flags {
   border-bottom: 1px solid #CCC;
   background-color: #F5F5F5;
   display: block;
+  padding-left: 20px;
 }
 #history .page.nostripe {
   display: block;
+  padding-left: 20px;
 }
 #history .page .body {
   display: none;
