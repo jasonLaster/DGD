@@ -7,7 +7,7 @@ class GroupController < ApplicationController
     # search functionality
     if params[:group_id] && Group.exists?(params[:group_id])
       redirect_to group_path(Group.find(params[:group_id]))
-    elsif params[:search] && group = Group.all.select { |group| group.name.downcase =~ Regexp.new(params[:search].downcase) }.first
+    elsif params[:search] && group =  Group.where("name LIKE ?", "%#{params[:search]}%").first
       redirect_to group_path(group)
     end
     
@@ -45,7 +45,7 @@ class GroupController < ApplicationController
     @flag_count = Flag.find_all_by_description_id(@description).count
     
     # Hide email addresses if user isn't logged in
-    if ! @description.nil?
+    if !@description.nil?
       @clean_description = Nokogiri::HTML::DocumentFragment.parse(@description.markdown)
       links = @clean_description.at_css "a"
       if links
