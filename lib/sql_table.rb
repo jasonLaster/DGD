@@ -9,6 +9,7 @@ class SqlTable
       @columns = data.first
       @rows = data.second
     elsif data.first.class.respond_to? :column_names
+      model = data.first.class
       @columns = model.column_names
       @rows = data.to_column_values
     end
