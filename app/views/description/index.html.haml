@@ -3,11 +3,15 @@
   .title
     %h1= "#{@group.name} Page History"
 
-- @descriptions.each do |d|
-  %h4= "The #{@group} page as it appeared #{time_ago_in_words d.created_at} ago."
-  = Redcarpet.new(d.description).to_html.html_safe
-  %form{ :method => "post", :action => group_description_index_path }
-    = hidden_field_tag 'description', d.description.gsub("\r\n","\r")
-    %input.btn{ :type => "submit", :value => "Revert to this version"}
-  .horizontal_rule{ :style => "background-color: #CCC; height: 2px;"}
+#history
+  - @descriptions.each do |d|
+    %div{ :class => cycle("page stripe","page nostripe") }
+      %span.ui-icon.ui-icon-triangle-1-s{ :style => "float: right; margin-right: 12px; margin-top: 10px;"}
+      .header
+        %h4= d.created_at.strftime("#{d.user.first_name} -  %b %d at %I:%M%p ")
+      .body
+        = Redcarpet.new(d.description).to_html.html_safe
+        %form{ :method => "post", :action => group_description_index_path }
+          = hidden_field_tag 'description', d.description.gsub("\r\n","\r")
+          %input.btn{ :type => "submit", :value => "Revert to this version"}
 
