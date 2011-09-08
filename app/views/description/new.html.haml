@@ -1,12 +1,14 @@
-#group
+- content_for :sidebar do
+  = render :partial => "sidebar"
 
+#group
   .title
     %h1= "#{@group.name}"
 
 #edit_description
   = form_tag(group_description_index_path, :method => "post")
-  %textarea.xxlarge{ :rows => 25, name: "description" }
-    = @description.html_safe if @description
+  %textarea.xxlarge{ :rows => 25, :style => "width: 100%", name: "description" }
+    = @description.html_safe if @description.present?
   .actions{ :style => "width: 370px"}
     %input.btn.primary{type:"submit", value:"Add Description", style:"cursor:pointer;"}
     .btn= link_to 'Cancel', group_path(@group)

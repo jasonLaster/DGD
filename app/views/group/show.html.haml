@@ -1,5 +1,7 @@
-#group
+- content_for :sidebar do
+  = render :partial => "shared/sidebar"
 
+#group
   .title
     %h1= @group.name
   

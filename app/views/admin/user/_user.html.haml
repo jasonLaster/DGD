@@ -2,6 +2,6 @@
   = form_for [:admin, user] do |t|
     %td= t.check_box :admin
     %td= t.check_box :blocked
-    %td= user.name
-    %td= user.email
+    %td= t.text_field :name
+    %td= t.text_field :email
 

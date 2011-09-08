@@ -1,3 +1,7 @@
+- content_for :sidebar do
+  = render :partial => "admin/shared/sidebar"
+
+
 #user-admin
   #group
     .title
@@ -8,6 +12,6 @@
       %tr
         %th.yellow{:width => "50px"} Admin
         %th.blue{:width => "50px"} Blocked
-        %th.green Name
+        %th.purple Name
         %th.green Email
       = render :partial => "user", :collection => @users
