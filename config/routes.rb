@@ -2,10 +2,31 @@ DGD::Application.routes.draw do
   
 
   namespace :admin do
-    resources :group, :only => [:index, :update]
-    resources :user, :only => [:index, :update]
-    resources :description, :only => [:index, :update]
-    resources :category, :only => [:index, :update]
+    
+    resources :group, :only => [:index] do
+      collection do
+        post 'update'
+      end
+    end
+    
+    resources :user, :only => [:index] do
+      collection do
+        post 'update'
+      end
+    end
+    
+    resources :description, :only => [:index] do
+      collection do
+        post 'update'
+      end
+    end
+    
+    resources :category, :only => [:index] do
+      collection do
+        post 'update'
+      end
+    end
+    
   end
   
   resources :group, :only => [:index, :show, :edit, :update]  do

@@ -129,6 +129,11 @@ table.flags {
   width: 500px;
 }
 
+/* Admin Section */
+.actions.form {padding-left:20px}
+
+
+
 /* Splash Page Styles */
 #splash .splash-container {
   border: 1px solid #CCC;

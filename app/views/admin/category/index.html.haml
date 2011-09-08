@@ -6,10 +6,14 @@
   #group
     .title
       %h1= "Categories"
-  
   .categories-table
+  = form_tag admin_category_index_path, :method => :post do			
     %table#admin-table.zebra-striped
       %tr
         %th.yellow{:width => "50"} Delete
         %th.blue Category
       = render :partial => "category", :collection => @categories
+    
+    .actions.form
+      = submit_tag "Submit", :class => "btn primary"
+    
