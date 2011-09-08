@@ -7,3 +7,9 @@
     .title
       %h1= "Categories"
   
+  .categories-table
+    %table#admin-table.zebra-striped
+      %tr
+        %th.yellow{:width => "50"} Delete
+        %th.blue Category
+      = render :partial => "category", :collection => @categories

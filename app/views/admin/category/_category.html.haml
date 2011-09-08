@@ -1,0 +1,5 @@
+%tr
+  = form_for [:admin, category] do |t|
+    %td= check_box_tag "#{category.id}[delete]", "0"
+    %td= t.text_field :category
+    
