@@ -8,7 +8,7 @@ DGD::Application.routes.draw do
     resources :category, :only => [:index, :update]
   end
   
-  resources :group, :only => [:index, :show]  do
+  resources :group, :only => [:index, :show, :edit, :update]  do
     collection do
       get 'leaderboard'
       get 'recently_updated'
