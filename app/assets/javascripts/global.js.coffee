@@ -35,3 +35,7 @@ $(document).ready ->
     number_of_columns = Math.ceil( $(this).find("li").size() / 30 )
     number_of_columns++ if number_of_columns == 1
     $(this).find("ul").makeacolumnlists({ cols: number_of_columns })
+  
+
+  $("table#admin-table").tablesorter({ sortList: [[1,0]] })
+  

@@ -1,0 +1,7 @@
+%tr
+  = form_for [:admin, user] do |t|
+    %td= t.check_box :admin
+    %td= t.check_box :blocked
+    %td= user.name
+    %td= user.email
+
