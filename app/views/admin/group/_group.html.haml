@@ -1,0 +1,7 @@
+%tr
+  = form_for [:admin, group] do |t|
+    %td= t.check_box :locked 
+    %td= t.text_field :name
+    %td= group.category.category
+    %td #{link_to "page", group_path(group)} - #{link_to "edit", edit_group_path(group)}
+

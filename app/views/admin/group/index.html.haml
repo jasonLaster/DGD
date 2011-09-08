@@ -5,3 +5,12 @@
   #group
     .title
       %h1 Groups
+
+  .groups-table
+    %table#admin-table.zebra-striped
+      %tr
+        %th.yellow{:width => "50px"} Locked
+        %th.purple Group
+        %th.green Category
+        %th.blue Pages
+      = render :partial => "group", :collection => @groups
