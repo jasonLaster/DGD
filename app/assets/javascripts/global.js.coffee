@@ -36,6 +36,14 @@ $(document).ready ->
     number_of_columns++ if number_of_columns == 1
     $(this).find("ul").makeacolumnlists({ cols: number_of_columns })
   
-
+	# Admin table sorting (does not currently work)
   $("table#admin-table").tablesorter({ sortList: [[1,0]] })
-  
+    
+  # Slide down history
+  $("#history .header").click ->
+    page = $(this).attr('id')
+    $(this).parent().find(".body").slideToggle('fast')
+    if $(this).parent().find(".ui-icon").hasClass("ui-icon-triangle-1-s")
+      $(this).parent().find(".ui-icon").removeClass("ui-icon-triangle-1-s").addClass("ui-icon-triangle-1-n")
+    else
+      $(this).parent().find(".ui-icon").removeClass("ui-icon-triangle-1-n").addClass("ui-icon-triangle-1-s")
