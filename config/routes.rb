@@ -5,6 +5,7 @@ DGD::Application.routes.draw do
     resources :group, :only => [:index, :update]
     resources :user, :only => [:index, :update]
     resources :description, :only => [:index, :update]
+    resources :category, :only => [:index, :update]
   end
   
   resources :group, :only => [:index, :show]  do
