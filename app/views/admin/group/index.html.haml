@@ -7,10 +7,15 @@
       %h1 Groups
 
   .groups-table
-    %table#admin-table.zebra-striped
-      %tr
-        %th.yellow{:width => "50px"} Locked
-        %th.purple Group
-        %th.green Category
-        %th.blue Pages
-      = render :partial => "group", :collection => @groups
+    = form_tag admin_group_index_path, :method => :post do			
+      %table#admin-table.zebra-striped
+        %tr
+          %th.yellow{:width => "50px"} Locked
+          %th.purple Group
+          %th.green Category
+          %th.blue Pages
+        = render :partial => "group", :collection => @groups
+        
+      .actions.form
+        = submit_tag "Submit", :class => "btn primary"
+        

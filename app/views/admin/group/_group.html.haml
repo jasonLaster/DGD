@@ -1,7 +1,10 @@
 %tr
-  = form_for [:admin, group] do |t|
-    %td= t.check_box :locked 
-    %td= t.text_field :name
+  - name = "groups[#{group.id}]"
+  = fields_for name, group do |f|  
+    %td
+      = hidden_field name, :locked 
+      = check_box_tag "#{name}[locked]", "1", group.locked
+    %td= text_field_tag "#{name}[name]", group.name
     %td= group.category.category
-    %td #{link_to "page", group_path(group)} - #{link_to "edit", edit_group_path(group)}
+    %td  #{link_to "page", group_path(group)} - #{link_to "edit", edit_group_path(group)}
 
