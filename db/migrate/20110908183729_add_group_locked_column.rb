@@ -1,5 +1,5 @@
 class AddGroupLockedColumn < ActiveRecord::Migration
   def change
-    add_column :groups, :locked, :binary
+    add_column :groups, :locked, :boolean
   end
 end
