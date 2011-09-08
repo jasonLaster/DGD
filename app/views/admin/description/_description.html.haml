@@ -5,5 +5,4 @@
     %td= t.check_box :contact_information
     %td= t.check_box :events
     %td= description.group.name
-    %td= description.description
-    %td #{link_to "page", group_path(group)} - #{link_to "edit", edit_group_path(group)}
+    %td= truncate(description.description, :length => 40)
