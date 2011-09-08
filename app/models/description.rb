@@ -8,6 +8,7 @@ class Description < ActiveRecord::Base
   end
   
   def markdown
+    return if self.description.nil?
     Redcarpet.new(self.description).to_html.html_safe
   end
 end
