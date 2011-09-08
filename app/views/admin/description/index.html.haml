@@ -4,4 +4,15 @@
 #description-admin
   #group
     .title
-      %h1 Descriptions
+      %h1 Pages
+
+  .pages-table
+    %table#admin-table.zebra-striped
+      %tr
+        %th.grey{:width => "50px"} Execs
+        %th.grey{:width => "50px"} Desc.
+        %th.grey{:width => "50px"} C info
+        %th.grey{:width => "50px"} Events
+        %th.blue Group
+        %th.green Page
+      = render :partial => "description", :collection => @descriptions
