@@ -33,9 +33,11 @@ $(document).ready ->
   # Columnize groups list
   $("ul.groups_list").each ->
     number_of_groups =  $(this).find("li").size()
-    number_of_columns = Math.ceil( number_of_groups / 30 )
-    number_of_columns++ if number_of_columns == 1
-    $(this).makeacolumnlists({ cols: number_of_columns })
+    if number_of_groups > 30
+       number_of_columns = Math.ceil( number_of_groups / 30 )
+    else
+       number_of_columns = Math.ceil( number_of_groups / 8 )
+    $(this).makeacolumnlists({ cols: number_of_columns }) if number_of_columns > 1
   
   # Admin table sorting (does not currently work)
   $("table#admin-table").tablesorter({ sortList: [[1,0]] })
