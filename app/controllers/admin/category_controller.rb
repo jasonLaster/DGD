@@ -1,6 +1,10 @@
 class Admin::CategoryController < AdminController
   def index
-    @categories = Category.all
+    @categories = Category.all.sort_by(&:category)
+  end
+
+  def primary_categories
+    @categories = Category.primary_categories.map {|c| [c, Category.sub_categories(c).map(&:sub_category)]}.sort_by {|c,l| -l.length}
   end
 
   def update

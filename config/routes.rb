@@ -24,6 +24,7 @@ DGD::Application.routes.draw do
     resources :category, :only => [:index] do
       collection do
         post 'update'
+        get 'primary_categories'
       end
     end
     

@@ -1,5 +1,5 @@
 - content_for :sidebar do
-  = render :partial => "admin/shared/sidebar"
+  = render :partial => "sidebar"
 
 
 #user-admin
@@ -12,6 +12,7 @@
       %tr
         %th.yellow{:width => "50"} Delete
         %th.blue Category
+        %th.red{:width => "70p"} # Groups
       = render :partial => "category", :collection => @categories
     
     .actions.form
