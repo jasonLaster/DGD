@@ -83,6 +83,11 @@ body > .container {min-height:650px;}
   cursor: pointer;
   margin-left: 20px;
 }
+
+#directory h5.category_sub_header {
+	margin-left: 20px;
+}
+
 #directory .groups_container {
   display: none;
 }

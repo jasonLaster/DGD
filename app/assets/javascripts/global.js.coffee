@@ -31,10 +31,11 @@ $(document).ready ->
     $(".ui-icon").removeClass("ui-icon-triangle-1-n").addClass("ui-icon-triangle-1-s")
 
   # Columnize groups list
-  $(".groups_container").each ->
-    number_of_columns = Math.ceil( $(this).find("li").size() / 30 )
+  $("ul.groups_list").each ->
+    number_of_groups =  $(this).find("li").size()
+    number_of_columns = Math.ceil( number_of_groups / 30 )
     number_of_columns++ if number_of_columns == 1
-    $(this).find("ul").makeacolumnlists({ cols: number_of_columns })
+    $(this).makeacolumnlists({ cols: number_of_columns })
   
   # Admin table sorting (does not currently work)
   $("table#admin-table").tablesorter({ sortList: [[1,0]] })
