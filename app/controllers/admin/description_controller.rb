@@ -1,6 +1,6 @@
 class Admin::DescriptionController < AdminController
   def index
-    @descriptions = Description.all
+    @descriptions = Description.most_recent
   end
   
   def update
