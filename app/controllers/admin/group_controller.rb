@@ -1,6 +1,6 @@
 class Admin::GroupController < AdminController
   def index
-    @groups = Group.all[0..25]
+    @groups = Group.all
   end
   
   def update
