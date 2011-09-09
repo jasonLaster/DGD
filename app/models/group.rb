@@ -2,6 +2,9 @@ class Group < ActiveRecord::Base
 
   belongs_to :category
   has_many :descriptions
+
+  has_many :group_execs
+  has_many :users, :through => :group_execs
   
   def to_s
     name
