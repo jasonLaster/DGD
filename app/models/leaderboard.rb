@@ -13,6 +13,7 @@ module Leaderboard
       LEFT JOIN users u on u.id = d.user_id
       WHERE d.created_at >= #{(Date.today - 10).to_s(:db)}
       GROUP BY d.user_id
+      ORDER BY num_contributions DESC
       "
       
     Sql.execute(sql)
