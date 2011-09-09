@@ -42,13 +42,21 @@ $(document).ready ->
   # Admin table sorting (does not currently work)
   $("table#admin-table").tablesorter({ sortList: [[1,0]] })
   
+  # Admin Pages Page "page" popup
   $(".pages-table td.page").hover ->
     $('.popover').hide()
     $(this).closest('tr').find('.popover').show()
   
-  
   $('.pages-table tr').mouseout ->
     $('.popover').hide()
+
+  # Admin Group Page category autocomplete
+  $("#group-admin input.category-autocomplete").autocomplete {
+    source: categories,
+    select: (event, ui) ->
+      $(this).closest('td').find('input[type="hidden"]').val(ui.item.id)
+  }
+
 
   # Slide down history
   $("#history .header").click ->

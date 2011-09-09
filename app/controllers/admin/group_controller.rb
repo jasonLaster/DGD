@@ -1,6 +1,7 @@
 class Admin::GroupController < AdminController
   def index
     @groups = Group.includes(:category).order("categories.category ASC, groups.name ASC")
+    @category_hash = Category.all.map {|c| {:label => c.category, :value => c.category, :id => c.id}}
   end
   
   def update
@@ -12,15 +13,24 @@ class Admin::GroupController < AdminController
       db_group = db_groups.find {|c| group_id.to_i == c.id}
       form_group_locked =  form_group['locked'] == "1"
 
+      # LOCKED
       if form_group_locked != db_group.locked
         db_group.locked = form_group_locked
         db_group.save
       end
       
+      # GROUP NAME
       if form_group['name']!= db_group.name
         db_group.name = form_group['name']
         db_group.save
       end
+      
+      # CATEGORY
+      if form_group['category'].present? && form_group['category'] != db_group.category.try(:id).try(:to_s)
+        db_group.category_id = form_group['category'].to_i
+        db_group.save
+      end
+      
       
     end
     

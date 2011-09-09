@@ -5,6 +5,8 @@
       = hidden_field name, :locked 
       = check_box_tag "#{name}[locked]", "1", group.locked
     %td= text_field_tag "#{name}[name]", group.name
-    %td= group.category.try(:category) || "NO CATEGORY"
+    %td
+      = hidden_field_tag "#{name}[category]"
+      = text_field_tag "group-autocomplete", nil, :class => 'category-autocomplete', :placeholder => (group.category.try(:category) || "NO CATEGORY")
     %td  #{link_to "page", group_path(group)} - #{link_to "edit", edit_group_path(group)}
 
