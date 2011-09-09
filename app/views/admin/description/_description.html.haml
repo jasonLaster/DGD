@@ -3,7 +3,13 @@
   = fields_for name, description do |f|
     %td= description.created_at.strftime("%b %d")
     %td= link_to description.group.name, group_path(description.group)
-    %td= truncate(description.description, :length => 20)
+    %td.page{:style => "position:relative"}
+      = truncate(description.description, :length => 20)
+      .popover.below
+        .arrow
+        .inner
+          %h3.title= description.group.name
+          .content= description.markdown
     %td
       = hidden_field name, :exec_list
       = check_box_tag "#{name}[exec_list]", "1", description.exec_list
@@ -16,3 +22,4 @@
     %td
       = hidden_field name, :events
       = check_box_tag "#{name}[events]", "1", description.events
+

@@ -130,8 +130,11 @@ table.flags {
 }
 
 /* Admin Section */
-.actions.form {padding-left:20px}
 
+.actions.form {padding-left:20px}
+.pages-table td.page {cursor:pointer}
+.pages-table .popover.below {top:45px; left:-240px; width:660px;}
+.pages-table .popover.below .inner {width:680px}
 
 
 /* Splash Page Styles */

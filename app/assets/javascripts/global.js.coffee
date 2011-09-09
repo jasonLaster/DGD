@@ -36,9 +36,17 @@ $(document).ready ->
     number_of_columns++ if number_of_columns == 1
     $(this).find("ul").makeacolumnlists({ cols: number_of_columns })
   
-	# Admin table sorting (does not currently work)
+  # Admin table sorting (does not currently work)
   $("table#admin-table").tablesorter({ sortList: [[1,0]] })
-    
+  
+  $(".pages-table td.page").hover ->
+    $('.popover').hide()
+    $(this).closest('tr').find('.popover').show()
+  
+  
+  $('.pages-table tr').mouseout ->
+    $('.popover').hide()
+
   # Slide down history
   $("#history .header").click ->
     page = $(this).attr('id')
