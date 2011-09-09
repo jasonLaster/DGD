@@ -1,0 +1,20 @@
+.sidebar-info-box
+  .sidebar-header
+    %h3.title Similar Groups
+  .sidebar-content
+    - if @group.category.present?
+      - @group.category.groups[0..4].sort_by(&:name).each do |g|
+        = link_to g.name, group_path(g)
+.sidebar-info-box
+  .sidebar-header
+    %h3.title Edit Page
+  .sidebar-content
+    %p DGD is a community directory, which means for example, if you know the names of the five execs of a group, you should add that information even if you are not a member of the organization yourself.
+- if @current_user.try(:admin) || @group.users.include?(@current_user)
+  .sidebar-info-box
+    .sidebar-header
+      %h3.title.admin Group Exec
+    .sidebar-content
+      %p Add group execs, see page flags, lock group page editing permissions...
+      = link_to "Group Exec Page", edit_group_path
+      

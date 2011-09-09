@@ -22,7 +22,7 @@
 - if @current_user.try(:admin)
   .sidebar-info-box
     .sidebar-header
-      %h3.title Admin Section
+      %h3.title.admin Admin Section
     .sidebar-content
       = link_to "Categories", admin_category_index_path
       = link_to "Groups", admin_group_index_path

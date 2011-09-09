@@ -61,8 +61,9 @@ class GroupController < ApplicationController
       @clean_description = @description
     end
   end
-  
+
   def edit
+    @group = Group.includes(:descriptions).find(params[:id])    
   end
   
   def leaderboard

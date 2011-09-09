@@ -58,6 +58,9 @@ body > .container {min-height:650px;}
   padding: 10px;
   line-height: 15px;
 }
+.sidebar-header h3.admin {
+ color: #EB642F;
+}
 .sidebar-content {
   border-top: none;
   padding: 10px;
@@ -66,6 +69,7 @@ body > .container {min-height:650px;}
 .sidebar-content a {
   display: block;
 }
+
 
 /* Groups Index Styles */
 #directory .category_stripe {
