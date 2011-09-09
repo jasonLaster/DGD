@@ -1,8 +1,17 @@
 %tr
-  = form_for [:admin, description] do |t|
-    %td= t.check_box :exec_list
-    %td= t.check_box :description_text
-    %td= t.check_box :contact_information
-    %td= t.check_box :events
-    %td= description.group.name
+  - name = "descriptions[#{description.id}]"
+  = fields_for name, description do |f|  
+    %td= link_to description.group.name, group_path(description.group)
     %td= truncate(description.description, :length => 40)
+    %td
+      = hidden_field name, :exec_list
+      = check_box_tag "#{name}[exec_list]", "1", description.exec_list
+    %td
+      = hidden_field name, :description_text
+      = check_box_tag "#{name}[description_text]", "1", description.description_text
+    %td
+      = hidden_field name, :contact_information
+      = check_box_tag "#{name}[contact_information]", "1", description.contact_information
+    %td
+      = hidden_field name, :events
+      = check_box_tag "#{name}[events]", "1", description.events

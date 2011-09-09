@@ -7,12 +7,16 @@
       %h1 Pages
 
   .pages-table
-    %table#admin-table.zebra-striped
-      %tr
-        %th.grey{:width => "50px"} Execs
-        %th.grey{:width => "50px"} Desc.
-        %th.grey{:width => "80px"} Contact info
-        %th.grey{:width => "50px"} Events
-        %th.blue Group
-        %th.green Page
-      = render :partial => "description", :collection => @descriptions
+    = form_tag admin_description_index_path, :method => :post do
+      %table#admin-table.zebra-striped
+        %tr
+          %th.green Group
+          %th.blue Page
+          %th.purple{:width => "50px"} Execs
+          %th.purple{:width => "50px"} Desc.
+          %th.purple{:width => "80px"} Contact info
+          %th.purple{:width => "50px"} Events
+        = render :partial => "description", :collection => @descriptions
+      
+      .actions.form
+        = submit_tag "Submit", :class => "btn primary"
