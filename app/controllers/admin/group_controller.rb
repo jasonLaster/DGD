@@ -1,6 +1,6 @@
 class Admin::GroupController < AdminController
   def index
-    @groups = Group.all
+    @groups = Group.includes(:category).order("categories.category ASC, groups.name ASC")
   end
   
   def update
