@@ -1,5 +1,12 @@
+- content_for :sidebar do
+  = render :partial => "admin/shared/sidebar"
+
+
+#group
+  .title
+    %h1 Flags
+
 %table.flags
-  %h1 Page Flags
   %tr
     %th Page
     %th Count
