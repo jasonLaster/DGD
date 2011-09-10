@@ -19,3 +19,5 @@
       .actions.form
         = submit_tag "Submit", :class => "btn primary"
         
+:javascript
+  var categories = #{@category_hash.to_json};
