@@ -36,8 +36,9 @@ DGD::Application.routes.draw do
       get 'recently_updated'
       get 'least_updated'
     end
-    resources :description, :except => [:edit] do
+    resources :description, :only => [:new, :create, :index] do
       post 'flag' => 'description#flag'
+      resources :flag, :only => [:index]
     end
   end
   

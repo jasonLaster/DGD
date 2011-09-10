@@ -13,8 +13,9 @@
 - if @current_user.try(:admin) || @group.users.include?(@current_user)
   .sidebar-info-box
     .sidebar-header
-      %h3.title.admin Group Exec
+      %h3.title.admin Exec Pages
     .sidebar-content
-      %p Add group execs, see page flags, lock group page editing permissions...
-      = link_to "Group Exec Page", edit_group_path
-      
+      = link_to "Edit Group", edit_group_path
+      = link_to "Edit Page", new_group_description_path(@group)
+      = link_to "Page History", group_description_index_path(@group)
+      = link_to "Page Flags", group_description_flag_index_path(@group, @description)
