@@ -1,6 +1,7 @@
 class DescriptionController < ApplicationController
   layout 'application'
   before_filter :load_group_hash
+  before_filter :blocked_user, :only => [:create, :flag]
   
   def index
     @group = Group.includes(:descriptions).find(params[:group_id])
