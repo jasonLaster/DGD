@@ -1,9 +1,13 @@
 class User < ActiveRecord::Base
   
-  # Models the flag relationship
   has_many :descriptions
+  
   has_many :group_execs
   has_many :groups, :through => :group_execs
+  
+  has_many :flags
+  has_many :descriptions, :through => :flags, :as => :flagged_descriptions
+  
   
   def first_name
     name.split(" ").first

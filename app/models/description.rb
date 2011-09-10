@@ -2,6 +2,8 @@ class Description < ActiveRecord::Base
 
   belongs_to :group
   belongs_to :user
+  has_many :flags
+  has_many :users, :through => :flags, :as => :flaggers
 
   def self.default_description
     File.open("public/empty_group_page.txt").read
