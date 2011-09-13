@@ -18,6 +18,3 @@
         
       .actions.form
         = submit_tag "Submit", :class => "btn primary"
-        
-:javascript
-  var categories = #{Category.all.map {|c| {:label => c.category, :value => c.category, :id => c.id}}.to_json};

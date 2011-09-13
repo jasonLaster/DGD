@@ -1,6 +1,8 @@
 class Admin::GroupController < AdminController
   def index
+    @category = (params[:category] || "Athletics").gsub("+", " ").strip 
     @groups = Group.includes(:category).order("categories.category ASC, groups.name ASC")
+    @groups = @groups.where("category LIKE ?", "%#{@category}%") if @category.present?
   end
   
   def update
