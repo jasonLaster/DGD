@@ -16,7 +16,7 @@ class Category < ActiveRecord::Base
   end
   
   def self.primary_categories
-    Category.select("category").map(&:category).map {|c| c.split("/").first}.uniq
+    Category.select("category").map(&:category).map {|c| c.split("/").first.try(:strip)}.uniq
   end
 
 end
