@@ -6,14 +6,10 @@
   .title
     %h1 Flags
 
-%table.flags
-  %tr
-    %th Page
-    %th Count
-
-  - @flags.each_pair do |description_id, count|
-    - group = Group.find_by_description_id(description_id) if description_id
+.flag-table
+  %table#admin-table.zebra-striped
     %tr
-      %td
-        =link_to group.name, group_path(group) if group
-      %td= count
+      %th.yellow{:width => "100px"} Group
+      %th.purple Page
+      %th.blue{:width => "70px"} Count
+    = render :partial => "flag", :collection => @flags

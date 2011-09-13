@@ -14,6 +14,10 @@ class Description < ActiveRecord::Base
     Redcarpet.new(self.description).to_html.html_safe
   end
   
+  def self.markdown(text)
+    Redcarpet.new(text).to_html.html_safe
+  end
+  
   def self.most_recent
 
     sql =

@@ -141,10 +141,10 @@ table.flags {
 /* Admin Section */
 
 .actions.form {padding-left:20px}
-.pages-table td.page {cursor:pointer}
-.pages-table .popover.below {top:45px; left:-240px; width:660px;}
-.pages-table .popover.below .inner {width:680px}
-
+table#admin-table td.page {cursor:pointer}
+table#admin-table .popover.below {top:45px; left:-240px; width:660px;}
+table#admin-table .popover.below .inner {width:680px}
+.flag-table table#admin-table .popover.below {left:-120px;}
 
 /* Splash Page Styles */
 #splash .splash-container {
