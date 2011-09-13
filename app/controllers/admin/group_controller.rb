@@ -1,7 +1,6 @@
 class Admin::GroupController < AdminController
   def index
     @groups = Group.includes(:category).order("categories.category ASC, groups.name ASC")
-    @category_hash = Category.all.map {|c| {:label => c.category, :value => c.category, :id => c.id}}
   end
   
   def update

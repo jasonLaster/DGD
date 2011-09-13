@@ -20,4 +20,4 @@
         = submit_tag "Submit", :class => "btn primary"
         
 :javascript
-  var categories = #{@category_hash.to_json};
+  var categories = #{Category.all.map {|c| {:label => c.category, :value => c.category, :id => c.id}}.to_json};

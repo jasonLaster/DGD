@@ -1,6 +1,5 @@
 class DescriptionController < ApplicationController
   layout 'application'
-  before_filter :load_group_hash
   before_filter :blocked_user, :only => [:create, :flag]
   
   def index
@@ -45,8 +44,4 @@ class DescriptionController < ApplicationController
   end
   
   private
-  def load_group_hash
-    @group_hash = Group.all.map {|g| {:label => g.name, :value => g.name, :id => g.id}}
-  end
-
 end
