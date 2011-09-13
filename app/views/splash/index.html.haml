@@ -28,7 +28,6 @@
           %li
             = link_to 'Directory', group_index_path
           %li
-            %a About
           - if @current_user.nil?
             %li= link_to "Log In", "/auth/cas"
           - else
