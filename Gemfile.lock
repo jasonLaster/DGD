@@ -42,6 +42,8 @@ GEM
     coffee-script-source (1.1.2)
     columnize (0.3.4)
     erubis (2.7.0)
+    exceptional (2.0.32)
+      rack
     execjs (1.2.4)
       multi_json (~> 1.0)
     faraday (0.6.1)
@@ -184,6 +186,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-script
+  exceptional
   haml
   haml-rails
   jquery-rails

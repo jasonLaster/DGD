@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'redcarpet'
 gem 'omniauth'
 gem 'nokogiri'
+gem 'exceptional'
 
 group :assets do
   gem 'sass-rails', "~> 3.1.0.rc"
