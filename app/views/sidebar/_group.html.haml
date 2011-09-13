@@ -11,11 +11,4 @@
   .sidebar-content
     %p DGD is a community directory, which means for example, if you know the names of the five execs of a group, you should add that information even if you are not a member of the organization yourself.
 - if @current_user.try(:admin) || @group.users.include?(@current_user)
-  .sidebar-info-box
-    .sidebar-header
-      %h3.title.admin Exec Pages
-    .sidebar-content
-      = link_to "Edit Group", edit_group_path(@group)
-      = link_to "Edit Page", new_group_description_path(@group)
-      = link_to "Page History", group_description_index_path(@group)
-      = link_to "Flags", group_flag_index_path(@group)
+  = render :partial => "sidebar/section/group_exec_toc"

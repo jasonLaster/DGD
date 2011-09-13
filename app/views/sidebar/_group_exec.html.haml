@@ -1,9 +1,1 @@
-.sidebar-info-box
-  .sidebar-header
-    %h3.title.admin Exec Pages
-  .sidebar-content
-    = link_to "#{@group.name}'s Page", group_path(@group)
-    = link_to "Edit Group", edit_group_path(@group)
-    = link_to "Edit Page", new_group_description_path(@group)
-    = link_to "Page History", group_description_index_path(@group)
-    = link_to "Page Flags", group_flag_index_path(@group)
+= render :partial => "sidebar/section/group_exec_toc"
