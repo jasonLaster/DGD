@@ -44,8 +44,6 @@ DGD::Application.routes.draw do
       resources :flag, :only => [:index]
     end
   end
-  
-  get 'flag' => 'flag#index'
 
   match "/auth/:provider/callback" => "sessions#create"  
   match "/signout" => "sessions#destroy", :as => :signout  

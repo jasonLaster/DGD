@@ -1,19 +1,15 @@
 - content_for :sidebar do
-  = render :partial => "sidebar/admin"
+  = render :partial => "sidebar/group_exec"
 
 
 #group
   .title
     %h1 Flags
 
-%table.flags
-  %tr
-    %th Page
-    %th Count
-
-  - @flags.each_pair do |description_id, count|
-    - group = Group.find_by_description_id(description_id) if description_id
+.group-flag-table
+  %table#admin-table.zebra-striped
     %tr
-      %td
-        =link_to group.name, group_path(group) if group
-      %td= count
+      %th.purple Page
+      %th.blue{:width => "70px"} Count
+    = render :partial => "flag", :collection => @flags
+    

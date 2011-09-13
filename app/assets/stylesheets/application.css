@@ -145,6 +145,7 @@ table#admin-table td.page {cursor:pointer}
 table#admin-table .popover.below {top:45px; left:-240px; width:660px;}
 table#admin-table .popover.below .inner {width:680px}
 .flag-table table#admin-table .popover.below {left:-120px;}
+.group-flag-table table#admin-table .popover.below {left:0px;}
 
 /* Splash Page Styles */
 #splash .splash-container {
