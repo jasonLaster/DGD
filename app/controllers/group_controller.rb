@@ -10,17 +10,21 @@ class GroupController < ApplicationController
     elsif params[:search] && group =  Group.where("name LIKE ?", "%#{params[:search]}%").first
       redirect_to group_path(group)
     end
-        
-    # get primary category, sub category, and groups [primary_category, [sub_categories, [groups]]]
-    @primary_categories = Category.primary_categories
-    @categories = @primary_categories.map {|cat| [cat, Category.sub_categories(cat)]}
-    @sub_categories = 
-      @categories.map do |primary_category, sub_categories|
+    
+    
+    if params[:category].present?
+      @category = Category.find(params[:category])
+      @sub_categories = Category.sub_categories(@category.primary_category)
+      @sub_categories.map! {|sub_category| [sub_category, sub_category.groups]}
+    else
+      @primary_categories = Category.primary_categories
+      @categories = @primary_categories.map {|cat| [cat, Category.sub_categories(cat)]}
+      @categories.map! do |primary_category, sub_categories|
         sc = sub_categories.map {|sub_category| [sub_category, sub_category.groups]}
         [primary_category, sc]
       end
-    
-    @sub_categories.sort_by! {|p, c| p}
+      @categories.sort_by! {|p, c| p}
+    end
   end
   
   def show

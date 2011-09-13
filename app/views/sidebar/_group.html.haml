@@ -5,6 +5,8 @@
     - if @group.category.present?
       - @group.category.groups[0..4].sort_by(&:name).each do |g|
         = link_to g.name, group_path(g)
+      %br
+      = link_to "More Groups", group_index_path(:category => @group.category.id)
 .sidebar-info-box
   .sidebar-header
     %h3.title Edit Page

@@ -18,5 +18,9 @@ class Category < ActiveRecord::Base
   def self.primary_categories
     Category.select("category").map(&:category).map {|c| c.split("/").first}.uniq
   end
+  
+  def self.groups(category)
+    Group.includes(:category).where("categories.category LIKE ?", "%#{category}%")
+  end
 
 end
