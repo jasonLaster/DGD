@@ -1,5 +1,6 @@
 class DescriptionController < ApplicationController
   layout 'application'
+  before_filter :load_group_hash
   
   def index
     @group = Group.includes(:descriptions).find(params[:group_id])
@@ -9,14 +10,9 @@ class DescriptionController < ApplicationController
   def new
     @group = Group.find(params[:group_id])
     @description = @group.descriptions.order("created_at DESC").first
-    @description = @description.description.gsub("\r\n","\r") if @description
+    @description = @description.description.gsub("\r\n","\r") if @description.try(:description)
   end
   
-  def edit
-    @group = Group.includes(:descriptions).find(params[:group_id])
-    @description = @group.descriptions.order("created_at DESC").first
-  end
-
   def show
   end
 
@@ -45,6 +41,11 @@ class DescriptionController < ApplicationController
     end
 
     redirect_to @group
+  end
+  
+  private
+  def load_group_hash
+    @group_hash = Group.all.map {|g| {:label => g.name, :value => g.name, :id => g.id}}
   end
 
 end

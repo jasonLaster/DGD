@@ -1,0 +1,30 @@
+.sidebar-info-box
+  .sidebar-header
+    %h3.title Dartmouth Group Directory
+  .sidebar-content
+    %p Welcome to the Dartmouth Group Directory, where your dreams come true. For real. This site is actually amazing beyond all belief.
+.sidebar-info-box
+  .sidebar-header
+    %h3.title Recently Updated
+  .sidebar-content
+    - Group.recently_updated(5).each do |group|
+      =link_to group.name, group_path(group)
+.sidebar-info-box
+  .sidebar-header
+    %h3.title Leaderboards
+  .sidebar-content
+    %p Welcome to the Dartmouth Group Directory, where your dreams come true. For real. This site is actually amazing beyond all belief.
+.sidebar-info-box
+  .sidebar-header
+    %h3.title Editing Policy
+  .sidebar-content
+    %p DGD is a community directory, which means for example, if you know the names of the five execs of a group, you should add that information even if you are not a member of the organization yourself.
+- if @current_user.try(:admin)
+  .sidebar-info-box
+    .sidebar-header
+      %h3.title Admin Section
+    .sidebar-content
+      = link_to "Categories", admin_category_index_path
+      = link_to "Groups", admin_group_index_path
+      = link_to "Pages", admin_description_index_path
+      = link_to "Users", admin_user_index_path

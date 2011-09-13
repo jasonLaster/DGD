@@ -29,8 +29,10 @@
             = link_to 'Directory', group_index_path
           %li
             %a About
-          %li
-            = link_to "Log In", "auth/cas"
+          - if @current_user.nil?
+            %li= link_to "Log In", "/auth/cas"
+          - else
+            %li= link_to "Log Out", signout_path
             
       .description{ :style => "text-align:center; margin-top:54px;"}
         %span The DGD is a community resource for student organizations. DGD is sponsored by Student Assembly and affiliated with the Hacker Club. We hope you like it and get involved. 

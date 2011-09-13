@@ -1,0 +1,23 @@
+- content_for :sidebar do
+  = render :partial => "admin/shared/sidebar"
+
+#description-admin
+  #group
+    .title
+      %h1 Pages
+
+  .pages-table
+    = form_tag admin_description_index_path, :method => :post do
+      %table#admin-table.zebra-striped
+        %tr
+          %th.yellow{:width => "50px"} Date
+          %th.green{:width => "150px"} Group
+          %th.blue Page
+          %th.purple{:width => "50px"} Execs
+          %th.purple{:width => "50px"} Desc.
+          %th.purple{:width => "80px"} Contact info
+          %th.purple{:width => "50px"} Events
+        = render :partial => "description", :collection => @descriptions
+      
+      .actions.form
+        = submit_tag "Submit", :class => "btn primary"

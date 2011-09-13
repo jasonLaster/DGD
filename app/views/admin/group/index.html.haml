@@ -1,0 +1,23 @@
+- content_for :sidebar do
+  = render :partial => "sidebar"
+
+#group-admin
+  #group
+    .title
+      %h1 Groups
+
+  .groups-table
+    = form_tag admin_group_index_path, :method => :post do
+      %table#admin-table.zebra-striped
+        %tr
+          %th.yellow{:width => "50px"} Locked
+          %th.purple Group
+          %th.green Category
+          %th.blue{:width => "70px"} Pages
+        = render :partial => "group", :collection => @groups
+        
+      .actions.form
+        = submit_tag "Submit", :class => "btn primary"
+        
+:javascript
+  var categories = #{@category_hash.to_json};

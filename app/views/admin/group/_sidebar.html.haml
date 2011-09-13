@@ -1,0 +1,15 @@
+.sidebar-info-box
+  .sidebar-header
+    %h3.title Admin Section
+  .sidebar-content
+    = link_to "Categories", admin_category_index_path
+    = link_to "Flags", admin_category_index_path
+    %span Groups
+    = link_to "Pages", admin_description_index_path
+    = link_to "Users", admin_user_index_path
+.sidebar-info-box
+  .sidebar-header
+    %h3.title Primary Categories
+  .sidebar-content
+    - Category.primary_categories.sort.each do |c|
+      = c.match(/#{@category}/) ? c : link_to(c, admin_group_index_path(:category => c))
