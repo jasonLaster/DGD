@@ -28,6 +28,8 @@ DGD::Application.routes.draw do
       end
     end
     
+    resources :flag, :only => [:index]
+    
   end
   
   resources :group, :only => [:index, :show, :edit, :update]  do
