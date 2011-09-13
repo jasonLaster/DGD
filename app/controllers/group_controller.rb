@@ -62,6 +62,9 @@ class GroupController < ApplicationController
     end
   end
   
+  def edit
+  end
+  
   def leaderboard
   end
   

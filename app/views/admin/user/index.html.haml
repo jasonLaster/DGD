@@ -1,0 +1,22 @@
+- content_for :sidebar do
+  = render :partial => "admin/shared/sidebar"
+
+
+#user-admin
+  #group
+    .title
+      %h1= "Users"
+  
+  .users-table
+    = form_tag admin_user_index_path, :method => :post do
+      %table#admin-table.zebra-striped
+        %tr
+          %th.yellow{:width => "50px"} Admin
+          %th.blue{:width => "50px"} Blocked
+          %th.purple Name
+          %th.green Email
+        = render :partial => "user", :collection => @users
+      
+      .actions.form
+        = submit_tag "Submit", :class => "btn primary"
+    

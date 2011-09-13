@@ -10,14 +10,9 @@ class DescriptionController < ApplicationController
   def new
     @group = Group.find(params[:group_id])
     @description = @group.descriptions.order("created_at DESC").first
-    @description = @description.description.gsub("\r\n","\r") if @description
+    @description = @description.description.gsub("\r\n","\r") if @description.try(:description)
   end
   
-  def edit
-    @group = Group.includes(:descriptions).find(params[:group_id])
-    @description = @group.descriptions.order("created_at DESC").first
-  end
-
   def show
   end
 

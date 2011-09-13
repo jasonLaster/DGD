@@ -129,6 +129,14 @@ table.flags {
   width: 500px;
 }
 
+/* Admin Section */
+
+.actions.form {padding-left:20px}
+.pages-table td.page {cursor:pointer}
+.pages-table .popover.below {top:45px; left:-240px; width:660px;}
+.pages-table .popover.below .inner {width:680px}
+
+
 /* Splash Page Styles */
 #splash .splash-container {
   border: 1px solid #CCC;
@@ -151,7 +159,7 @@ table.flags {
 #splash .splash-container .links {
   margin-left: auto;
   margin-right: auto;
-  width: 223px;
+  width: 240px;
 }
 
 /* Page History Styles */

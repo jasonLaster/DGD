@@ -1,0 +1,8 @@
+%tr
+  - name = "categories[#{category.id}]"
+  = fields_for name, category do |f|
+    %td
+      = hidden_field name, :delete
+      = check_box_tag "#{name}[delete]", "1"
+    %td= text_field_tag "#{name}[category]", category.category
+    %td= category.groups.length

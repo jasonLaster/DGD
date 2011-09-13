@@ -1,12 +1,42 @@
 DGD::Application.routes.draw do
   
-  resources :group, :only => [:index, :show]  do
+
+  namespace :admin do
+    
+    resources :group, :only => [:index] do
+      collection do
+        post 'update'
+      end
+    end
+    
+    resources :user, :only => [:index] do
+      collection do
+        post 'update'
+      end
+    end
+    
+    resources :description, :only => [:index] do
+      collection do
+        post 'update'
+      end
+    end
+    
+    resources :category, :only => [:index] do
+      collection do
+        post 'update'
+        get 'primary_categories'
+      end
+    end
+    
+  end
+  
+  resources :group, :only => [:index, :show, :edit, :update]  do
     collection do
       get 'leaderboard'
       get 'recently_updated'
       get 'least_updated'
     end
-    resources :description do
+    resources :description, :except => [:edit] do
       post 'flag' => 'description#flag'
     end
   end

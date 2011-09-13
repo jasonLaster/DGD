@@ -1,0 +1,20 @@
+- content_for :sidebar do
+  = render :partial => "sidebar"
+
+
+#user-admin
+  #group
+    .title
+      %h1= "Categories"
+  .categories-table
+  = form_tag admin_category_index_path, :method => :post do			
+    %table#admin-table.zebra-striped
+      %tr
+        %th.yellow{:width => "50"} Delete
+        %th.blue Category
+        %th.red{:width => "70p"} # Groups
+      = render :partial => "category", :collection => @categories
+    
+    .actions.form
+      = submit_tag "Submit", :class => "btn primary"
+    
