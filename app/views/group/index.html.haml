@@ -1,31 +1,44 @@
 - content_for :sidebar do
-  = render :partial => "shared/sidebar"
+  = render :partial => "sidebar/directory"
 
 
 #directory
   #group
     .title
       %h1= "Directory"
-
-  .expand
-    %ul.pills{ :style => "float: right; cursor: pointer;" }
-      %li
-        %a.expand_all Expand All
-      %li
-        %a.collapse_all Collapse All
+  
+  - unless @category.present?
+    .expand
+      %ul.pills{ :style => "float: right; cursor: pointer;" }
+        %li
+          %a.expand_all Expand All
+        %li
+          %a.collapse_all Collapse All
   
   .categories{ :style => "margin-top: 65px;"}
-    - @sub_categories.each_with_index do |x, i|
-      - primary_category, sub_categories, groups = x
-      - category_id = primary_category.gsub(" ","").gsub(/[^[:alnum:]]/, '')
-      .category{ :class => i % 2 == 0 ? "category_nostripe" : "category_stripe" }
-        %h4.category_header{ :id => category_id}= primary_category
-        %span.ui-icon.ui-icon-triangle-1-s{ :style => "float: right; margin-right: 10px; margin-top: -25px;"}
-        .groups_container{ :id => primary_category.gsub(" ","").gsub(/[^[:alnum:]]/, '') }
-          - sub_categories.each do |sub_category, groups|
+    - if @category.present?
+      .category.category_nostripe
+        %h4.category_headerr{ :id => @category.id}= @category.primary_category
+        .groups_container{ :style => "display:block;"}
+          - @sub_categories.each do |sub_category, groups|
             %h5.category_sub_header= sub_category.sub_category
             %ul.groups_list
               - groups.each do |group|
                 %li
                   = link_to group.name.sub(/Dartmouth /,"").truncate(40), group_path(group)
+      
+    - else
+      - @categories.each_with_index do |x, i|
+        - primary_category, sub_categories, groups = x
+        - category_id = primary_category.gsub(" ","").gsub(/[^[:alnum:]]/, '')
+        .category{ :class => i % 2 == 0 ? "category_nostripe" : "category_stripe" }
+          %h4.category_header{ :id => category_id}= primary_category
+          %span.ui-icon.ui-icon-triangle-1-s{ :style => "float: right; margin-right: 10px; margin-top: -25px;"}
+          .groups_container{ :id => primary_category.gsub(" ","").gsub(/[^[:alnum:]]/, '') }
+            - sub_categories.each do |sub_category, groups|
+              %h5.category_sub_header= sub_category.sub_category
+              %ul.groups_list
+                - groups.each do |group|
+                  %li
+                    = link_to group.name.sub(/Dartmouth /,"").truncate(40), group_path(group)
 

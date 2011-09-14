@@ -1,0 +1,9 @@
+= render :partial => "sidebar/section/admin_toc"
+.sidebar-info-box
+  .sidebar-header
+    %h3.title Primary Categories
+  .sidebar-content
+    %ul
+      - Category.primary_categories.sort.each do |c|
+        %li= c
+    = link_to "more", primary_categories_admin_category_index_path

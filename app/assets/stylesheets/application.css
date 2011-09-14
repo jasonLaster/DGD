@@ -58,6 +58,9 @@ body > .container {min-height:650px;}
   padding: 10px;
   line-height: 15px;
 }
+.sidebar-header h3.admin {
+ color: #EB642F;
+}
 .sidebar-content {
   border-top: none;
   padding: 10px;
@@ -66,6 +69,7 @@ body > .container {min-height:650px;}
 .sidebar-content a {
   display: block;
 }
+
 
 /* Groups Index Styles */
 #directory .category_stripe {
@@ -137,10 +141,11 @@ table.flags {
 /* Admin Section */
 
 .actions.form {padding-left:20px}
-.pages-table td.page {cursor:pointer}
-.pages-table .popover.below {top:45px; left:-240px; width:660px;}
-.pages-table .popover.below .inner {width:680px}
-
+table#admin-table td.page {cursor:pointer}
+table#admin-table .popover.below {top:45px; left:-240px; width:660px;}
+table#admin-table .popover.below .inner {width:680px}
+.flag-table table#admin-table .popover.below {left:-120px;}
+.group-flag-table table#admin-table .popover.below {left:0px;}
 
 /* Splash Page Styles */
 #splash .splash-container {

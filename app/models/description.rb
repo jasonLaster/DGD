@@ -2,6 +2,8 @@ class Description < ActiveRecord::Base
 
   belongs_to :group
   belongs_to :user
+  has_many :flags
+  has_many :users, :through => :flags, :as => :flaggers
 
   def self.default_description
     File.open("public/empty_group_page.txt").read
@@ -10,6 +12,10 @@ class Description < ActiveRecord::Base
   def markdown
     return if self.description.nil?
     Redcarpet.new(self.description).to_html.html_safe
+  end
+  
+  def self.markdown(text)
+    Redcarpet.new(text).to_html.html_safe
   end
   
   def self.most_recent

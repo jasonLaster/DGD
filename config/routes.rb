@@ -28,6 +28,8 @@ DGD::Application.routes.draw do
       end
     end
     
+    resources :flag, :only => [:index]
+    
   end
   
   resources :group, :only => [:index, :show, :edit, :update]  do
@@ -36,12 +38,12 @@ DGD::Application.routes.draw do
       get 'recently_updated'
       get 'least_updated'
     end
-    resources :description, :except => [:edit] do
+    resources :flag, :only => [:index]
+    resources :description, :only => [:new, :create, :index] do
       post 'flag' => 'description#flag'
+      resources :flag, :only => [:index]
     end
   end
-  
-  get 'flag' => 'flag#index'
 
   match "/auth/:provider/callback" => "sessions#create"  
   match "/signout" => "sessions#destroy", :as => :signout  

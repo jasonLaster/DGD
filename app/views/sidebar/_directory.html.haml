@@ -26,11 +26,4 @@
     %p DGD is a community directory, which means for example, if you know the names of the five execs of a group, you should add that information even if you are not a member of the organization yourself.
 
 - if @current_user.try(:admin)
-  .sidebar-info-box
-    .sidebar-header
-      %h3.title Admin Section
-    .sidebar-content
-      = link_to "Categories", admin_category_index_path
-      = link_to "Groups", admin_group_index_path
-      = link_to "Pages", admin_description_index_path
-      = link_to "Users", admin_user_index_path
+  = render :partial => "sidebar/section/admin_toc"

@@ -1,15 +1,15 @@
 - content_for :sidebar do
-  = render :partial => "sidebar/group_exec"
+  = render :partial => "sidebar/admin"
 
 
 #group
   .title
     %h1 Flags
 
-.group-flag-table
+.flag-table
   %table#admin-table.zebra-striped
     %tr
+      %th.yellow{:width => "100px"} Group
       %th.purple Page
       %th.blue{:width => "70px"} Count
     = render :partial => "flag", :collection => @flags
-    

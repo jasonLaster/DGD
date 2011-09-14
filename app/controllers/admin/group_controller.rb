@@ -3,7 +3,6 @@ class Admin::GroupController < AdminController
     @category = (params[:category] || "Athletics").gsub("+", " ").strip 
     @groups = Group.includes(:category).order("categories.category ASC, groups.name ASC")
     @groups = @groups.where("category LIKE ?", "%#{@category}%") if @category.present?
-    @category_hash = Category.all.map {|c| {:label => c.category, :value => c.category, :id => c.id}}
   end
   
   def update

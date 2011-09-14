@@ -16,7 +16,8 @@
         
 
 :javascript
-  var groups = #{@group_hash.to_json};
+  var groups = #{Group.all.map {|g| {:label => g.name, :value => g.name, :id => g.id}}.to_json};
+  var categories = #{Category.all.map {|c| {:label => c.category, :value => c.category, :id => c.id}}.to_json};
 
   // Google Analyt
   var _gaq = _gaq || [];
