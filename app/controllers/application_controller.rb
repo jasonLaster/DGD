@@ -11,4 +11,10 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+  
+  def group_exec
+    unless @group.group_execs.any? {|e| e.user == @current_user}
+      redirect_to group_path(@group)
+    end
+  end
 end

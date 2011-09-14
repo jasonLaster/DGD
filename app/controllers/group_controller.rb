@@ -1,5 +1,8 @@
 class GroupController < ApplicationController
   layout 'application'
+  before_filter :group, :except => [:index]
+  before_filter :group_exec, :only => [:edit]
+
 
   def index
     
@@ -27,7 +30,6 @@ class GroupController < ApplicationController
   end
   
   def show
-    @group = Group.includes(:descriptions).find(params[:id])
     @description = @group.descriptions.order("created_at DESC").first
     @user_flag = Flag.find_by_description_id_and_user_id(@description, @current_user)
     @flag_count = Flag.find_all_by_description_id(@description).count
@@ -51,7 +53,6 @@ class GroupController < ApplicationController
   end
 
   def edit
-    @group = Group.includes(:descriptions).find(params[:id])
     @description = @group.descriptions.order("created_at DESC").first
   end
   
@@ -62,6 +63,12 @@ class GroupController < ApplicationController
   end
   
   def least_updated
+  end
+  
+  private
+  
+  def group
+    @group = Group.includes(:descriptions).find(params[:id])
   end
   
 end
