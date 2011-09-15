@@ -12,13 +12,13 @@
 
   #splash{ :style => "text-align: center;"}
     .splash-container
-      %div{ :style => "margin: 0px auto 20px auto; width: 340px;"}
-        %div{ :style => "margin: 20px auto; font-size:24px;"}
-          .logo{:style => "margin:0px auto; width:80px;"}
-            = image_tag "Shodou.png", :width => '80px', :height => '80px'
-          .title{:style => "margin:20px auto 0px auto; text; text-align:center;"}
-            %span{:style => "color:#38672F;"} Dartmouth 
-            %span{:style => "color:#888;"} Group Directory
+      %div{ :style => "margin: 75px auto 20px auto; width: 260px;"}
+        %span{ :style => "font-family: Bevan, serif; font-size: 100px; font-style: normal; font-weight: 400; color: black;" }
+          %span{ :style => "color: #38672F; padding: 0px; margin-right: -25px;" }D
+          %span{ :style => "margin-bottom: 100px;"}
+            GD
+
+      %div{ :style => "margin-bottom: 20px;" } Dartmouth Group Directory
       .search
         = form_tag(group_index_path, :method => "get") do 
           = hidden_field_tag 'group_id'
