@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
   
   def group_exec
-    unless @group.group_execs.any? {|e| e.user == @current_user}
+    unless @group.group_execs.any? {|e| e.user == @current_user} || @current_user.admin
       redirect_to group_path(@group)
     end
   end
