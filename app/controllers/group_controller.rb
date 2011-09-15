@@ -1,6 +1,6 @@
 class GroupController < ApplicationController
   layout 'application'
-  before_filter :group, :except => [:index]
+  before_filter :group, :except => [:index, :about, :markdown]
   before_filter :group_exec, :only => [:edit]
 
 
