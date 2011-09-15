@@ -5,7 +5,7 @@
   %title DGD
   = stylesheet_link_tag    "application"
   = stylesheet_link_tag    "bootstrap-1.1.0.min"
-  = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Bevan"
+  = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Andika"
   = javascript_include_tag "application"
   = csrf_meta_tags
 %body
@@ -13,17 +13,17 @@
   #splash{ :style => "text-align: center;"}
     .splash-container
       %div{ :style => "margin: 75px auto 20px auto; width: 260px;"}
-        %span{ :style => "font-family: Bevan, serif; font-size: 100px; font-style: normal; font-weight: 400; color: black; text-shadow: 3px 3px 3px #777" }
-          %span{ :style => "color: #38672F; padding: 0px; margin-right: -25px;" }D
+        %span{ :style => "font-family: Andika, serif; font-size: 80px; font-style: normal; font-weight: 400; color: #333; text-shadow: 2px 2px 2px #999" }
+          %span{ :style => "color: #38672F; padding: 0px; margin-right: -35px;" }D
           %span{ :style => "margin-bottom: 100px;"}
             GD
 
-      %div{ :style => "margin-bottom: 20px;" } Dartmouth Group Directory
+      %div{ :style => "margin-bottom: 20px; font-size:15px;" } Dartmouth Group Directory
       .search
         = form_tag(group_index_path, :method => "get") do 
           = hidden_field_tag 'group_id'
           = text_field_tag 'search', nil, :placeholder => "Search"
-      .links
+      .links{:style => "font-size:13px;"}
         %ul.pills
           %li
             = link_to 'Directory', group_index_path
