@@ -1,11 +1,5 @@
 .sidebar-info-box
   .sidebar-header
-    %h3.title Dartmouth Group Directory
-  .sidebar-content
-    %p Welcome to the Dartmouth Group Directory, where your dreams come true. For real. This site is actually amazing beyond all belief.
-
-.sidebar-info-box
-  .sidebar-header
     %h3.title Recently Updated
   .sidebar-content
     - Group.recently_updated(5).each do |group|
@@ -23,7 +17,9 @@
   .sidebar-header
     %h3.title Editing Policy
   .sidebar-content
-    %p DGD is a community directory, which means for example, if you know the names of the five execs of a group, you should add that information even if you are not a member of the organization yourself.
+    %p
+      DGD is a community directory, so feel free to edit any page you feel you can improve. Remember, your name is permanently
+      attached to any content you contribute to DGD.
 
 - if @current_user.try(:admin)
   = render :partial => "sidebar/section/admin_toc"
