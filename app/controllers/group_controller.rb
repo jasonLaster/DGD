@@ -64,5 +64,10 @@ class GroupController < ApplicationController
   def least_updated
   end
   
+  # GET /about
+  def about
+    @number_of_groups_with_pages = Group.groups_with_pages.size
+  end
+  
 end
 

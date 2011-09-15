@@ -157,9 +157,9 @@ table#admin-table .popover.below .inner {width:680px}
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  height: 200px;
-  width: 350px;
-  padding: 50px;
+  height: 250px;
+  width: 450px;
+  padding-bottom: 50px;
 }
 #splash .splash-container .search {
   margin-left: auto;
@@ -169,7 +169,7 @@ table#admin-table .popover.below .inner {width:680px}
 #splash .splash-container .links {
   margin-left: auto;
   margin-right: auto;
-  width: 240px;
+  width: 234px;
 }
 
 /* Page History Styles */

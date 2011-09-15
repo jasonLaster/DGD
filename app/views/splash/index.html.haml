@@ -10,8 +10,8 @@
   = csrf_meta_tags
 %body
 
-  #splash
-    .splash-container{ :style => "padding: 0px 50px 70px; width:550px; height:300px;"}
+  #splash{ :style => "text-align: center;"}
+    .splash-container
       %div{ :style => "margin: 0px auto 20px auto; width: 340px;"}
         %div{ :style => "margin: 20px auto; font-size:24px;"}
           .logo{:style => "margin:0px auto; width:80px;"}
@@ -28,13 +28,12 @@
           %li
             = link_to 'Directory', group_index_path
           %li
+            = link_to "About", about_path
+          %li
           - if @current_user.nil?
             %li= link_to "Log In", "/auth/cas"
           - else
             %li= link_to "Log Out", signout_path
-            
-      .description{ :style => "text-align:center; margin-top:54px;"}
-        %span The DGD is a community resource for student organizations. DGD is sponsored by Student Assembly and affiliated with the Hacker Club. We hope you like it and get involved. 
 
 :javascript
   var groups = #{Group.all.map {|g| {:label => g.name, :value => g.name, :id => g.id}}.to_json};

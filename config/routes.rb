@@ -46,7 +46,10 @@ DGD::Application.routes.draw do
   end
 
   match "/auth/:provider/callback" => "sessions#create"  
-  match "/signout" => "sessions#destroy", :as => :signout  
+  match "/signout" => "sessions#destroy", :as => :signout
+  
+  # Misc
+  match "/about" => "group#about", :as => :about
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
