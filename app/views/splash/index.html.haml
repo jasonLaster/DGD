@@ -10,15 +10,15 @@
   = csrf_meta_tags
 %body
 
-  #splash
-    .splash-container{ :style => "padding: 0px 50px 70px; width:550px; height:300px;"}
-      %div{ :style => "margin: 0px auto 20px auto; width: 340px;"}
-        %div{ :style => "margin: 20px auto; font-size:24px;"}
-          .logo{:style => "margin:0px auto; width:80px;"}
-            = image_tag "Shodou.png", :width => '80px', :height => '80px'
-          .title{:style => "margin:20px auto 0px auto; text; text-align:center;"}
-            %span{:style => "color:#38672F;"} Dartmouth 
-            %span{:style => "color:#888;"} Group Directory
+  #splash{ :style => "text-align: center;"}
+    .splash-container
+      %div{ :style => "margin: 75px auto 20px auto; width: 260px;"}
+        %span{ :style => "font-family: Bevan, serif; font-size: 100px; font-style: normal; font-weight: 400; color: black; text-shadow: 3px 3px 3px #777" }
+          %span{ :style => "color: #38672F; padding: 0px; margin-right: -25px;" }D
+          %span{ :style => "margin-bottom: 100px;"}
+            GD
+
+      %div{ :style => "margin-bottom: 20px;" } Dartmouth Group Directory
       .search
         = form_tag(group_index_path, :method => "get") do 
           = hidden_field_tag 'group_id'
@@ -28,13 +28,12 @@
           %li
             = link_to 'Directory', group_index_path
           %li
+            = link_to "About", about_path
+          %li
           - if @current_user.nil?
             %li= link_to "Log In", "/auth/cas"
           - else
             %li= link_to "Log Out", signout_path
-            
-      .description{ :style => "text-align:center; margin-top:54px;"}
-        %span The DGD is a community resource for student organizations. DGD is sponsored by Student Assembly and affiliated with the Hacker Club. We hope you like it and get involved. 
 
 :javascript
   var groups = #{Group.all.map {|g| {:label => g.name, :value => g.name, :id => g.id}}.to_json};

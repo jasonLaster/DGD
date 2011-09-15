@@ -17,5 +17,11 @@ class Group < ActiveRecord::Base
   def self.find_by_description_id(id)
     Group.find(Description.find(id).group_id)
   end
+  
+  def self.groups_with_pages
+    d_hash = {}
+    Description.all.each { |d| d_hash[d.group_id] = d }
+    d_hash.values
+  end
 
 end
