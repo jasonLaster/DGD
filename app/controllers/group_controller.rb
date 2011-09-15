@@ -69,5 +69,9 @@ class GroupController < ApplicationController
     @number_of_groups_with_pages = Group.groups_with_pages.size
   end
   
+  # GET /markdown
+  def markdown
+  end
+  
 end
 

@@ -50,6 +50,7 @@ DGD::Application.routes.draw do
   
   # Misc
   match "/about" => "group#about", :as => :about
+  match "/markdown" => "group#markdown", :as => :markdown
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
