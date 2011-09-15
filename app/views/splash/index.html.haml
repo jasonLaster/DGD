@@ -5,13 +5,14 @@
   %title DGD
   = stylesheet_link_tag    "application"
   = stylesheet_link_tag    "bootstrap-1.1.0.min"
+  = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Bevan"
   = javascript_include_tag "application"
   = csrf_meta_tags
 %body
 
   #splash{ :style => "text-align: center;"}
     .splash-container
-      %div{ :style => "margin: 0px auto 20px auto; width: 260px;"}
+      %div{ :style => "margin: 75px auto 20px auto; width: 260px;"}
         %span{ :style => "font-family: Bevan, serif; font-size: 100px; font-style: normal; font-weight: 400; color: black; text-shadow: 3px 3px 3px #777" }
           %span{ :style => "color: #38672F; padding: 0px; margin-right: -25px;" }D
           %span{ :style => "margin-bottom: 100px;"}
