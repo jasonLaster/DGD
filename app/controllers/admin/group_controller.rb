@@ -1,8 +1,26 @@
 class Admin::GroupController < AdminController
   def index
-    @category = (params[:category] || "Athletics").gsub("+", " ").strip 
-    @groups = Group.includes(:category).order("categories.category ASC, groups.name ASC")
-    @groups = @groups.where("category LIKE ?", "%#{@category}%") if @category.present?
+    
+    
+    category = params[:category] || "Athletics"
+    @category = category.gsub("+", " ").strip 
+    
+    @groups = 
+      if category == "all" 
+        Group.all
+      elsif category == "none"
+        Group.includes(:category).
+          where("category = null").
+          order("categories.category ASC, groups.name ASC")
+      elsif category.present?
+        Group.includes(:category).
+          order("categories.category ASC, groups.name ASC").
+          where("category LIKE ?", "%#{@category}%")
+      else    
+        Group.includes(:category).
+          order("categories.category ASC, groups.name ASC")
+      end
+    
     @category_hash = Category.all.map {|c| {:label => c.category, :value => c.category, :id => c.id}}
   end
   

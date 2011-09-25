@@ -9,9 +9,7 @@ class Admin::CategoryController < AdminController
   end
 
   def update
-    
-    
-    
+  
     form_categories = params['categories']    
     form_categories, new_categories = form_categories.partition {|c| is_i?(c.first)}.map {|c| Hash[c]}
     db_categories = Category.find(form_categories.keys)

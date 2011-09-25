@@ -13,3 +13,5 @@
   .sidebar-content
     - Category.primary_categories.sort.each do |c|
       = c.match(/#{@category}/) ? c : link_to(c, admin_group_index_path(:category => c))
+    = link_to "All", admin_group_index_path(:category => "all")
+    = link_to "None", admin_group_index_path(:category => "none")
