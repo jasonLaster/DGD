@@ -5,14 +5,14 @@
     - Group.recently_updated(5).each do |group|
       =link_to group.name, group_path(group)
 
-.sidebar-info-box
-  .sidebar-header
-    %h3.title Leaderboard
-  .sidebar-content
-    %ol.leaderboard
-      - Leaderboard.query.second[0..4].each do |individual|
-        %li= individual[1]
-
+/ .sidebar-info-box
+/   .sidebar-header
+/     %h3.title Leaderboard
+/   .sidebar-content
+/     %ol.leaderboard
+/       - Leaderboard.query.second[0..4].each do |individual|
+/         %li= individual[1]
+/ 
 .sidebar-info-box
   .sidebar-header
     %h3.title Editing Policy
