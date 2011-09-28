@@ -1,8 +1,9 @@
 %tr
-  - name = "categories[#{category.id}]"
+  - name = "categories[#{category.id || "new" + category_counter.to_s}]"
   = fields_for name, category do |f|
     %td
-      = hidden_field name, :delete
-      = check_box_tag "#{name}[delete]", "1"
+      - unless category.new_record?
+        = hidden_field name, :delete
+        = check_box_tag "#{name}[delete]", "1"
     %td= text_field_tag "#{name}[category]", category.category
-    %td= category.groups.length
+    %td= category.groups.length unless category.new_record?
