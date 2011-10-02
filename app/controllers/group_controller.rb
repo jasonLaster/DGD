@@ -17,7 +17,7 @@ class GroupController < ApplicationController
     if params[:category].present?
       @category = Category.find(params[:category])
       @sub_categories = Category.sub_categories(@category.primary_category)
-      @sub_categories.map! {|sub_category| [sub_category, sub_category.groups]}
+      @sub_categories.map! {|sub_category| [sub_category, sub_category.groups.includes(:description)]}
     else
       @primary_categories = Category.primary_categories
       @categories = @primary_categories.map {|cat| [cat, Category.sub_categories(cat)]}
