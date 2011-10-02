@@ -14,5 +14,5 @@
     %p
       DGD is a community directory, so feel free to edit any page you feel you can improve. Remember, your name is permanently
       attached to any content you contribute to DGD.
-- if false# @current_user.try(:admin) || @group.users.include?(@current_user)
+- if @current_user.try(:admin) || @group.exec?(@current_user)
   = render :partial => "sidebar/section/group_exec_toc"

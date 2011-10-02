@@ -10,6 +10,10 @@ class Group < ActiveRecord::Base
     name
   end
   
+  def exec?(user)
+    false #self.users.include?(user) 
+  end
+  
   def self.recently_updated(num)
     Description.all.sort_by { |d| d.updated_at }.reverse.map { |d| Group.find(d.group_id) }.uniq.take(num)
   end
