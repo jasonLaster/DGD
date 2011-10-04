@@ -8,5 +8,7 @@
     %td
       = hidden_field_tag "#{name}[category]"
       = text_field_tag "group-autocomplete", nil, :class => 'category-autocomplete', :placeholder => (group.category.try(:category) || "NO CATEGORY")
-    %td  #{link_to "page", group_path(group)} - #{link_to "edit", edit_group_path(group)}
+    %td  
+      #{link_to "page", group_path(group)} 
+      / - #{link_to "edit", edit_group_path(group)}
 
