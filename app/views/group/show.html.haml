@@ -26,6 +26,9 @@
       %div= @description.created_at.strftime("updated %b %d")
       
     - elsif current_user.present?
-      %div= link_to "+ Add description", new_group_description_path(@group, @description)
+      .actions.form
+        %a{:href => new_group_description_path(@group, @description)}
+          = submit_tag "Add Page", :class => "btn primary"
     - else
-      %div= link_to "Login to create a page for this group", "../auth/cas"
+      .actions.form
+        %div= link_to "Login to create a page for this group", "../auth/cas"
