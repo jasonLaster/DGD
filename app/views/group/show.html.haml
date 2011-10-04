@@ -3,7 +3,8 @@
 
 #group
   .title
-    %h1= @group.name
+    - size = @group.name.length < 20 ?  75 : 45
+    %h1{:style => "font-size:#{size}px; line-height:#{size+10}px;"}= @group.name
   
   #description
     .body
