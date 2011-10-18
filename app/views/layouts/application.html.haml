@@ -39,3 +39,24 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+  
+  // Intercom Settings
+  var intercomSettings = {
+      app_id: 'h6b19gjf',
+      email: 'jason.laster.11@gmail.com',
+      created_at: 315532800
+    };
+    (function() {
+      function async_load() {
+        var s = document.createElement('script');
+        s.type = 'text/javascript'; s.async = true;
+        s.src = 'https://api.intercom.io/api/js/library.js';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      }
+      if (window.attachEvent) {
+        window.attachEvent('onload', async_load);
+      } else {
+        window.addEventListener('load', async_load, false);
+      };
+    })();
