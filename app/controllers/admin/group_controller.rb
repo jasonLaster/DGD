@@ -18,13 +18,17 @@ class Admin::GroupController < AdminController
         Group.includes(:category).
           order("categories.category ASC, groups.name ASC")
       end
+
+    
+    5.times {@groups << Group.new}
     
     @category_hash = Category.all.map {|c| {:label => c.category, :value => c.category, :id => c.id}}
   end
   
   def update
-    
+
     form_groups = params['groups']
+    form_groups, new_groups = form_groups.partition {|g| is_i?(g.first)}.map {|g| Hash[g]}
     db_groups = Group.find(form_groups.keys)
 
     form_groups.each do |group_id, form_group|
@@ -44,17 +48,27 @@ class Admin::GroupController < AdminController
       end
       
       # CATEGORY
-      if form_group['category'].present? && form_group['category'] != db_group.category.try(:id).try(:to_s)
-        db_group.category_id = form_group['category'].to_i
+      if form_group['category_id'].present? && form_group['category_id'] != db_group.category.try(:id).try(:to_s)
+        db_group.category_id = form_group['category_id'].to_i
         db_group.save
-      end
-      
-      
+      end      
     end
+    
+    # new groups
+    new_groups = new_groups.values.select {|g| g['name'].present?}
+    new_groups.each {|group| Group.create(group)}
     
     
     
     redirect_to admin_group_index_path
   end
+
+  protected
+  
+
+  def is_i?(string)
+     !!(string =~ /^[-+]?[0-9]+$/)
+  end
+
 
 end
