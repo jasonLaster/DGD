@@ -6,7 +6,7 @@ gem 'rails', '3.1.0.rc6'
 gem 'haml'
 gem 'jquery-rails'
 gem 'redcarpet'
-gem 'omniauth'
+gem 'omniauth', '0.2.6'
 gem 'nokogiri'
 gem 'exceptional'
 

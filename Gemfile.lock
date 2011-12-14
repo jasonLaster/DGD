@@ -191,7 +191,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   nokogiri
-  omniauth
+  omniauth (= 0.2.6)
   pg
   rails (= 3.1.0.rc6)
   redcarpet
