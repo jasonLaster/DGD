@@ -15,6 +15,7 @@ $(document).ready ->
     else
       $(this).removeClass("open")
   
+  
   # Slide down groups
   $("#directory h4.category_header").click ->
     group = $(this).attr('id')
@@ -23,10 +24,10 @@ $(document).ready ->
       $(this).parent().find(".ui-icon").removeClass("ui-icon-triangle-1-s").addClass("ui-icon-triangle-1-n")
     else
       $(this).parent().find(".ui-icon").removeClass("ui-icon-triangle-1-n").addClass("ui-icon-triangle-1-s")
-  $("#directory ul.pills a.expand_all").click ->
+  $("#directory ul.nav-pills a.expand_all").click ->
     $("#directory .groups_container").slideDown('fast')
     $(".ui-icon").removeClass("ui-icon-triangle-1-s").addClass("ui-icon-triangle-1-n")
-  $("#directory ul.pills a.collapse_all").click ->
+  $("#directory ul.nav-pills a.collapse_all").click ->
     $("#directory .groups_container").slideUp('fast')
     $(".ui-icon").removeClass("ui-icon-triangle-1-n").addClass("ui-icon-triangle-1-s")
 
@@ -39,8 +40,6 @@ $(document).ready ->
        number_of_columns = Math.ceil( number_of_groups / 8 )
     $(this).makeacolumnlists({ cols: number_of_columns }) if number_of_columns > 1
   
-  # Admin table sorting (does not currently work)
-  $("table#admin-table").tablesorter({ sortList: [[1,0]] })
   
   # Admin Pages Page "page" popup
   $("table#admin-table td.page").hover ->

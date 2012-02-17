@@ -71,6 +71,7 @@ ul.ui-autocomplete.ui-menu {
   h4.category_header {
     cursor: pointer;
     margin-left: 20px;
+    line-height:36px;
   }
   
   h5.category_sub_header {margin-left: 20px;}  
@@ -92,7 +93,7 @@ ul.ui-autocomplete.ui-menu {
     margin-bottom: 30px;
     h1 {
       font-size: 75px;
-      line-height: 60px;
+      line-height: 90px;
       margin-top: -20px;
     }
   }
@@ -130,7 +131,7 @@ table.flags {width: 500px;}
 
 
 /* Global Header styles */
-.topbar-wrapper {margin-bottom: 75px;}
+.navbar-wrapper {margin-bottom: 75px;}
 
 
 /* Global Footer */
@@ -145,11 +146,26 @@ table.flags {width: 500px;}
 /* Admin Section */
 
 .actions.form {padding-left:20px}
-table#admin-table td.page {cursor:pointer}
-table#admin-table .popover.below {top:45px; left:-240px; width:660px;}
-table#admin-table .popover.below .inner {width:680px}
+
+table#admin-table {
+  width:100%;
+  td.page {cursor:pointer}
+  .popover.below {top:45px; left:-240px; width:660px;}
+  .popover.below .inner {width:680px}
+  
+}
+
 .flag-table table#admin-table .popover.below {left:-120px;}
 .group-flag-table table#admin-table .popover.below {left:0px;}
+
+table .blue{color:#049cdb;border-bottom-color:#049cdb;}
+table .green{color:#46a546;border-bottom-color:#46a546;}
+table .red{color:#9d261d;border-bottom-color:#9d261d;}
+table .yellow{color:#ffc40d;border-bottom-color:#ffc40d;}
+table .orange{color:#f89406;border-bottom-color:#f89406;}
+table .purple{color:#7a43b6;border-bottom-color:#7a43b6;}
+table thead th {border-bottom:2px solid;}
+
 
 
 /* Splash Page Styles */
