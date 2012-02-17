@@ -14,6 +14,7 @@ group :assets do
   gem 'sass-rails', "~> 3.1.0.rc"
   gem 'coffee-script'
   gem 'uglifier'
+  gem 'less'
 end
 
 group :test do
