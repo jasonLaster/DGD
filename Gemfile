@@ -9,6 +9,7 @@ gem 'redcarpet'
 gem 'omniauth', '0.2.6'
 gem 'nokogiri'
 gem 'exceptional'
+gem 'bootstrap-wysihtml5-rails'
 
 group :assets do
   gem 'sass-rails', "~> 3.1.0.rc"
