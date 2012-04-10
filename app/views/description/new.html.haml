@@ -9,7 +9,7 @@
   = form_tag(group_description_index_path, :method => "post")
   %textarea.xxlarge{ :rows => 25, :style => "width: 100%", name: "description" }
     = @description.html_safe if @description.present?
-  .actions{ :style => "width: 370px"}
-    %input.btn.primary{type:"submit", value:"Add Description", style:"cursor:pointer;"}
-    .btn= link_to 'Cancel', group_path(@group)
+  .actions
+    %input.btn.btn-primary.btn-large{type:"submit", value:"Add Description", style:"cursor:pointer;margin-top:3px;"}
+    = link_to 'Cancel', group_path(@group), :class => "btn btn-large btn-danger"
     
