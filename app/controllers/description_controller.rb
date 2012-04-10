@@ -11,7 +11,6 @@ class DescriptionController < ApplicationController
     @group = Group.find(params[:group_id])
     @description = @group.descriptions.order("created_at DESC").first
     @description = @description.description.gsub("\r\n","\r") if @description.try(:description)
-    render :layout => "description"
   end
   
   def show
