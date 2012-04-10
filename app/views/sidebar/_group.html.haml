@@ -16,3 +16,11 @@
       attached to any content you contribute to DGD.
 - if @current_user.try(:admin) || @group.exec?(@current_user)
   = render :partial => "sidebar/section/group_exec_toc"
+.sidebar-info-box
+  .sidebar-header
+    %h3.title Group Exec
+  .sidebar-content
+    %p Petition to become an exec of #{@group.name}. You'll be able to revert the page, change category, and add other admins.
+    %div
+      .btn-group
+        %button.btn.btn-primary Petition to be an Exec
