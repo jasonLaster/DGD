@@ -11,11 +11,13 @@ class Description < ActiveRecord::Base
   
   def markdown
     return if self.description.nil?
-    Redcarpet.new(self.description).to_html.html_safe
+    Redcarpet::Markdown.new(Redcarpet::Render::HTML,:autolink => true, :space_after_headers => true).render(self.description).html_safe
+    
   end
   
   def self.markdown(text)
-    Redcarpet.new(text).to_html.html_safe
+    
+    Redcarpet::Markdown.new(Redcarpet::Render::HTML,:autolink => true, :space_after_headers => true).render(text).html_safe
   end
   
   def self.most_recent
