@@ -1,17 +1,16 @@
-.topbar-wrapper
-  .topbar
+.navbar
+  .navbar-inner
     .fill
       .container
-        %h3
-          %a{ :href => root_path, :style => "padding:10px 10px 11px;  font-size:14px; line-height:19px;" } DGD
-        %ul
+        %a.brand{ :href => root_path, :style => "padding:10px 10px 11px;  font-size:14px; line-height:19px;" } DGD
+        %ul.nav
           %li
             = link_to "Directory", group_index_path
-        
-        = form_tag(group_index_path, :method => "get") do 
-          = hidden_field_tag 'group_id'
-          = text_field_tag 'search', nil, :placeholder => "Search"
-        %ul.nav.secondary-nav
+        %ul.navbar-search.pull-left
+          = form_tag(group_index_path, :method => "get", :style => "margin-bottom:0px;") do 
+            = hidden_field_tag 'group_id'
+            = text_field_tag 'search', nil, :placeholder => "Search", :class => "search-query span2"
+        %ul.nav.pull-right
           %li
             - if current_user
               = link_to "#{current_user.first_name} - Logout", signout_path

@@ -7,9 +7,10 @@
     %h1 Flags
 
 .flag-table
-  %table#admin-table.zebra-striped
-    %tr
-      %th.yellow{:width => "100px"} Group
-      %th.purple Page
-      %th.blue{:width => "70px"} Count
+  %table#admin-table.table.table-striped
+    %thead
+      %tr
+        %th.yellow{:width => "100px"} Group
+        %th.purple Page
+        %th.blue{:width => "70px"} Count
     = render :partial => "flag", :collection => @flags

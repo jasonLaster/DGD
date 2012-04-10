@@ -9,7 +9,7 @@
   
   .users-table
     = form_tag admin_user_index_path, :method => :post do
-      %table#admin-table.zebra-striped
+      %table#admin-table.table-striped
         %tr
           %th.yellow{:width => "50px"} Admin
           %th.blue{:width => "50px"} Blocked
@@ -19,4 +19,5 @@
       
       .actions.form
         = submit_tag "Submit", :class => "btn primary"
+    
     

@@ -1,11 +1,6 @@
 %tr
   %td= flag[0]
-  %td.page{:style => "position:relative"}
+  %td.page{:style => "position:relative", "rel" => "popover", "data-content" => Description.markdown(flag[1]), "data-original-title" => flag[0]}
     = truncate(flag[1], :length => 60)
-    .popover.below
-      .arrow
-      .inner
-        %h3.title= flag[0]
-        .content= Description.markdown flag[1]
     
   %td= flag[2]
