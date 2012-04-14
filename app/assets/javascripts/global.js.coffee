@@ -42,12 +42,12 @@ $(document).ready ->
   
   
   # Admin Pages Page "page" popup
-  $("table#admin-table td.page").hover ->
-    $('.popover').hide()
-    $(this).closest('tr').find('.popover').show()
+  $("table#admin-table td.page").mouseenter ->
+    $('.popover').popover('hide')
+    $(this).closest('tr').find('.pop').popover('show')
   
   $('table#admin-table tr').mouseout ->
-    $('.popover').hide()
+    $('.pop').popover('hide')
 
   # Admin Group Page category autocomplete
   $("#group-admin input.category-autocomplete").autocomplete {
