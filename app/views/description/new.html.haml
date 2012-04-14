@@ -10,7 +10,7 @@
   %textarea#page-editor.xxlarge{ :rows => 25, :style => "width: 100%", name: "description" }
     = @description.html_safe if @description.present?
   .actions
-    %input.btn.btn-primary.btn-large{type:"submit", value:"Add Description", style:"cursor:pointer;margin-top:3px;"}
+    %input.btn.btn-primary.btn-large{type:"submit", value:"Save Page", style:"cursor:pointer;margin-top:3px;"}
     = link_to 'Cancel', group_path(@group), :class => "btn btn-large btn-danger"
     
 
