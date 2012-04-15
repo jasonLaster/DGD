@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'plymouth'
 
 describe Description do
   
@@ -15,7 +14,7 @@ describe Description do
 
     descriptions.map(&:group_id).uniq.length.should eq(2)    
     descriptions.should include(d2, d3)
-    descriptions.find_index(d2).should < descriptions.find_index(d3)
+    descriptions.find_index(d2).should > descriptions.find_index(d3)
   end
   
 end

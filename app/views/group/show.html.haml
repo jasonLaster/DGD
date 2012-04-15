@@ -9,7 +9,7 @@
   #description
     .body
       - if current_user.present? || @description.description == Description.default_description
-        = @description.markdown
+        = @description.description.html_safe
       - else
         = @clean_description
         

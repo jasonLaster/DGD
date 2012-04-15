@@ -2,7 +2,7 @@
 FactoryGirl.define do
 
   factory :group do
-    sequence(:name) {"Group-#{n}"}
+    sequence(:name) {|n| "Group-#{n}"}
   end
 
   factory :description do
