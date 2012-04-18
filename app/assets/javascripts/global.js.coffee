@@ -42,12 +42,7 @@ $(document).ready ->
   
   
   # Admin Pages Page "page" popup
-  $("table#admin-table td.page").mouseenter ->
-    $('.popover').popover('hide')
-    $(this).closest('tr').find('.pop').popover('show')
-  
-  $('table#admin-table tr').mouseout ->
-    $('.pop').popover('hide')
+  $('table#admin-table td.page a').popover({placement: 'bottom', delay: { show: 500, hide: 100 }})
 
   # Admin Group Page category autocomplete
   $("#group-admin input.category-autocomplete").autocomplete {

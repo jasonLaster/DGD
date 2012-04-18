@@ -4,8 +4,9 @@
     %td= description.created_at.strftime("%b %d")
     %td= link_to description.group.name, group_path(description.group)
     %td.page{:style => "position:relative"}
-      = truncate(description.description, :length => 20)
-      %a.pop{:href=> "#", :rel => "popover", "data-content" => description.markdown,  "data-original-title" => description.group.name}
+      %a.pop{:href=> "#", :rel => "popover", "data-content" => description.description,  "data-original-title" => description.group.name} -
+    %td
+      =  description.user.name
     %td
       = hidden_field name, :exec_list
       = check_box_tag "#{name}[exec_list]", "1", description.exec_list
