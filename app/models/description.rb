@@ -26,4 +26,8 @@ class Description < ActiveRecord::Base
     where("descriptions.created_at = (select MAX(d2.created_at) from descriptions d2 where descriptions.group_id = d2.group_id)")
   end
   
+  def self.leaderboard
+    Description.most_recent.includes(:user).partition(&:user_id).sort_by(&:length).reverse
+  end
+  
 end

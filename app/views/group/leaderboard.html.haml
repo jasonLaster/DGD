@@ -1,0 +1,16 @@
+#leaderboard
+  #group
+    .title
+      %h1= "Leaderboard"
+
+  .leaderboard-table
+    %table#admin-table.table.table-striped
+      %thead
+        %tr
+          %th.yellow Contributer
+          %th.green{:width => "150px"} Count
+      - @leaderboard.each do |pages|
+        - if pages.first
+          %tr
+            %td= pages.first.user.name 
+            %td= pages.length

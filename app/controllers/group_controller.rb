@@ -1,6 +1,6 @@
 class GroupController < ApplicationController
   layout 'application'
-  before_filter :group, :except => [:index, :about, :markdown]
+  before_filter :group, :except => [:index, :about, :markdown, :leaderboard]
   before_filter :group_exec, :only => [:edit]
 
 
@@ -57,6 +57,7 @@ class GroupController < ApplicationController
   end
   
   def leaderboard
+    @leaderboard = Description.leaderboard
   end
   
   def recently_updated
