@@ -27,7 +27,7 @@ class Description < ActiveRecord::Base
   end
   
   def self.leaderboard
-    Description.most_recent.includes(:user).partition(&:user_id).sort_by(&:length).reverse
+    Description.most_recent.includes(:user).group_by(&:user_id).values.sort_by(&:length).reverse
   end
   
 end
