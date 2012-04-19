@@ -6,5 +6,9 @@ module GroupHelper
     else "Flag"
     end
   end
+  
+  def display_name(group)
+    group.name.truncate(40)
+  end
 
 end
