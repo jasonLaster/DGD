@@ -19,6 +19,7 @@ class Admin::CategoryController < AdminController
       db_category = db_categories.find {|c| category_id.to_i == c.id}
       
       if form_category['delete'] == "1"
+        Group.find_all_by_category_id(db_category).map {|g| g.update_attribute(:category_id,  nil)}
         db_category.destroy 
         next
       end

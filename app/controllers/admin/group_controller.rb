@@ -8,7 +8,7 @@ class Admin::GroupController < AdminController
         Group.all
       elsif category == "none"
         Group.includes(:category).
-          where("category = null").
+          where("category is null").
           order("categories.category ASC, groups.name ASC")
       elsif category.present?
         Group.includes(:category).
