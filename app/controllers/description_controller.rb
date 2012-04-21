@@ -9,19 +9,24 @@ class DescriptionController < ApplicationController
   
   def new
     @group = Group.find(params[:group_id])
-    @description = @group.descriptions.order("created_at DESC").first
-    @description.description.gsub("\r\n","\r") if @description.try(:description)
-    
+    @description = @group.most_recent_page
     @new_description = @group.descriptions.build
-    @new_description.description = @description.description if @description
     
-
+    unless @description.nil?
+      @description.description.gsub("\r\n","\r") 
+      @new_description.description = @description.description
+    end
+    
   end
   
   def show
   end
 
   def update
+    @group = Group.find(params[:group_id])
+    @description = @group.most_recent_page.dup
+    @description.update_attributes(params[:description])
+    render :partial => "description/checklist_form"
   end
   
   def destroy
@@ -29,7 +34,10 @@ class DescriptionController < ApplicationController
   
   def create
     @group = Group.find(params[:group_id])
-    @description = @group.descriptions.build(:description => params[:description][:description], :user => @current_user).save
+    @description = @group.most_recent_page
+    new_description = params[:description][:description]
+
+    @description.dup.update_attributes(:description => new_description) unless @description.description == new_description
     redirect_to @group
   end
   
