@@ -38,13 +38,21 @@ DGD::Application.routes.draw do
       get 'recently_updated'
       get 'least_updated'
     end
+    
     resources :flag, :only => [:index]
     resources :description, :only => [:new, :create, :index] do
       post 'flag' => 'description#flag'
       resources :flag, :only => [:index]
     end
+    
+    resources :user, :only => [] do 
+      member do
+        post 'petition'
+      end
+    end
+    
   end
-
+  
   match "/auth/:provider/callback" => "sessions#create"  
   match "/signout" => "sessions#destroy", :as => :signout
   match "/open-sesame" => "sessions#open_sesame"

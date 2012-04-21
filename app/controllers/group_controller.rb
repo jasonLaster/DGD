@@ -33,6 +33,7 @@ class GroupController < ApplicationController
     @description = @group.descriptions.order("created_at DESC").first
     @user_flag = Flag.find_by_description_id_and_user_id(@description, @current_user)
     @flag_count = Flag.find_all_by_description_id(@description).count
+    @group_exec = GroupExec.find_by_group_id_and_user_id(@group, @current_user)
     
     # Hide email addresses if user isn't logged in
     if !@description.nil?

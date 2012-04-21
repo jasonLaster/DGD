@@ -10,4 +10,7 @@ FactoryGirl.define do
     description "lorem ipsum"
   end
   
+  factory :user do
+  end
+  
 end
