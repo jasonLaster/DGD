@@ -2,15 +2,9 @@
   = render :partial => "sidebar/section/group_exec_toc"
 .sidebar-info-box
   .sidebar-header
-    %h3.title Group Page
+    %h3.title Checklist
   .sidebar-content
-    %p Add Group description, exec list, meeting times, contact information, upcoming, events, have fun, this is your page. 
-.sidebar-info-box
-  .sidebar-header
-    %h3.title Markdown
-  .sidebar-content
-    %p Markdown is a popular markup syntax used by bloggers.
-    = link_to "Markdown Quick Reference", markdown_path
+    = render :partial => "description/checklist_form"
 .sidebar-info-box
   .sidebar-header
     %h3.title Contributing Policy

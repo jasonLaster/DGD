@@ -7,13 +7,13 @@
     %h1{:style => "font-size:#{size}px; line-height:#{size+10}px;"}= @group.name
 
 #edit_description
-  = form_tag(group_description_index_path, :method => "post")
-  %textarea#page-editor.xxlarge{ :rows => 25, :style => "width: 100%", name: "description" }
-    = @description.html_safe if @description.present?
-  .actions
-    %input.btn.btn-primary.btn-large{type:"submit", value:"Save Page", style:"cursor:pointer;margin-top:3px;"}
-    = link_to 'Cancel', group_path(@group), :class => "btn btn-large btn-danger"
-    
+  = semantic_form_for @new_description,  :url => group_description_index_path,   :namespace => 'create' do |f|
+    = f.inputs do
+      = f.input :description, :as => :text, :label => false, :input_html => {:rows => 25, :style => "width: 99%", :id => "page-editor"}
+
+    .actions
+      %input.btn.btn-primary.btn-large{type:"submit", value:"Save Page", style:"cursor:pointer;margin-top:3px;"}
+      = link_to 'Cancel', group_path(@group), :class => "btn btn-large btn-danger"    
 
 :javascript
   $('#page-editor').wysihtml5();

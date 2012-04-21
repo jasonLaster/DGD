@@ -10,7 +10,12 @@ class DescriptionController < ApplicationController
   def new
     @group = Group.find(params[:group_id])
     @description = @group.descriptions.order("created_at DESC").first
-    @description = @description.description.gsub("\r\n","\r") if @description.try(:description)
+    @description.description.gsub("\r\n","\r") if @description.try(:description)
+    
+    @new_description = @group.descriptions.build
+    @new_description.description = @description.description if @description
+    
+
   end
   
   def show
@@ -24,7 +29,7 @@ class DescriptionController < ApplicationController
   
   def create
     @group = Group.find(params[:group_id])
-    @description = @group.descriptions.build(:description => params[:description], :user => @current_user).save
+    @description = @group.descriptions.build(:description => params[:description][:description], :user => @current_user).save
     redirect_to @group
   end
   

@@ -40,7 +40,7 @@ DGD::Application.routes.draw do
     end
     
     resources :flag, :only => [:index]
-    resources :description, :only => [:new, :create, :index] do
+    resources :description, :only => [:new, :create, :update, :index] do
       post 'flag' => 'description#flag'
       resources :flag, :only => [:index]
     end
