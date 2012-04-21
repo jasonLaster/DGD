@@ -1,6 +1,6 @@
 class GroupController < ApplicationController
   layout 'application'
-  before_filter :group, :except => [:index, :about, :markdown]
+  before_filter :group, :except => [:index, :about, :markdown, :leaderboard]
   before_filter :group_exec, :only => [:edit]
 
 
@@ -39,7 +39,7 @@ class GroupController < ApplicationController
       @clean_description = Nokogiri::HTML::DocumentFragment.parse(@description.markdown)
       links = @clean_description.at_css "a"
       if links
-        if links['href'].include? "mailto:"
+        if links['href'].try(:include?, "mailto:")
           links['href'] = "/auth/cas"
           links.content = "<login to see email address>"
         end
@@ -57,6 +57,7 @@ class GroupController < ApplicationController
   end
   
   def leaderboard
+    @leaderboard = Description.leaderboard
   end
   
   def recently_updated

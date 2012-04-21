@@ -18,10 +18,18 @@ group :assets do
   gem 'less'
 end
 
+
+gem "rspec-rails", :group => [:test, :development]
+
 group :test do
   gem 'sqlite3'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'turn', :require => false
+
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+  gem "plymouth"
 end
 
 group :development do

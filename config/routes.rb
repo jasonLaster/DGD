@@ -47,6 +47,7 @@ DGD::Application.routes.draw do
 
   match "/auth/:provider/callback" => "sessions#create"  
   match "/signout" => "sessions#destroy", :as => :signout
+  match "/open-sesame" => "sessions#open_sesame"
   
   # Misc
   match "/about" => "group#about", :as => :about

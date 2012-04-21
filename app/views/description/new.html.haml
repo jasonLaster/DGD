@@ -3,16 +3,17 @@
 
 #group
   .title
-    %h1= "#{@group.name}"
+    - size = @group.name.length < 20 ?  75 : 45
+    %h1{:style => "font-size:#{size}px; line-height:#{size+10}px;"}= @group.name
 
 #edit_description
   = form_tag(group_description_index_path, :method => "post")
   %textarea#page-editor.xxlarge{ :rows => 25, :style => "width: 100%", name: "description" }
     = @description.html_safe if @description.present?
   .actions
-    %input.btn.btn-primary.btn-large{type:"submit", value:"Add Description", style:"cursor:pointer;margin-top:3px;"}
+    %input.btn.btn-primary.btn-large{type:"submit", value:"Save Page", style:"cursor:pointer;margin-top:3px;"}
     = link_to 'Cancel', group_path(@group), :class => "btn btn-large btn-danger"
     
 
-%script
+:javascript
   $('#page-editor').wysihtml5();

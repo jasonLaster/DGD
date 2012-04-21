@@ -8,7 +8,7 @@ class Admin::GroupController < AdminController
         Group.all
       elsif category == "none"
         Group.includes(:category).
-          where("category = null").
+          where("category is null").
           order("categories.category ASC, groups.name ASC")
       elsif category.present?
         Group.includes(:category).
@@ -40,6 +40,13 @@ class Admin::GroupController < AdminController
         db_group.locked = form_group_locked
         db_group.save
       end
+      
+      # DELETE
+      if form_group['delete'] == "1"
+        db_group.destroy 
+        next
+      end
+
       
       # GROUP NAME
       if form_group['name']!= db_group.name
