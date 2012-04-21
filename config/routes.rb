@@ -30,6 +30,8 @@ DGD::Application.routes.draw do
     
     resources :flag, :only => [:index]
     
+    resources :group_exec, :only => [:index]
+    
   end
   
   resources :group, :only => [:index, :show, :edit, :update]  do

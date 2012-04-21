@@ -1,0 +1,10 @@
+= render :partial => "sidebar/section/admin_toc"
+
+.sidebar-info-box
+  .sidebar-header
+    %h3.title Group Execs
+  .sidebar-content
+    %ul
+      %li= link_to "Users", admin_user_index_path
+      %li= link_to "Admins", admin_user_index_path(:admin => true)
+      %li= link_to "Group Execs", admin_group_exec_index_path

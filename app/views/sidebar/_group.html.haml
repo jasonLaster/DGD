@@ -9,15 +9,6 @@
       = link_to "More Groups", group_index_path(:category => @group.category.id)
 .sidebar-info-box
   .sidebar-header
-    %h3.title Editing Policy
-  .sidebar-content
-    %p
-      DGD is a community directory, so feel free to edit any page you feel you can improve. Remember, your name is permanently
-      attached to any content you contribute to DGD.
-- if @current_user.try(:admin) || @group.exec?(@current_user)
-  = render :partial => "sidebar/section/group_exec_toc"
-.sidebar-info-box
-  .sidebar-header
     %h3.title Group Exec
   .sidebar-content
     - if @group_exec.nil?
@@ -29,3 +20,13 @@
       %p As a group exec its your responsibility to maintain the group page. If the page is every slandered, you can go into the page history and revert it. If you have any questions, please don't hesitate to contact us. 
     - elsif !@group_exec.confirmed
       %p Thank you for petitioning to be a group exec. We're currently checking to see if you are actually an exec. We'll get back to you soon.
+
+.sidebar-info-box
+  .sidebar-header
+    %h3.title Editing Policy
+  .sidebar-content
+    %p
+      DGD is a community directory, so feel free to edit any page you feel you can improve. Remember, your name is permanently
+      attached to any content you contribute to DGD.
+- if @current_user.try(:admin) || @group.exec?(@current_user)
+  = render :partial => "sidebar/section/group_exec_toc"

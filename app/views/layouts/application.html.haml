@@ -3,7 +3,7 @@
 %head
   %title= page_title
   = stylesheet_link_tag    "application"
-  = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Andika"
+  = ""#stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Andika"
   
   = javascript_include_tag "application"
   = csrf_meta_tags
@@ -30,33 +30,33 @@
   var categories = #{Category.all.map {|c| {:label => c.category, :value => c.category, :id => c.id}}.to_json};
   
   // Google Analyt
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-25681508-2']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-  
-  // Intercom Settings
-  var intercomSettings = {
-      app_id: 'h6b19gjf',
-      email: 'jason.laster.11@gmail.com',
-      created_at: 315532800
-    };
-    (function() {
-      function async_load() {
-        var s = document.createElement('script');
-        s.type = 'text/javascript'; s.async = true;
-        s.src = 'https://api.intercom.io/api/js/library.js';
-        var x = document.getElementsByTagName('script')[0];
-        x.parentNode.insertBefore(s, x);
-      }
-      if (window.attachEvent) {
-        window.attachEvent('onload', async_load);
-      } else {
-        window.addEventListener('load', async_load, false);
-      };
-    })();
+  / var _gaq = _gaq || [];
+  / _gaq.push(['_setAccount', 'UA-25681508-2']);
+  / _gaq.push(['_trackPageview']);
+  / 
+  / (function() {
+  /   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  /   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  /   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  / })();
+  / 
+  / // Intercom Settings
+  / var intercomSettings = {
+  /     app_id: 'h6b19gjf',
+  /     email: 'jason.laster.11@gmail.com',
+  /     created_at: 315532800
+  /   };
+  /   (function() {
+  /     function async_load() {
+  /       var s = document.createElement('script');
+  /       s.type = 'text/javascript'; s.async = true;
+  /       s.src = 'https://api.intercom.io/api/js/library.js';
+  /       var x = document.getElementsByTagName('script')[0];
+  /       x.parentNode.insertBefore(s, x);
+  /     }
+  /     if (window.attachEvent) {
+  /       window.attachEvent('onload', async_load);
+  /     } else {
+  /       window.addEventListener('load', async_load, false);
+  /     };
+  /   })();

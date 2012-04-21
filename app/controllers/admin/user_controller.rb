@@ -1,6 +1,12 @@
 class Admin::UserController < AdminController
   def index
-    @users = User.all
+    @users = 
+      if params[:admin]
+        User.where(:admin => true)
+      else
+        User.all
+      end
+    
   end
   
   def update
