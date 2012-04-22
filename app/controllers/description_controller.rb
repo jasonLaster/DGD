@@ -9,10 +9,10 @@ class DescriptionController < ApplicationController
   
   def new
     @group = Group.find(params[:group_id])
-    @description = @group.most_recent_page ||
+    @description = @group.most_recent_page
     @new_description = @group.descriptions.build
     
-    unless @description.nil? || @description.new_record?
+    unless @description.nil?
       @description.description.gsub("\r\n","\r") 
       @new_description.description = @description.description
     end
