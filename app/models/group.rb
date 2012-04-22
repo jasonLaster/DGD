@@ -18,6 +18,14 @@ class Group < ActiveRecord::Base
     descriptions.order("created_at DESC").first
   end
   
+  def author
+    most_recent_page.user.name if most_recent_page
+  end
+  
+  def contributors
+    descriptions.includes(:user).map {|d| d.user.name}.uniq - [author]
+  end
+  
   
   def self.recently_updated(num)
     Description.all.sort_by { |d| d.updated_at }.reverse.map { |d| Group.find(d.group_id) }.uniq.take(num)
