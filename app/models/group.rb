@@ -30,7 +30,7 @@ class Group < ActiveRecord::Base
   
   
   def self.recently_updated(num)
-    Description.order("updated_at desc").includes(:group).group("group_id").map(&:group).take(num)
+    Description.order("updated_at desc").includes(:group).group("descriptions.group_id").map(&:group).take(num)
   end
   
   def self.find_by_description_id(id)
