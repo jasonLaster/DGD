@@ -6,9 +6,10 @@ describe Description do
   it "#most_recent should return the most recent description for each group" do
     g1 = FactoryGirl.create(:group)
     g2 = FactoryGirl.create(:group)
-    d1 = FactoryGirl.create(:description, :created_at => "1-1-12", :group => g1)
-    d2 = FactoryGirl.create(:description, :created_at => "1-2-12", :group => g1)
-    d3 = FactoryGirl.create(:description, :created_at => "1-3-12", :group => g2)
+    user = FactoryGirl.create(:user)
+    d1 = FactoryGirl.create(:description, :created_at => "1-1-12", :group => g1, :user => user)
+    d2 = FactoryGirl.create(:description, :created_at => "1-2-12", :group => g1, :user => user)
+    d3 = FactoryGirl.create(:description, :created_at => "1-3-12", :group => g2, :user => user)
   
     descriptions = Description.most_recent.chronological
 

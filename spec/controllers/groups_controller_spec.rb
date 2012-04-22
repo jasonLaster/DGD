@@ -5,19 +5,36 @@ describe GroupController do
   render_views
 
   #  NO LOGGED IN USER
-  describe "GET group/id" do 
+  describe "(not-logged in) GET group/id" do 
     
     setup do
       group = FactoryGirl.create(:group)
       user = FactoryGirl.create(:user)
     end
     
-    it "NO-USER: Group has no description" do
+    it "Group has no description" do
       group = Group.first
       get :show, {:id => group.id}
       assigns(:description).should be_a_new(Description)
       
     end
+
+    it "Group has a description without content" do
+      group = Group.first
+      group.descriptions.build(:user_id => User.first.id).save
+      
+      get :show, {:id => group.id}
+      response.code.to_i.should == 200
+    end
+
+    it "Group has a description without a user" do
+      group = Group.first
+      group.descriptions.build().save
+      
+      get :show, {:id => group.id}
+      response.code.to_i.should == 200
+    end
+
 
     it "renders a page if one exists" do
       group = Group.first
@@ -32,12 +49,13 @@ describe GroupController do
   
     it "renders the most recent page if the group has multiple descriptions"
   
-    
-    # LOGGED IN ADMIN
   end
   
+  # LOGGED IN ADMIN
+  describe "(ADMIN) GET group/id"
+  
   # LOGGED IN USER
-  describe "GET group/id" do
+  describe "(USER) GET group/id" do
     
     setup do
       group = FactoryGirl.create(:group)

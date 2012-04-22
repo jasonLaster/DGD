@@ -9,7 +9,7 @@
   #description
     .body
       - if current_user.present? || @description.description == Description.default_description
-        = @description.description.html_safe
+        = @description.description.try(:html_safe)
       - else
         = @clean_description
         
@@ -23,7 +23,7 @@
       - else
         .action_links
           %span= link_to "Login to interact with this page", "../auth/cas"
-      %div{ :style => "margin-top: 20px;"} 
+      %div{ :style => "margin-top: 20px;"}
         written by #{@description.user.try(:name)} <br />
         - if @group.contributors.length > 0
           contributors: #{@group.contributors.join(", ")}

@@ -35,6 +35,7 @@ class DescriptionController < ApplicationController
       @description.update_attributes(params[:description])
     else
       @description = @group.descriptions.build(params[:description])
+      @description.user = @current_user
       @description.save
     end
     

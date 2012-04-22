@@ -4,18 +4,22 @@ describe DescriptionController do
   render_views
   
   describe "GET group/id/descriptions" do
+    
+    setup do
+      group = FactoryGirl.create(:group)
+      user = FactoryGirl.create(:user)
+    end
 
     it "shows an empty history if the group has no descriptions" do
-      group = FactoryGirl.create(:group)
-      get :index, {:group_id => 1}
-      
-      response.status.should be(200)
+      get :index, {:group_id => Group.first.id}
+      response.status.to_i.should == 200
     end
 
     it "shows the history of a group's descriptions" do
       group = FactoryGirl.create(:group)
-      2.times {FactoryGirl.create(:description, :description => "lorem")}
-      FactoryGirl.create(:description, :description => "<h2>lorem</h2>")
+      user = User.first
+      2.times {FactoryGirl.create(:description, :description => "lorem", :user => user)}
+      FactoryGirl.create(:description, :description => "<h2>lorem</h2>", :user => user)
       
       get :index, {:group_id => group.id }
       response.status.should be(200)
@@ -39,6 +43,7 @@ describe DescriptionController do
       group.descriptions.length.should == 1
       description = group.descriptions.first
       description.description_text.should == true
+      description.user.should == assigns(:current_user)
       
     end
     
@@ -67,7 +72,8 @@ describe DescriptionController do
       
       response.should redirect_to(group_index_path)
     end
-        
+    
+    
   end
   
   describe "POST group/id/description" do

@@ -6,6 +6,7 @@ class Description < ActiveRecord::Base
   has_many :users, :through => :flags, :as => :flaggers
   
   validates :group_id, :presence => true
+  validates :user_id, :presence => true
 
   scope :chronological, order("created_at desc")
 
