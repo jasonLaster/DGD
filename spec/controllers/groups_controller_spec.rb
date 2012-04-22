@@ -3,27 +3,52 @@ require 'spec_helper'
 
 describe GroupController do
   render_views
-  
+
+  #  NO LOGGED IN USER
   describe "GET group/id" do 
     
-    #  USER-LESS
-    it "renders an empty page if the group doesnt have a description" do
+    setup do
       group = FactoryGirl.create(:group)
-      get :show, {:id => 1}
-      puts page.body
+    end
+    
+    it "NO-USER: Group has no description" do
+      group = Group.first
+      get :show, {:id => group.id}
+      assigns(:description).should be_a_new(Description)
+      
     end
 
-    it "renders a page if one exists"
+    it "renders a page if one exists" do
+      group = Group.first
+      group.descriptions.build(:description => "test page").save
+      
+      get :show, {:id => group.id}
+      description = assigns(:description)
+      description.should_not be_a_new(Description)
+      description.description.should eq("test page")
+      
+    end
   
     it "renders the most recent page if the group has multiple descriptions"
   
-  
-    # LOGGED IN USER
     
     # LOGGED IN ADMIN
   end
   
-  describe "GET group/1 simple page"
+  # LOGGED IN USER
+  describe "GET group/1" do
+    
+    setup do
+      group = FactoryGirl.create(:group)
+      user = FactoryGirl.create(:user)
+      session[:user_id] = user.id
+    end
+    
+    it "USER: Group has no description" do 
+      group = Group.first
+      get :show, {:id => group.id}
+    end
+  end
   
 
 end
