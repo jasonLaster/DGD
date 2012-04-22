@@ -37,9 +37,12 @@ class DescriptionController < ApplicationController
     @description = @group.most_recent_page
     new_description = params[:description][:description]
 
-    
+    if @description && @description.description == new_description
+      @description.dup.update_attributes(:description => new_description, :user_id => @current_user.id) 
+    else
+      @group.descriptions.build(:description => new_description, :user_id => @current_user.id).save
+    end
 
-    @description.dup.update_attributes(:description => new_description, :user_id => @current_user.id) unless @description.description == new_description
     redirect_to @group
   end
   
