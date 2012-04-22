@@ -1,6 +1,7 @@
 class DescriptionController < ApplicationController
   layout 'application'
   before_filter :blocked_user, :only => [:create, :flag]
+  before_filter :is_logged_in, :only => [:checklist, :create]
   
   def index
     @group = Group.includes(:descriptions).find(params[:group_id])
@@ -13,7 +14,7 @@ class DescriptionController < ApplicationController
     @new_description = @group.descriptions.build
     
     unless @description.nil?
-      @description.description.gsub("\r\n","\r") 
+      @description.description.try {|d| d.gsub("\r\n","\r") }
       @new_description.description = @description.description
     end
     
@@ -21,24 +22,34 @@ class DescriptionController < ApplicationController
   
   def show
   end
-
-  def update
-    @group = Group.find(params[:group_id])
-    @description = @group.most_recent_page.dup
-    @description.update_attributes(params[:description])
-    render :partial => "description/checklist_form"
-  end
   
   def destroy
+  end
+
+  def checklist
+    @group = Group.find(params[:group_id])
+    @old_description = @group.most_recent_page
+    
+    if @old_description.present?
+      @description = @old_description
+      @description.update_attributes(params[:description])
+    else
+      @description = @group.descriptions.build(params[:description])
+      @description.save
+    end
+    
+    render :partial => "description/checklist_form"
   end
   
   def create
     @group = Group.find(params[:group_id])
-    @description = @group.most_recent_page
+    @old_description = @group.most_recent_page
     new_description = params[:description][:description]
-
-    if @description && @description.description == new_description
-      @description.dup.update_attributes(:description => new_description, :user_id => @current_user.id) 
+        
+    if @old_description.present?
+      unless @old_description.description == new_description
+        @old_description.dup.update_attributes(:description => new_description, :user_id => @current_user.id) 
+      end
     else
       @group.descriptions.build(:description => new_description, :user_id => @current_user.id).save
     end

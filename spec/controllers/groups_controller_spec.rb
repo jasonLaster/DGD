@@ -9,6 +9,7 @@ describe GroupController do
     
     setup do
       group = FactoryGirl.create(:group)
+      user = FactoryGirl.create(:user)
     end
     
     it "NO-USER: Group has no description" do
@@ -20,7 +21,7 @@ describe GroupController do
 
     it "renders a page if one exists" do
       group = Group.first
-      group.descriptions.build(:description => "test page").save
+      group.descriptions.build(:description => "test page", :user_id => User.first).save
       
       get :show, {:id => group.id}
       description = assigns(:description)
@@ -36,7 +37,7 @@ describe GroupController do
   end
   
   # LOGGED IN USER
-  describe "GET group/1" do
+  describe "GET group/id" do
     
     setup do
       group = FactoryGirl.create(:group)
