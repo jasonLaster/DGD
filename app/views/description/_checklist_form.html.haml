@@ -1,6 +1,6 @@
 - if @description
   #checklist
-    = semantic_form_for [@group, @description], :method => :put do |f|
+    = semantic_form_for @description,  :url => group_description_index_path, :method => :put, :namespace => 'checklist' do |f|
       = f.inputs do
         = f.input :exec_list, :label => "Exec List", :as => :boolean
         = f.input :description_text, :label => "Description", :as => :boolean
