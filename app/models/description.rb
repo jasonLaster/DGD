@@ -4,6 +4,8 @@ class Description < ActiveRecord::Base
   belongs_to :user
   has_many :flags
   has_many :users, :through => :flags, :as => :flaggers
+  
+  validates :group_id, :presence => true
 
   scope :chronological, order("created_at desc")
 

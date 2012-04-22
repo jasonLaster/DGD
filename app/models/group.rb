@@ -6,6 +6,8 @@ class Group < ActiveRecord::Base
   has_many :group_execs
   has_many :users, :through => :group_execs
   
+  validates :name, :presence => true
+  
   def to_s
     name
   end
@@ -28,7 +30,7 @@ class Group < ActiveRecord::Base
   
   
   def self.recently_updated(num)
-    Description.all.sort_by { |d| d.updated_at }.reverse.map { |d| Group.find(d.group_id) }.uniq.take(num)
+    Description.order("updated_at desc").includes(:group).group("group_id").map(&:group).take(num)
   end
   
   def self.find_by_description_id(id)
