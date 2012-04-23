@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :logged_in_user
+  before_filter :exceptional_info
   
   def logged_in_user
     @current_user = User.find(session[:user_id]) if session[:user_id].present?
@@ -23,4 +24,11 @@ class ApplicationController < ActionController::Base
       redirect_to group_path(@group)
     end
   end
+  
+  def exceptional_info
+    params = {}
+    params.merge!({:user_id => @current_user.id, :name => @current_user.name, :email => @current_user.email}) if @current_user.present? 
+    Exceptional.context(params)
+  end
+  
 end
