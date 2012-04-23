@@ -15,4 +15,8 @@ module ApplicationHelper
     @current_user ||= User.find(session[:user_id]) if session[:user_id]  
   end  
 
+  def anonymous_name
+    session[:anonymous_name] ||= "anonymous-#{(rand*1000).ceil}".inspect
+  end
+
 end
