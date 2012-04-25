@@ -6,7 +6,7 @@ class Group < ActiveRecord::Base
   has_many :group_execs
   has_many :users, :through => :group_execs
   
-  validates :name, :presence => true
+  validates :name, :presence => true, :uniqueness => true
   
   def to_s
     name

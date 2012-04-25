@@ -16,7 +16,7 @@ module ApplicationHelper
   end  
 
   def anonymous_name
-    session[:anonymous_name] ||= "anonymous-#{(rand*1000).ceil}".inspect
+    session[:anonymous_name] ||= "anonymous-#{(rand*1000).ceil}"
   end
 
 end

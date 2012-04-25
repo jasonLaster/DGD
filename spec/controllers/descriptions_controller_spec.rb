@@ -5,10 +5,17 @@ describe DescriptionController do
   
   describe "GET group/id/descriptions" do
     
-    setup do
+    before(:all) do
       group = FactoryGirl.create(:group)
       user = FactoryGirl.create(:user)
     end
+    
+    after(:all) do
+      [Group, User, Category, Description].each do |model|
+        model.all.each &:destroy
+      end
+    end
+    
 
     it "shows an empty history if the group has no descriptions" do
       get :index, {:group_id => Group.first.id}
@@ -30,14 +37,21 @@ describe DescriptionController do
   
   describe "POST group/id/checklist" do
     
-    setup do
+    before(:all) do
       FactoryGirl.create(:group)
       FactoryGirl.create(:user)
     end
     
+    after(:all) do
+      [Group, User, Category, Description].each do |model|
+        model.all.each &:destroy
+      end
+    end
+    
+    
     it "create a new description if none exists" do
       group = Group.first
-      session[:user_id] = 1
+      session[:user_id] = User.first
       put :checklist, {"group_id" => group.id, "description"=>{"exec_list"=>"0", "description_text"=>"1", "contact_information"=>"1", "events"=>"0"}}
       
       group.descriptions.length.should == 1
@@ -52,7 +66,7 @@ describe DescriptionController do
       user = User.first
       group.descriptions.build(:exec_list => 1, :description => "test page", :user_id => user.id).save
 
-      session[:user_id] = 1
+      session[:user_id] = user.id
       put :checklist, {"group_id" => group.id, "description"=>{"exec_list"=>"0", "description_text"=>"1", "contact_information"=>"1", "events"=>"0"}}
       
       
@@ -78,14 +92,22 @@ describe DescriptionController do
   
   describe "POST group/id/description" do
     
-    setup do
+    before(:all) do
       FactoryGirl.create(:group)
       FactoryGirl.create(:user)
     end
     
+    after(:all) do
+      [Group, User, Category, Description].each do |model|
+        model.all.each &:destroy
+      end
+    end
+    
+    
     it "create a new description if none exists" do
       group = Group.first
-      session[:user_id] = 1
+      user = User.first
+      session[:user_id] = user.id
       post :create, {"group_id" => group.id, "description" => {"description" => "test page"}}
       group = assigns(:group)
       group.descriptions.length.should == 1
@@ -96,7 +118,7 @@ describe DescriptionController do
       group = Group.first
       user = User.first
       group.descriptions.build(:description => "test page 1", :exec_list => 1, :user_id => user.id).save
-      session[:user_id] = 1
+      session[:user_id] = user.id
       post :create, {"group_id" => group.id, "description" => {"description" => "test page 2"}}
       
       

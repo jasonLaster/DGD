@@ -1,5 +1,7 @@
 class Category < ActiveRecord::Base
 
+  validates :category, :presence => true, :uniqueness => true
+  
   has_many :groups
 
   def primary_category

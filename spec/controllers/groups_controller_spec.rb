@@ -2,21 +2,26 @@ require 'spec_helper'
 
 
 describe GroupController do
-  render_views
 
   #  NO LOGGED IN USER
   describe "(not-logged in) GET group/id" do 
     
-    setup do
+    before(:all) do
       group = FactoryGirl.create(:group)
       user = FactoryGirl.create(:user)
     end
+    
+    after(:all) do
+      [Group, User, Category, Description].each do |model|
+        model.all.each &:destroy
+      end
+    end
+    
     
     it "Group has no description" do
       group = Group.first
       get :show, {:id => group.id}
       assigns(:description).should be_a_new(Description)
-      
     end
 
     it "Group has a description without content" do
@@ -57,10 +62,15 @@ describe GroupController do
   # LOGGED IN USER
   describe "(USER) GET group/id" do
     
-    setup do
+    before(:all) do
       group = FactoryGirl.create(:group)
       user = FactoryGirl.create(:user)
-      session[:user_id] = user.id
+    end
+    
+    after(:all) do
+      [Group, User, Category, Description].each do |model|
+        model.all.each &:destroy
+      end
     end
     
     it "USER: Group has no description" do 
