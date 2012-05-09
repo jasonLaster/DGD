@@ -43,7 +43,10 @@
   var intercomSettings = {
       app_id: 'h6b19gjf',
       email: #{(current_user.try(:email) || current_user.try(:name) || anonymous_name).inspect},
-      created_at: #{current_user.try(:created_at).try(:to_time).try(:to_i) || Time.now.to_i}
+      created_at: #{current_user.try(:created_at).try(:to_time).try(:to_i) || Time.now.to_i},
+      custom_data: {
+        'anonymous': #{current_user.nil?.inspect}
+      }
     };
     (function() {
       function async_load() {
