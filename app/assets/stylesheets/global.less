@@ -136,16 +136,18 @@ ul.ui-autocomplete.ui-menu {
 /* Page History Styles */
 #history{
   .page {
+    display: block;
+    padding: 10px 0px 10px 20px;
     &.stripe {
       border-top: 1px solid #CCC;
       border-bottom: 1px solid #CCC;
       background-color: #F5F5F5;
-      display: block;
-      padding-left: 20px;
     }
-    &.nostripe {display: block; padding-left: 20px;}
-    .body {display: none;}
+    .body {display: none; margin-top: 20px}
     .header {cursor: pointer;}
+    form {
+      margin: 30px 0 10px 0;
+    }
   }
 }
 
