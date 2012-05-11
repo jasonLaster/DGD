@@ -63,6 +63,7 @@ class Admin::GroupController < AdminController
     
     # new groups
     new_groups = new_groups.values.select {|g| g['name'].present?}
+    new_groups.each {|group| group.delete("delete")}
     new_groups.each {|group| Group.create(group)}
     
     
