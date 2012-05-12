@@ -1,5 +1,10 @@
 class Admin::GroupController < AdminController
-  def index    
+  
+  def foo
+    lkj
+  end
+  
+  def index
     category = params[:category] || "Athletics"
     @category = category.gsub("+", " ").strip 
     

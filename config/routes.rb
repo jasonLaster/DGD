@@ -6,6 +6,7 @@ DGD::Application.routes.draw do
     resources :group, :only => [:index] do
       collection do
         post 'update'
+        get 'foo'
       end
     end
     
