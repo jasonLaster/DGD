@@ -1,7 +1,8 @@
 class Admin::GroupController < AdminController
   
   def foo
-    lkj
+    params[:foo].dfg
+    ert
   end
   
   def index
