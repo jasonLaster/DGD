@@ -24,10 +24,9 @@
         .action_links
           %span= link_to "Login to interact with this page", "../auth/cas"
       %div{ :style => "margin-top: 20px;"}
-        written by #{@description.user.try(:name)} <br />
+        #{@description.created_at.strftime("Last updated %b %d")} by #{@description.user.try(:name)} <br />
         - if @group.contributors.length > 0
           contributors: #{@group.contributors.join(", ")}
-      %div= @description.created_at.strftime("updated %b %d")
       
     - elsif current_user.present?
       .actions.form
