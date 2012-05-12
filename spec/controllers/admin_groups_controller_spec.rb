@@ -70,23 +70,38 @@ describe Admin::GroupController do
       
     end
     
-    it "should be able to delete group"
+    it "should be able to delete group" do
+      # login
+      user = User.first
+      user.update_attribute(:admin, true)
+      session[:user_id] = user.id
     
-    # it "should be able to create group" do
-    #   # login
-    #   user = User.first
-    #   user.update_attribute(:admin, true)
-    #   session[:user_id] = user.id
-    # 
-    #   # update group
-    #   group = Group.first
-    #   post :update, "groups"=> {"new1"=>{"delete"=>"", "locked"=>"", "name"=>"TEST", "category_id"=>"1"}}
-    #   response.code.to_i.should == 302      
-    #   
-    #   group = Group.find_by_name("TEST")
-    #   group.should be_an_instance_of(Group)
-    #   
-    # end
+      # update group
+      group = Group.first
+      post :update, "groups"=> {group.id.to_s =>{"delete"=>"1", "locked"=>"1", "name"=>"TEST", "category_id"=>"3"}}
+      response.code.to_i.should == 302
+
+      # check to see if group was created
+      group1 = Group.find_by_name(group.name)
+      group1.should be_nil
+    end
+    
+    it "should be able to create group" do
+      # login
+      user = User.first
+      user.update_attribute(:admin, true)
+      session[:user_id] = user.id
+    
+      # update group
+      group = Group.first
+      post :update, "groups"=> {"new1"=>{"delete"=>"", "locked"=>"", "name"=>"TEST", "category_id"=>"1"}}
+      response.code.to_i.should == 302      
+
+      # check to see if group was created
+      group = Group.find_by_name("TEST")
+      group.should be_an_instance_of(Group)
+      group.name.should == "TEST"
+    end
     
   end
 
