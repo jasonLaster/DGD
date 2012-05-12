@@ -1,1 +1,3 @@
 api-key: c92a89a78441764669a96b7e8ea261a30df356e8
+development:
+  enabled: true
