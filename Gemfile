@@ -34,6 +34,7 @@ group :test do
 end
 
 group :development do
+  gem 'heroku'
   gem 'sqlite3'
   gem 'haml-rails'
   gem 'ruby-debug19', :require => 'ruby-debug'
