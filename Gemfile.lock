@@ -82,12 +82,18 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
+    heroku (2.25.0)
+      launchy (>= 0.3.2)
+      netrc (~> 0.7.1)
+      rest-client (~> 1.6.1)
+      rubyzip
     hike (1.2.1)
     i18n (0.6.0)
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.6.6)
+    launchy (2.0.3)
     less (2.1.0)
       commonjs (~> 0.2.0)
       therubyracer (~> 0.10.0)
@@ -106,6 +112,7 @@ GEM
     multi_xml (0.2.2)
     multipart-post (1.1.5)
     net-ldap (0.2.2)
+    netrc (0.7.1)
     nokogiri (1.4.7)
     oa-basic (0.2.6)
       oa-core (= 0.2.6)
@@ -266,6 +273,7 @@ DEPENDENCIES
   guard-rspec
   haml
   haml-rails
+  heroku
   jquery-rails
   less
   nokogiri
