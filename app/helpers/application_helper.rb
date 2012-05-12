@@ -20,5 +20,9 @@ module ApplicationHelper
   def anonymous_name
     session[:anonymous_name] ||= "anonymous-#{(rand*1000).ceil}"
   end
-
+  
+  def navbar_class
+    navclass = "navbar-inner"
+    navclass += " dev-mode" if ENV["RAILS_ENV"] == "development"
+  end
 end
