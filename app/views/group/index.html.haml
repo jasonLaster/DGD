@@ -24,8 +24,10 @@
             %h5.category_sub_header= sub_category.sub_category
             %ul.groups_list
               - groups.each do |group|
+              - description_exists =  group.descriptions.length > 0
+              - color = description_exists ? 'blue' : '#555'
                 %li
-                  = link_to group.name.sub(/Dartmouth /,"").truncate(40), group_path(group)
+                  = link_to display_name(group), group_path(group), {:style => "color: #{color};"}
       
     - else
       - @categories.each_with_index do |x, i|
