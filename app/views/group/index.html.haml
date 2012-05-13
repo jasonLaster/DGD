@@ -6,9 +6,7 @@
   #group
     .title
       %h1= "Directory"
-  
 
-  
   - unless @groups.present?
     - unless @category.present?
       .expand
@@ -28,8 +26,12 @@
                 - groups.each do |group|
                   %li
                     = link_to group.name.sub(/Dartmouth /,"").truncate(40), group_path(group)
-      
       - else
+        - if params[:search].present?
+          .search-string
+            = "No search results found for"
+            %b
+              = "#{params[:search]}"
         - @categories.each_with_index do |x, i|
           - primary_category, sub_categories, groups = x
           - category_id = primary_category.gsub(" ","").gsub(/[^[:alnum:]]/, '')
@@ -45,8 +47,12 @@
                     - color = description_exists ? 'blue' : '#555'
                     %li
                       = link_to display_name(group), group_path(group), {:style => "color: #{color};"}
-
+                      
   - else
+    .search-string
+      = "Showing #{@groups.length} search results for"
+      %b
+        = "#{params[:search]}"
     %table.table-striped.search-results
       - @groups.each do |group|
         %tr

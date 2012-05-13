@@ -18,10 +18,19 @@ class GroupController < ApplicationController
     # search for group on dropdown
     elsif params[:search].present?
       @groups = Group.search(params[:search])
+      # Unique search results
       if @groups.length == 1
         redirect_to group_path(groups.first)
-      else
-        # do something
+      # No search results
+      elsif @groups.length == 0
+        @primary_categories = Category.primary_categories
+        @categories = @primary_categories.map {|cat| [cat, Category.sub_categories(cat)]}
+        @categories.map! do |primary_category, sub_categories|
+          sc = sub_categories.map {|sub_category| [sub_category, sub_category.groups.includes(:descriptions)]}
+          [primary_category, sc]
+        end
+        @categories.sort_by! {|p, c| p}
+      # Nothing special to do if many search results
       end
 
     # show one categories groups
