@@ -9,8 +9,10 @@ class GroupController < ApplicationController
     # search functionality
     if params[:group_id] && Group.exists?(params[:group_id])
       redirect_to group_path(Group.find(params[:group_id]))
-    elsif params[:search] && group = Group.search(params[:search])
-      redirect_to group_path(group)
+    elsif params[:search] && groups = Group.search(params[:search])
+      if groups.length == 1
+        redirect_to group_path(groups.first)
+      end
     end
     
     # get categories

@@ -44,7 +44,7 @@ class Group < ActiveRecord::Base
   end
 
   def self.search(name)
-    Group.where("name LIKE ?", "%#{name}%").first
+    Group.where("name LIKE ?", "%#{name}%")
   end
 
 end
