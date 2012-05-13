@@ -20,7 +20,7 @@ class GroupController < ApplicationController
       @groups = Group.search(params[:search])
       # Unique search results
       if @groups.length == 1
-        redirect_to group_path(groups.first)
+        redirect_to group_path(@groups.first)
       # No search results
       elsif @groups.length == 0
         @primary_categories = Category.primary_categories
