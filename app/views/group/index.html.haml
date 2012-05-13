@@ -47,11 +47,8 @@
   - else
     .search-result-found
       Showing
-      %b
-        = "#{@groups.length}"
-      search results for
-      %b
-        = "#{params[:search]}"
+      %b #{@groups.length} search results for
+      %b #{params[:search]}
     %table.table-striped.search-results
       - @groups.each do |group|
         %tr
