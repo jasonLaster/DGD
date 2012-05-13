@@ -10,5 +10,11 @@ module GroupHelper
   def display_name(group)
     group.name.truncate(40)
   end
+  
+  def add_color(group)
+    description_exists = group.descriptions.length > 0
+    color = description_exists ? 'blue' : '#555'
+    "color: #{color};"
+  end
 
 end

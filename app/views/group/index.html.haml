@@ -24,8 +24,7 @@
               %h5.category_sub_header= sub_category.sub_category
               %ul.groups_list
                 - groups.each do |group|
-                  %li
-                    = link_to group.name.sub(/Dartmouth /,"").truncate(40), group_path(group)
+                  %li= link_to group.name.sub(/Dartmouth /,"").truncate(40), group_path(group), {:style => add_color(group)}
       - else
         - if params[:search].present?
           .search-result-found
@@ -43,19 +42,13 @@
                 %h5.category_sub_header= sub_category.sub_category
                 %ul.groups_list
                   - groups.each do |group|
-                    - description_exists =  group.descriptions.length > 0
-                    - color = description_exists ? 'blue' : '#555'
-                    %li
-                      = link_to display_name(group), group_path(group), {:style => "color: #{color};"}
+                    %li= link_to display_name(group), group_path(group), {:style => add_color(group)}
 
   - else
     .search-result-found
       Showing
-      %b
-        = "#{@groups.length}"
-      search results for
-      %b
-        = "#{params[:search]}"
+      %b #{@groups.length} search results for
+      %b #{params[:search]}
     %table.table-striped.search-results
       - @groups.each do |group|
         %tr

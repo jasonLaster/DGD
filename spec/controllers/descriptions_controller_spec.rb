@@ -25,13 +25,18 @@ describe DescriptionController do
     it "shows the history of a group's descriptions" do
       group = FactoryGirl.create(:group)
       user = User.first
-      2.times {FactoryGirl.create(:description, :description => "lorem", :user => user)}
-      FactoryGirl.create(:description, :description => "<h2>lorem</h2>", :user => user)
+      
+      2.times {FactoryGirl.create(:description, :group => group, :description => "lorem", :user => user)} # normal description
+      FactoryGirl.create(:description, :group => group, :user => user) # empty description
+      FactoryGirl.create(:description, :group => group, :description => "<h2>lorem</h2>", :user => user) # description with html
       
       get :index, {:group_id => group.id }
       response.status.should be(200)
       response.body.should match group.name
+      assigns(:descriptions).length.should == 4
+      
     end
+    
         
   end
   
@@ -150,6 +155,8 @@ describe DescriptionController do
     end
     
   end
+  
+  
   
   
 end
