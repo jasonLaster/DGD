@@ -5,21 +5,32 @@ class GroupController < ApplicationController
 
 
   def index
-    
-    # search functionality
-    if params[:group_id] && Group.exists?(params[:group_id])
-      redirect_to group_path(Group.find(params[:group_id]))
-    elsif params[:search] && groups = Group.search(params[:search])
-      if groups.length == 1
-        redirect_to group_path(groups.first)
+        
+    # selected group on search dropdown
+    if params[:group_id].present?
+      group = Group.find(params[:group_id])
+      if group.present?
+        redirect_to group_path(group)
+      else
+        redirect_to group_index_path
       end
-    end
-    
-    # get categories
-    if params[:category].present?
+      
+    # search for group on dropdown
+    elsif params[:search].present?
+      @groups = Group.search(params[:search])
+      if @groups.length == 1
+        redirect_to group_path(groups.first)
+      else
+        # do something
+      end
+
+    # show one categories groups
+    elsif params[:category].present?
       @category = Category.find(params[:category])
       @sub_categories = Category.sub_categories(@category.primary_category)
       @sub_categories.map! {|sub_category| [sub_category, sub_category.groups.includes(:descriptions)]}
+      
+    # show the directory
     else
       @primary_categories = Category.primary_categories
       @categories = @primary_categories.map {|cat| [cat, Category.sub_categories(cat)]}
@@ -30,7 +41,7 @@ class GroupController < ApplicationController
       @categories.sort_by! {|p, c| p}
     end
     
-    # Leaderboard
+    # other stuff
     @leaderboard = Description.leaderboard
     
   end
