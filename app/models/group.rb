@@ -43,4 +43,8 @@ class Group < ActiveRecord::Base
     d_hash.values
   end
 
+  def self.search(name)
+    Group.where("name LIKE ?", "%#{name}%")
+  end
+
 end
