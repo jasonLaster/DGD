@@ -1,3 +1,9 @@
+.box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
 /* Autocomplete styles */
 ul.ui-autocomplete.ui-menu {
   background: rgba(255, 255, 255, 0.9);
@@ -252,4 +258,12 @@ body > .container {min-height:650px;}
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
 	/* For IE 5.5 - 7 */
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  .box_sizing;
 }

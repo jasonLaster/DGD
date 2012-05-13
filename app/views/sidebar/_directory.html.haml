@@ -18,8 +18,9 @@
     %h3.title Leaderboard
   .sidebar-content
     %ol.leaderboard
-      - @leaderboard[0..4].each do |descriptions|
-        %li= descriptions.first.user.name
+      - if @leaderboard
+        - @leaderboard[0..4].each do |descriptions|
+          %li= descriptions.first.user.name
 
 
 
