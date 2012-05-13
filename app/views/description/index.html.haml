@@ -7,13 +7,14 @@
 
 #history
   - @descriptions.each do |d|
-    %div{ :class => cycle("page stripe","page nostripe") }
-      %span.ui-icon.ui-icon-triangle-1-s{ :style => "float: right; margin-right: 14px; margin-top: 3px;"}
-      .header
-        %h4= d.created_at.strftime("#{d.user.first_name} -  %b %d at %I:%M%p ")
-      .body
-        = d.description.try(:html_safe)
-        %form{ :method => "post", :action => group_description_index_path }
-          = hidden_field_tag 'description', d.description.gsub("\r\n","\r")
-          %input.btn{ :type => "submit", :value => "Revert to this version"}
+    - if d
+      %div{ :class => cycle("page stripe","page nostripe") }
+        %span.ui-icon.ui-icon-triangle-1-s{ :style => "float: right; margin-right: 14px; margin-top: 3px;"}
+        .header
+          %h4= d.created_at.strftime("#{d.user.try(:first_name)} -  %b %d at %I:%M%p ") if d.user && d.created_at
+        .body
+          = d.description.try(:html_safe)
+          %form{ :method => "post", :action => group_description_index_path }
+            = hidden_field_tag 'description', d.description.try(:gsub,"\r\n","\r")
+            %input.btn{ :type => "submit", :value => "Revert to this version"}
 
