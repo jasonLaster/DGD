@@ -22,6 +22,6 @@ module ApplicationHelper
   end
   
   def navbar_class
-    "dev-mode" if ENV["RAILS_ENV"] == "development"
+    "dev-mode" if Rails.env.development?
   end
 end
