@@ -11,7 +11,7 @@
       %div{ :class => cycle("page stripe","page nostripe") }
         %span.ui-icon.ui-icon-triangle-1-s{ :style => "float: right; margin-right: 14px; margin-top: 3px;"}
         .header
-          %h4= d.created_at.strftime("#{d.user.try(:first_name)} -  %b %d at %I:%M%p ") if d.user && d.created_at
+          %h4= history_title(d)
         .body
           = d.description.try(:html_safe)
           %form{ :method => "post", :action => group_description_index_path }
