@@ -13,7 +13,7 @@ class GroupController < ApplicationController
       redirect_to group_path(group)
     end
     
-    
+    # get categories
     if params[:category].present?
       @category = Category.find(params[:category])
       @sub_categories = Category.sub_categories(@category.primary_category)
@@ -27,6 +27,10 @@ class GroupController < ApplicationController
       end
       @categories.sort_by! {|p, c| p}
     end
+    
+    # Leaderboard
+    @leaderboard = Description.leaderboard
+    
   end
   
   def show

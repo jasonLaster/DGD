@@ -22,7 +22,6 @@ module ApplicationHelper
   end
   
   def navbar_class
-    navclass = "navbar-inner"
-    navclass += " dev-mode" if ENV["RAILS_ENV"] == "development"
+    "dev-mode" if ENV["RAILS_ENV"] == "development"
   end
 end
