@@ -1,12 +1,13 @@
 module ApplicationHelper
 
   def page_title
+    base_title = "DGD#{Rails.env.development? ? " (dev)" : ""}"
     controller = params[:controller]
     action = params[:action]
 
-    if controller == "group" && action == "index" then "DGD - Directory"
-    elsif controller == "group" && action == "show" then "DGD - #{@group.name}"
-    else "DGD"
+    if controller == "group" && action == "index" then "#{base_title} - Directory"
+    elsif controller == "group" && action == "show" then "#{base_title} - #{@group.name}"
+    else "#{base_title}"
     end
     
   end
