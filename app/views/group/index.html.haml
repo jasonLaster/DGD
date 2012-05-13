@@ -28,8 +28,8 @@
                     = link_to group.name.sub(/Dartmouth /,"").truncate(40), group_path(group)
       - else
         - if params[:search].present?
-          .search-string
-            = "No search results found for"
+          .search-result-found
+            No search results found for
             %b
               = "#{params[:search]}"
         - @categories.each_with_index do |x, i|
@@ -47,10 +47,13 @@
                     - color = description_exists ? 'blue' : '#555'
                     %li
                       = link_to display_name(group), group_path(group), {:style => "color: #{color};"}
-                      
+
   - else
-    .search-string
-      = "Showing #{@groups.length} search results for"
+    .search-result-found
+      Showing
+      %b
+        = "#{@groups.length}"
+      search results for
       %b
         = "#{params[:search]}"
     %table.table-striped.search-results
