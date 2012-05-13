@@ -17,5 +17,11 @@ describe Group do
     groups.second.should == g1
   
   end
+
+  it "#search" do
+    g1 = FactoryGirl.create(:group, :name => "My Group")
+    g = Group.search("My Group")
+    g.should == g1
+  end
   
 end
