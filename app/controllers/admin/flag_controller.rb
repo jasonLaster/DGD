@@ -1,5 +1,7 @@
 class Admin::FlagController < AdminController
   def index
-    @flags = Flag.page_table.second
+    if Flag.page_table.present?
+      @flags = Flag.page_table.second
+    end
   end
 end
