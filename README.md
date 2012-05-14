@@ -9,8 +9,8 @@ See the site in action in the real world:
 * <http://haplesshero13-dgd-dev.herokuapp.com>
 
 ### Authors
-Alexander Judson, founder and manager
-Jason Laster, lead developer
-Matt McNierney, lead developer
-Avery Yen, developer
-Diana Pechter, project assistant
+* Alexander Judson, founder and manager
+* Jason Laster, lead developer
+* Matt McNierney, lead developer
+* Avery Yen, developer
+* Diana Pechter, project assistant
