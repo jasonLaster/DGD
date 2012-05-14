@@ -1,4 +1,5 @@
 %tr
-  %td= link_to group(flag).name, group_path(group(flag))
-  %td= truncate(flag.description.description, :length => 60)
-  %td= flag.description.user.name
+  %td= link_to flag[:group_name], group_path(flag[:group])
+  %td= truncate(flag[:description].description, :length => 60)
+  %td= flag[:flaggers]
+  %td= flag[:flag_count]

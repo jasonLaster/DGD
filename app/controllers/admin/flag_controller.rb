@@ -1,5 +1,5 @@
 class Admin::FlagController < AdminController
   def index
-    @flags = Flag.by_group
+    @flags = Flag.by_description
   end
 end
