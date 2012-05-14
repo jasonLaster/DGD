@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   
   
   def first_name
-    name.split(" ").first
+    name.present? ? name.split(" ").first : ""
   end
   
   def last_name
