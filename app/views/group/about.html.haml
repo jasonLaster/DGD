@@ -6,45 +6,61 @@
     %span{ :style => "color: #38672F; padding: 0px; margin-right: -23px;" }D
     %span{ :style => "margin-bottom: 100px;"}
       GD
-
-%h3 What is DGD?
 %p
-  The Dartmouth Group Directory (DGD for short) is an initiative by Student Assembly to create a centralized location where
-  students can search for and learn about the various groups at Dartmouth. Though it's still in it's early stages,
+  The Dartmouth Group Directory (DGD) is an initiative by Student Assembly to create a centralized web service where everyone can search for and
+  %b read and write about student groups at Dartmouth.
+  Though it's still in its early stages,
   %span= @number_of_groups_with_pages
-  groups already have pages on DGD. We chose the name DGD for a reason: you can think of DGD as being the
-  equivalent of the DND but for organizations, clubs, sports, fraternities, sororities, and any other official or
-  non-official grouping of Dartmouth students. For now, at least — we have a lot still up our sleeves.
-%h3 How do I use DGD?
+  groups already have pages on DGD. DGD is the DND for organizations, clubs, sports, fraternities, sororities,
+  and any other official or non-official grouping of Dartmouth students.
+%h3 See for Yourself!
+<iframe width="640" height="360" src="http://www.youtube.com/embed/t77Byv5E8ew?rel=0" frameborder="0" allowfullscreen></iframe>
+%h3 Searching for Groups
 %p
-  Using the Dartmouth Group Directory is as simple as typing in the name of a group in the search box above and hitting
-  enter. Watch in amazement as the group you were searching for comes up in the autocomplete results, and visit their
-  page to see what they have to say for themselves. A good page should include some info about what the club does and
-  how to get in contact with members of the club.
-%h3 But there's a group that I know a lot about doesn't have a page...
+  %b Type in the name of a group
+  in the search box above. Either look in the autocomplete menu
+  and click on the group you want to find, or simply type in a search phrase and we'll show you matching results.
+%h3 Editing Group Pages
 %p
-  That's great, because all of the content on DGD is community-driven. Just log in using your usual Dartmouth username
-  and password, and you'll instantly be able to edit any page on the site. For a site like this to work, it needs a lot
-  of great content, and what better way to get all of it than to outsource it to the rest of the school. That being said,
-  we want the site to be filled with quality content. So we've taken a couple of precautions. First, your name is linked
-  to any content you create — look at any group's page, and you'll see at the bottom when it was last modified and who
-  made the changes. There's also a fairly robust backend to the site that allows group execs and site administrators to
-  keep track of what changes are being made and keep tabs on the quality of a given page. Student who put in a lot of
-  effort curating content will get recognized on the leaderboards, and groups with high quality pages will get featured
-  on the front page.
+  %b Everyone in the Dartmouth community can edit any group's page.
+  Ever heard of Wikipedia? We think it's a pretty good site, too. DGD is a wiki, like Wikipedia.
+  That is because we believe that opening editing to all members of the community will produce better results.
+%h3 Good Content
 %p
-  We're striving for the best content possible, so we reserve the right to ban any user from editing pages as well as
-  lock down certain groups' pages from being edited. If you're banned, you can still view all of the great content on
-  the site, you just won't be able to help us make the site even better.
-%h3 I'm a group exec and I don't like my group's name/category/subcategory on DGD
+  %b Write good content.
+  We want the site to be filled with useful, up-to-date information. If you see important
+  information missing from a group's page, add it! If you see a blank page for a group you
+  know about, create a page for it! If you see out-of-date information, update it!
+  This site revolves around you, the contributor.
+  If you make lots of great edits, you might make it to the
+  = link_to "leaderboard!", leaderboard_group_index_path
+
+%h3 Bad Content
 %p
-  Contact Jason Laster or Matt McNierney to get this changed, and if you have a legitimate reason to want to change
-  something about your group that's not just the content on your page, we'll change it for you as soon as possible.
-%h3 I'm a really great user interface designer, and DGD could look a lot better
+  You hate spam. So do we. Hence,
+  %b your name is linked to any content you create.
+  Look at any group's page, and you'll see at the bottom when it was last modified and who made the changes.
+  If you see some spam, "Flag as Inappropriate" the page in question, and we will hear about it.
 %p
-  Please come work with us on the site! We know DGD is kind of bare-bones right now, so we'd love your help. Get in
-  touch with the site's creators, Jason Laster or Matt McNierney.
-%h3 I'm a web developer and I have a great idea for a new feature for DGD
+  %b We reserve the right to ban a user from editing pages,
+  as well as lock a group's page from being edited.
+  If you're banned, you can still view the site, you just can't edit it.
+
+%h3 Reporting Problems with DGD
 %p
-  Fork the the project <a href="https://github.com/jasonLaster/DGD">on Github</a> and make a pull request, and if
-  we like what you've done, we'll be happy to merge it. The project is released under the MIT License.
+  If something doesn't work right, you want to change your group's name/category/subcategory on DGD,
+  or you want to request a feature,
+  %b feel free to contact us!
+  We'll fix it for you as soon as possible.
+%h3 Developers and Designers
+%p
+  We are
+  %b actively developing
+  (multiple commits per day) the site you see here. If you are interested in
+  developing the web application or designing the site's interface, we'd like to hear from you.
+  This site is built with Ruby on Rails, LESS, HAML, and CoffeeScript. If you speak any of these languages,
+  fork the the project <a href="https://github.com/jasonLaster/DGD">on Github</a> and make a pull request, and
+  if we like what you've done, we'll be happy to merge it.
+%h3 Who We Are
+%p
+  Dartmouth Group Directory is sponsored by Dartmouth Student Assembly. The DGD project was established and initiated by Alex Judson '14. The DGD online platform was created and designed by Jason Laster '11 and Matt McNierney '14. DGD is managed by Alex, Jason, and Matt. They are supported by developer Avery Yen '13 and project assistant/site contributor Diana Pechter '12.
