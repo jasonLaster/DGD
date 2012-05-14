@@ -95,11 +95,13 @@ class GroupController < ApplicationController
   
   # GET /about
   def about
+    @leaderboard = Description.leaderboard
     @number_of_groups_with_pages = Description.total_count
   end
   
   # GET /markdown
   def markdown
+    @leaderboard = Description.leaderboard
   end
 
   private
