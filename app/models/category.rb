@@ -28,7 +28,7 @@ class Category < ActiveRecord::Base
   
   def num_pages
     groups = self.groups.includes(:descriptions)
-    groups.map {|g| g.descriptions.length}.sum
+    groups.map {|g| g.descriptions.length > 0 ? 1 : 0}.sum
   end
   
   def self.num_added_pages
