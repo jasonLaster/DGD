@@ -24,7 +24,7 @@ class Description < ActiveRecord::Base
   end
   
   def self.total_count
-    Description.group(:group_id).length
+    Description.group(:group_id).count.keys.length
   end
 
   # show the most recent page for each group.
