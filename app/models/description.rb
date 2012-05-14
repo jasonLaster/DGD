@@ -23,6 +23,9 @@ class Description < ActiveRecord::Base
     Redcarpet::Markdown.new(Redcarpet::Render::HTML,:autolink => true, :space_after_headers => true).render(text).html_safe
   end
   
+  def self.total_count
+    Description.group(:group_id).length
+  end
 
   # show the most recent page for each group.
   def self.most_recent

@@ -95,7 +95,7 @@ class GroupController < ApplicationController
   
   # GET /about
   def about
-    @number_of_groups_with_pages = Group.groups_with_pages.size
+    @number_of_groups_with_pages = Description.total_count
   end
   
   # GET /markdown

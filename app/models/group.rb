@@ -37,12 +37,6 @@ class Group < ActiveRecord::Base
     Group.find(Description.find(id).group_id)
   end
   
-  def self.groups_with_pages
-    d_hash = {}
-    Description.all.each { |d| d_hash[d.group_id] = d }
-    d_hash.values
-  end
-
   def self.search(name)
     like = Rails.env.production? ? "ILIKE" : "LIKE"
     Group.where("name #{like} ?", "%#{name}%")
