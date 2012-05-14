@@ -1,5 +1,4 @@
 %tr
-  %td= link_to flag[0], group_path(Group.search(flag[0]).first)
-  %td.page{:style => "position:relative", "rel" => "popover", "data-original-title" => flag[0]}
-    = truncate(flag[1], :length => 60)
-  %td= flag[2]
+  %td= link_to group(flag).name, group_path(group(flag))
+  %td= truncate(flag.description.description, :length => 60)
+  %td= flag.description.user.name
