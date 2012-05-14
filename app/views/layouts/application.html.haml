@@ -20,15 +20,14 @@
         = yield :sidebar
 
   #footer
-    %ul
-      %li
-        = link_to "About", about_path
-      %li
-        <a href="https://github.com/jasonLaster/DGD/blob/master/LICENSE">License</a>
-      %li
-        <a href="https://github.com/jasonLaster/DGD">Source</a>
-    %p
-      ©2012 Dartmouth Group Directory
+    .container
+      .row
+        %ul.nav.nav-pills.pull-left
+          %li= link_to "About", about_path
+          %li= link_to "Licence", "https://github.com/jasonLaster/DGD/blob/master/LICENSE"
+          %li= link_to "Source", "https://github.com/jasonLaster/DGD"
+        %span.pull-right{:style=>"padding-top:20px"} ©2012 Dartmouth Group Directory
+    
     = debug(params) if Rails.env.development?
 
 
