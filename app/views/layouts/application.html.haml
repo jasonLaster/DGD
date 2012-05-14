@@ -20,6 +20,15 @@
         = yield :sidebar
 
   #footer
+    %ul
+      %li
+        = link_to "About", about_path
+      %li
+        <a href="https://github.com/jasonLaster/DGD/blob/master/LICENSE">License</a>
+      %li
+        <a href="https://github.com/jasonLaster/DGD">Source</a>
+    %p
+      ©2012 Jason Laster, Matthew McNierney, Avery Yen, Dartmouth Student Assembly
     = debug(params) if Rails.env.development?
 
 
