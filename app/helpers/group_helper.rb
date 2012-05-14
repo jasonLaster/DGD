@@ -1,9 +1,9 @@
 module GroupHelper
 
   def flag_text 
-    if @user_flag.present? then "Unflag"
-    elsif @flag_count > 0 then "Flag (#{@flag_count})"
-    else "Flag"
+    if @user_flag.present? then "Unflag Content"
+    elsif @flag_count > 0 then "Flag as Inappropriate (#{@flag_count})"
+    else "Flag as Inappropriate"
     end
   end
   

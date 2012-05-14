@@ -46,8 +46,10 @@
 
   - else
     .search-result-found
+      / Only the variables (length and params) should be bolded below
       Showing
-      %b #{@groups.length} search results for
+      %b #{@groups.length}
+      search results for
       %b #{params[:search]}
     %table.table-striped.search-results
       - @groups.each do |group|

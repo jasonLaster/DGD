@@ -2,38 +2,29 @@ class Flag < ActiveRecord::Base
   belongs_to :user
   belongs_to :description
   
-  def self.page_table_for_group(group)
-    sql = 
-      "
-      SELECT
-       g.name as 'group',
-       d.description as description, 
-       count(*) as num_flags
-      FROM flags f
-      Left join descriptions d on d.id = f.description_id
-      Left join groups g on g.id = d.group_id
-      WHERE d.group_id= ?
-      group by f.description_id
-      order by d.group_id
-      "
-    q = [sql, group.id]
-    Sql.execute(q)
+  
+  def self.flags
+    Flag.includes(:description =>:group).includes(:user)
   end
   
-  def self.page_table
-    sql = 
-      "
-      SELECT
-       g.name as 'group',
-       d.description as description, 
-       count(*) as num_flags
-      FROM flags f
-      Left join descriptions d on d.id = f.description_id
-      Left join groups g on g.id = d.group_id
-      group by f.description_id
-      order by d.group_id
-      "
-    Sql.execute(sql)
+  def self.by_description
+    flags = Flag.flags.order("groups.name")
+    
+    flags.group_by(&:description).map do |description, flags|
+      description = flags.first.description
+      flaggers = flags.map {|f| f.user.name}.join("<br />").html_safe
+      {
+        :group => description.group,
+        :group_name => description.group.name,
+        :description => description,
+        :flaggers => flaggers,
+        :flag_count => flags.length
+      }
+    end
+  end
+  
+  def self.group(group)
+    Flag.by_group.where("groups.id is ?", group.id)
   end
   
 end

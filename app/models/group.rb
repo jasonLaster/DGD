@@ -44,7 +44,7 @@ class Group < ActiveRecord::Base
   end
 
   def self.search(name)
-    like = Rails.env.development? ? "LIKE" : "ILIKE"
+    like = Rails.env.production? ? "ILIKE" : "LIKE"
     Group.where("name #{like} ?", "%#{name}%")
   end
 
