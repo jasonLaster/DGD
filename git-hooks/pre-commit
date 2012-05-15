@@ -1,4 +1,4 @@
-let build_version=`date -u +"%Y%m%d+%H%M"`
+build_version="`date -u +"%Y%m%d+%H%M"`"
 version_file="config/initializers/version.rb"
 echo "BUILD_NUMBER = \"$build_version\"" > $version_file
 git add $version_file
