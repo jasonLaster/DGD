@@ -1,5 +1,4 @@
-let build_version=`git rev-list --all | wc -l | sed "s/[ \t]//g"`+1
+let build_version=`date -u +"%Y%m%d+%H%M"`
 version_file="config/initializers/version.rb"
-echo "BUILD_NUMBER = $build_version" > $version_file
+echo "BUILD_NUMBER = \"$build_version\"" > $version_file
 git add $version_file
-

@@ -1,2 +1,1 @@
-echo "*** This is commit number `git rev-list --all | wc -l | sed "s/[ \t]//g"`."
-
+echo "*** This is commit number `date -u +"%Y%m%d+%H%M"`."
