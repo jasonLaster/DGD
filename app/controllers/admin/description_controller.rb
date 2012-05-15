@@ -1,6 +1,11 @@
 class Admin::DescriptionController < AdminController
   def index
-    @descriptions = Description.most_recent.chronological
+    
+    if params[:category].present?
+      @descriptions = Category.primary_category_pages(params[:category])
+    else
+      @descriptions = Description.most_recent.chronological
+    end
   end
   
   def update

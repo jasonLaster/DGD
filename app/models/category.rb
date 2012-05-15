@@ -26,6 +26,7 @@ class Category < ActiveRecord::Base
   end
   
   
+  
   def num_pages
     groups = self.groups.includes(:descriptions)
     groups.map {|g| g.descriptions.length > 0 ? 1 : 0}.sum
@@ -38,5 +39,11 @@ class Category < ActiveRecord::Base
       {category => num_descriptions}
     end
   end
+
+  def self.primary_category_pages(primary_category)
+    @categories = Category.sub_categories(primary_category)
+    @categories.map(&:groups).flatten.map(&:most_recent_page).reject(&:nil?)
+  end
+
 
 end
