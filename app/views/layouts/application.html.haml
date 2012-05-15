@@ -24,9 +24,11 @@
       .row
         %ul.nav.nav-pills.pull-left
           %li= link_to "About", about_path
-          %li= link_to "Licence", "https://github.com/jasonLaster/DGD/blob/master/LICENSE"
+          %li= link_to "License", "https://github.com/jasonLaster/DGD/blob/master/LICENSE"
           %li= link_to "Source", "https://github.com/jasonLaster/DGD"
         %span.pull-right{:style=>"padding-top:10px"} ©2012 Dartmouth Group Directory
+      .row
+        %span.pull-right.build-number= "Build number #{BUILD_NUMBER}"
     
     = debug(params) if Rails.env.development?
 
