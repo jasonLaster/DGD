@@ -25,4 +25,8 @@ module ApplicationHelper
   def navbar_class
     "dev-mode" if Rails.env.development?
   end
+
+  def version_number
+    File.open("#{Rails.root.to_s}/VERSION").readline.strip if File.file?("#{Rails.root.to_s}/VERSION")
+  end
 end
