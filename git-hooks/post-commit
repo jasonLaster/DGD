@@ -1,0 +1,2 @@
+echo "*** This is commit number `git rev-list --all | wc -l | sed "s/[ \t]//g"`."
+
