@@ -72,6 +72,5 @@ DGD::Application.routes.draw do
   
   # Misc
   match "/about" => "group#about", :as => :about
-  match "/markdown" => "group#markdown", :as => :markdown
 
 end
