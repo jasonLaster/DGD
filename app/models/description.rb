@@ -14,15 +14,6 @@ class Description < ActiveRecord::Base
     File.open("public/empty_group_page.txt").read
   end
   
-  def markdown
-    return if self.description.nil?
-    Redcarpet::Markdown.new(Redcarpet::Render::HTML,:autolink => true, :space_after_headers => true).render(self.description).html_safe
-  end
-  
-  def self.markdown(text)
-    Redcarpet::Markdown.new(Redcarpet::Render::HTML,:autolink => true, :space_after_headers => true).render(text).html_safe
-  end
-  
   def self.total_count
     Description.group(:group_id).count.keys.length
   end
@@ -34,6 +25,17 @@ class Description < ActiveRecord::Base
   
   def self.leaderboard
     Description.most_recent.includes(:user).group_by(&:user_id).values.sort_by(&:length).reverse
+  end
+  
+  
+  # TODO: KILL METHODS
+  def markdown
+    return if self.description.nil?
+    Redcarpet::Markdown.new(Redcarpet::Render::HTML,:autolink => true, :space_after_headers => true).render(self.description).html_safe
+  end
+  
+  def self.markdown(text)
+    Redcarpet::Markdown.new(Redcarpet::Render::HTML,:autolink => true, :space_after_headers => true).render(text).html_safe
   end
   
 end

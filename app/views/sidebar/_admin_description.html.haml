@@ -1,0 +1,22 @@
+= render :partial => "sidebar/section/admin_toc"
+.sidebar-info-box
+  .sidebar-header
+    %h3.title Categories
+  .sidebar-content
+    %ul
+      - Category.primary_categories.sort.each do |c|
+        %li= link_to c, admin_description_index_path(:primary_category => c)
+      %li= link_to "All", admin_description_index_path
+
+- if @sub_categories.present?
+  .sidebar-info-box
+    .sidebar-header
+      %h3.title Sub-Categories
+    .sidebar-content
+      %ul
+        - @sub_categories.each do |c|
+          -if current_subcategory?(c)
+            %li= c.sub_category
+          - else
+            %li= link_to c.sub_category, admin_description_index_path(:sub_category => c)
+        %li= link_to "All", admin_description_index_path
