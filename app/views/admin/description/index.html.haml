@@ -6,6 +6,12 @@
     .title
       %h1 Pages
 
+
+  - if @type == :primary_category
+    %h3= @primary_category
+  - elsif @type == :sub_category
+    %h3= @sub_category.category
+
   .pages-table
     = form_tag admin_description_index_path, :method => :post do
       %table#admin-table.table.table-striped

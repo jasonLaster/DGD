@@ -1,9 +1,17 @@
 class Admin::DescriptionController < AdminController
   def index
-    
-    if params[:category].present?
-      @descriptions = Category.primary_category_pages(params[:category])
+    if params[:primary_category].present?
+      @type = :primary_category
+      @primary_category = params[:primary_category]
+      @descriptions = Category.primary_category_pages(@primary_category)
+      @sub_categories = Category.sub_categories(@primary_category)
+    elsif params[:sub_category].present?
+      @type = :sub_category
+      @sub_category = Category.find(params[:sub_category])
+      @sub_categories = @sub_category.sub_categories      
+      @descriptions = @sub_category.pages
     else
+      @type = :all
       @descriptions = Description.most_recent.chronological
     end
   end
