@@ -23,5 +23,5 @@
       .modal-header
         %button.close{ "data-dismiss"=> "modal"}×
         %h3= description.group.name
-      .modal-body= description.description.html_safe
+      .modal-body= description.description.try(:html_safe)
       .modal-footer
