@@ -10,14 +10,5 @@ describe Category do
     end
   end
   
-  it "#primary_category"
-  it "#sub_category"
-  it "#groups"
-  it "#primary_category_pages"
-  it "#primary_categories"
-  it "#sub_categories"
-  it "#num_pages"
-  it "#num_added_pages"
-  
   
 end
