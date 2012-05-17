@@ -38,6 +38,7 @@ group :development do
   gem 'sqlite3'
   gem 'haml-rails'
   gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'newrelic_rpm'
 end
 
 group :production do
