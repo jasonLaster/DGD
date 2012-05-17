@@ -16,5 +16,5 @@
           = d.description.try(:html_safe)
           %form{ :method => "post", :action => group_description_index_path }
             = hidden_field_tag 'description', d.description.try(:gsub,"\r\n","\r")
-            %input.btn{ :type => "submit", :value => "Revert to this version"}
+/            %input.btn{ :type => "submit", :value => "Revert to this version"}
 

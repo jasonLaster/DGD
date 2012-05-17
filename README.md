@@ -6,7 +6,7 @@ See the site in action in the real world:
 <http://dgd.dartmouth.edu>
 
 ### Development/Staging Servers
-* <http://haplesshero13-dgd-dev.herokuapp.com>
+* <http://dgd-staging.herokuapp.com>
 
 ### Authors
 * Alexander Judson, founder and manager

@@ -1,5 +1,5 @@
 task :import_spreadsheet_data_into_db  => :environment do
-  doc = File.open("public/groups_spreadsheet.txt").read
+  doc = File.open("public/OTHER/groups_spreadsheet.txt").read
   list = doc.split("\n")
   c = nil
   list.each do |l|
