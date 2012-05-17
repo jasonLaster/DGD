@@ -23,7 +23,7 @@ common: &default_settings
   # it from running with Rake or the console.  Set to false to
   # completely turn the agent off regardless of the other settings.
   # Valid values are true, false and auto.
-agent_enabled: true
+  agent_enabled: true
   
   # Application Name
   # Set this to be the name of your application as you'd like it show
@@ -33,7 +33,7 @@ agent_enabled: true
   # "All UI" then specify a semicolon-separated list of up to three
   # distinct names.  If you comment this out, it defaults to the 
   # capitalized RAILS_ENV (i.e., Production, Staging, etc)
-  app_name: My Application
+  app_name: "DGD"
 
   # When "true", the agent collects performance data about your 
   # application and reports this data to the New Relic service at
