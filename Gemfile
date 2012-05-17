@@ -11,6 +11,7 @@ gem 'nokogiri'
 gem 'exceptional'
 gem 'bootstrap-wysihtml5-rails'
 gem 'formtastic'
+gem 'newrelic_rpm'
 
 group :assets do
   gem 'sass-rails', "~> 3.1.0.rc"
@@ -43,6 +44,5 @@ end
 group :production do
   # gem 'thin'
   # gem 'execjs'
-  gem 'newrelic_rpm'
   gem 'pg'
 end
