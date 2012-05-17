@@ -1,7 +1,0 @@
-Gmail:
-dartmouth.group.directory
-dartmouthgroupdirectory
-
-MailCHimp
-DGDDartmouth
-DartmouthGroupDirectory
