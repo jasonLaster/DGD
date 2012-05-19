@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
   def blocked_user
     if @current_user.blocked
     # if logged_in_user.present? && logged_in_user.blocked
-    #   redirect_to root_path
-    # end
+      redirect_to root_path
+    end
   end
   
   def group_exec
