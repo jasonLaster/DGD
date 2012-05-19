@@ -14,7 +14,4 @@
           %h4= history_title(d)
         .body
           = d.description.try(:html_safe)
-          %form{ :method => "post", :action => group_description_index_path }
-            = hidden_field_tag 'description', d.description.try(:gsub,"\r\n","\r")
-            %input.btn{ :type => "submit", :value => "Revert to this version"}
-
+          = button_to "Revert to this version", new_group_description_path(@group, d), {:confirm => "Really revert?", :class=>"btn", :method => 'get'}

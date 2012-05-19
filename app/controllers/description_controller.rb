@@ -17,9 +17,8 @@ class DescriptionController < ApplicationController
       @description.description.try {|d| d.gsub("\r\n","\r") }
       @new_description.description = @description.description
     end
-    
   end
-  
+
   def show
   end
   
