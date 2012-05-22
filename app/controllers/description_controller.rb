@@ -17,6 +17,11 @@ class DescriptionController < ApplicationController
       @description.description.try {|d| d.gsub("\r\n","\r") }
       @new_description.description = @description.description
     end
+
+    # Prevents sneaky people from editing locked pages
+    if @group.locked
+      redirect_to group_path(@group)
+    end
     
   end
   
