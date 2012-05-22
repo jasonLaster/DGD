@@ -15,3 +15,4 @@
         .body
           = d.description.try(:html_safe)
           = button_to "Revert to this version", new_group_description_path(@group, d), {:confirm => "Really revert?", :class=>"btn", :method => 'get'}
+          

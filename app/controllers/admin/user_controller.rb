@@ -3,6 +3,8 @@ class Admin::UserController < AdminController
     @users = 
       if params[:admin]
         User.where(:admin => true)
+      elsif params[:blocked]
+        User.where(:blocked => true)
       else
         User.all
       end

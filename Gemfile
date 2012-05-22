@@ -12,6 +12,7 @@ gem 'exceptional'
 gem 'bootstrap-wysihtml5-rails'
 gem 'formtastic'
 gem 'newrelic_rpm'
+gem 'dalli'
 
 group :assets do
   gem 'sass-rails', "~> 3.1.0.rc"

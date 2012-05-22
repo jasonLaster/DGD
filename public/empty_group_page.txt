@@ -1,0 +1,5 @@
+<div class="alert alert-error">
+  <h3>:(</h3>
+  <p><b> 
+  Please create this page if you're affiliated with this group. We're looking for a description, list of current officers, meeting times, locations, and upcoming events.</b></p>
+</div>

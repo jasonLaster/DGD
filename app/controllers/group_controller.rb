@@ -56,7 +56,7 @@ class GroupController < ApplicationController
   end
   
   def show
-    @description = @group.descriptions.order("created_at DESC").first
+    @description = @group.most_recent_page
     @user_flag = Flag.find_by_description_id_and_user_id(@description, @current_user)
     @flag_count = Flag.find_all_by_description_id(@description).count
     @group_exec = GroupExec.find_by_group_id_and_user_id(@group, @current_user)
