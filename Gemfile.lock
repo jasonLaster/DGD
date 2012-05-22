@@ -53,6 +53,7 @@ GEM
     coffee-script-source (1.3.0)
     columnize (0.3.6)
     commonjs (0.2.5)
+    dalli (2.0.5)
     diff-lcs (1.1.3)
     erubis (2.7.0)
     exceptional (2.0.32)
@@ -267,6 +268,7 @@ DEPENDENCIES
   bootstrap-wysihtml5-rails
   capybara
   coffee-script
+  dalli
   exceptional
   factory_girl_rails
   formtastic

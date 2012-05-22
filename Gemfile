@@ -11,6 +11,7 @@ gem 'nokogiri'
 gem 'exceptional'
 gem 'bootstrap-wysihtml5-rails'
 gem 'formtastic'
+gem 'dalli'
 
 group :assets do
   gem 'sass-rails', "~> 3.1.0.rc"
