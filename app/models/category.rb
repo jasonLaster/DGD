@@ -27,7 +27,7 @@ class Category < ActiveRecord::Base
   
   # returns the most recent pages for all of the groups in a category
   def pages
-    self.groups.map(&:most_recent_page).reject(&:nil?)
+    self.groups.map(&:most_recent_page).reject(&:nil?).sort_by {|d| -d.created_at.to_i}
   end
       
   #####################################################
@@ -55,7 +55,8 @@ class Category < ActiveRecord::Base
   # returns the pages for the groups in that category
   def self.primary_category_pages(primary_category)
     categories = Category.sub_categories(primary_category)
-    categories.map(&:groups).flatten.map(&:most_recent_page).reject(&:nil?)
+    groups = categories.map(&:groups).flatten
+    groups.map(&:most_recent_page).reject(&:nil?).sort_by {|d| -d.created_at.to_i}
   end
     
   # gets a primary_category
