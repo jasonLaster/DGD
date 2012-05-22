@@ -9,8 +9,7 @@
         %tr
           %th.yellow Contributer
           %th.green{:width => "150px"} Count
-      - @leaderboard.each do |pages|
-        - if pages.first
-          %tr
-            %td= pages.first.user.name 
-            %td= pages.length
+      - @leaderboard.each do |name, contributions|
+        %tr
+          %td= name
+          %td= contributions

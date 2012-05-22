@@ -19,8 +19,8 @@
   .sidebar-content
     %ol.leaderboard
       - if @leaderboard
-        - @leaderboard[0..4].each do |descriptions|
-          %li= descriptions.first.user.name
+        - @leaderboard[0..4].each do |name, count|
+          %li= name
     %p= link_to "More", leaderboard_group_index_path
 
 

@@ -24,7 +24,10 @@ class Description < ActiveRecord::Base
   end
   
   def self.leaderboard
-    Description.most_recent.includes(:user).group_by(&:user_id).values.sort_by(&:length).reverse
+    authors = Group.joins(:descriptions).all.map {|group| [group.author] + group.contributors}.flatten
+    contributors = authors.reject(&:nil?).group_by {|u| u }
+    contributor_counts = contributors.map {|k,v| [k, v.length]}
+    contributor_counts.sort_by {|name, count| -count}
   end
   
   
