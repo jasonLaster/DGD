@@ -1,6 +1,6 @@
 %tr
   - name = "users[#{user.id}]"
-  = fields_for name, user do |f|  
+  = fields_for name, user do |f|
     %td
       = hidden_field name, :admin
       = check_box_tag "#{name}[admin]", "1", user.admin
@@ -9,4 +9,4 @@
       = check_box_tag "#{name}[blocked]", "1", user.blocked
     %td= text_field_tag "#{name}[name]", user.name
     %td= text_field_tag "#{name}[email]", user.email
-  
+

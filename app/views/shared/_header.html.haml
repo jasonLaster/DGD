@@ -7,7 +7,7 @@
           %li
             = link_to "Directory", group_index_path
         %ul.navbar-search.pull-left
-          = form_tag(group_index_path, :method => "get", :style => "margin-bottom:0px;") do 
+          = form_tag(group_index_path, :method => "get", :style => "margin-bottom:0px;") do
             = hidden_field_tag 'group_id'
             = text_field_tag 'search', nil, :placeholder => "Search", :class => "search-query span2"
         %ul.nav.pull-right

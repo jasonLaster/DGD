@@ -1,6 +1,6 @@
 %tr
   - ge = "group_execs[#{group_exec.id}]"
-  = fields_for ge, group_exec do |f|  
+  = fields_for ge, group_exec do |f|
     %td
       / = hidden_field ge, :confirmed
       / = check_box_tag "#{ge}[confirmed]", "1", group_exec.confirmed
@@ -9,4 +9,4 @@
       =  group_exec.user.blocked ? "√" : ""
     %td=  group_exec.user.name
     %td=  group_exec.group.name
-  
+

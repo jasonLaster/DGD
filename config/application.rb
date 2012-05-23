@@ -33,7 +33,7 @@ module DGD
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
-    
+
     # Set time zone
     config.time_zone = "Eastern Time (US & Canada)"
 

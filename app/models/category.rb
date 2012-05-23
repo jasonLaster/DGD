@@ -1,7 +1,7 @@
 class Category < ActiveRecord::Base
 
   validates :category, :presence => true, :uniqueness => true
-  
+
   has_many :groups
 
   #####################################################
@@ -12,29 +12,29 @@ class Category < ActiveRecord::Base
   def primary_category
     self.category.split("/").first
   end
-  
+
   # returns the sub_category
   def sub_category
     parts = self.category.split("/")
     parts.length == 2 ? parts.second : self.category
   end
-  
+
   # returns sibling sub_categories
   def sub_categories
     primary_category = self.primary_category
     Category.where("category LIKE ?", "#{primary_category}%")
   end
-  
+
   # returns the most recent pages for all of the groups in a category
   def pages
     self.groups.map(&:most_recent_page).reject(&:nil?).sort_by {|d| -d.created_at.to_i}
   end
-      
+
   #####################################################
   # SUB-CATEGORIES ####################################
   #####################################################
 
-  # gets a sub_category 
+  # gets a sub_category
   # returns the groups in that category
   def self.groups(sub_category)
     Group.includes(:category).where("categories.category LIKE ?", "%#{sub_category}%")
@@ -58,13 +58,13 @@ class Category < ActiveRecord::Base
     groups = categories.map(&:groups).flatten
     groups.map(&:most_recent_page).reject(&:nil?).sort_by {|d| -d.created_at.to_i}
   end
-    
+
   # gets a primary_category
   # returns sub_categories
   def self.sub_categories(primary_category)
     Category.where("category LIKE ?", "#{primary_category}%")
   end
-  
+
 
   #####################################################
   # STATISTICS ########################################
@@ -75,7 +75,7 @@ class Category < ActiveRecord::Base
     groups = self.groups.includes(:descriptions)
     groups.map {|g| g.descriptions.length > 0 ? 1 : 0}.sum
   end
-  
+
   # calculate the number of pages for all cateogries
   def self.num_added_pages
     descriptions = Description.includes(:group => :category)

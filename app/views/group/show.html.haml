@@ -5,14 +5,14 @@
   .title
     - size = @group.name.length < 20 ?  75 : 45
     %h1{:style => "font-size:#{size}px; line-height:#{size+10}px;"}= @group.name
-  
+
   #description
     .body
       - if current_user.present? || @description.description == Description.default_description
         = @description.description.try(:html_safe)
       - else
         = @clean_description
-        
+
     .info
     - if @description.description != Description.default_description
       - if current_user.present?
@@ -27,7 +27,7 @@
         Last updated on #{@description.created_at.strftime("%b %d")} by #{@description.user.try(:name)} <br />
         - if @group.contributors.length > 0
           contributors: #{@group.contributors.join(", ")}
-      
+
     - elsif current_user.present?
       .actions.form
         %a{:href => new_group_description_path(@group, @description)}

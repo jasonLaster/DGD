@@ -6,7 +6,7 @@
   #group
     .title
       %h1= "Group Execs"
-  
+
   .users-table
     = form_tag admin_user_index_path, :method => :post do
       %table#admin-table.table-striped
@@ -16,7 +16,7 @@
           %th.purple Name
           %th.green Group
         = render :partial => "group_exec", :collection => @group_execs
-      
+
       .actions.form
         = submit_tag "Submit", :class => "btn primary"
-    
+

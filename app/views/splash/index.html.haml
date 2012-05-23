@@ -13,7 +13,7 @@
 
     %div{ :style => "margin-bottom: 20px; font-size:15px;" } Dartmouth Group Directory
     .search
-      = form_tag(group_index_path, :method => "get") do 
+      = form_tag(group_index_path, :method => "get") do
         = hidden_field_tag 'group_id'
         = text_field_tag 'search', nil, :placeholder => "Search"
     .links{:style => "font-size:13px; padding-left: 28px;"}
@@ -39,4 +39,3 @@
           Add your group!
         - else
           = link_to "Login to add your group!", "/auth/cas"
-    
