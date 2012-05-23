@@ -1,18 +1,17 @@
 #splash
-  #progress-alert
-    .well
-      %h2
-        %span
-          DGD is 
-          %span{ :style => "color: #62C462;"} #{@progress}%
-          complete
-        .progress.progress-striped.progress-success
-          .bar{:style => "width:#{@progress}%;"}
-      %h3
-        - if @current_user.present?
-          Search your group below to add a page!
-        - else
-          = link_to "Login to add your group's page!", "/auth/cas"
+  #progress-alert.alert.alert-info
+    %h2
+      %span
+        DGD is 
+        %span{ :style => "color: #62C462;"} #{@progress}%
+        complete
+      .progress.progress-striped.progress-success
+        .bar{:style => "width:#{@progress}%;"}
+    %h3
+      - if @current_user.present?
+        Search your group below to add a page!
+      - else
+        = link_to "Login to add your group's page!", "/auth/cas"
   .splash-container{:class => dev_mode}
     %div{ :style => "margin: 75px auto 20px auto; width: 260px;"}
       %span{ :style => "font-family: Andika, serif; font-size: 80px; font-style: normal; font-weight: 400; color: #333; text-shadow: 2px 2px 2px #999" }
