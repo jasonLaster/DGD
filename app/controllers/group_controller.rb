@@ -1,6 +1,6 @@
 class GroupController < ApplicationController
   layout 'application'
-  before_filter :group, :except => [:index, :about, :markdown, :leaderboard]
+  before_filter :group, :except => [:index, :leaderboard]
   before_filter :group_exec, :only => [:edit]
 
 
@@ -91,12 +91,6 @@ class GroupController < ApplicationController
   end
   
   def least_updated
-  end
-  
-  # GET /about
-  def about
-    @leaderboard = Description.leaderboard
-    @number_of_groups_with_pages = Description.total_count
   end
   
   # GET /markdown

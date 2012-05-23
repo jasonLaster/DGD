@@ -71,6 +71,6 @@ DGD::Application.routes.draw do
   match "/open-sesame" => "sessions#open_sesame"
   
   # Misc
-  match "/about" => "group#about", :as => :about
+  match "/about" => "static_pages#about", :as => :about
 
 end
