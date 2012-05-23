@@ -41,5 +41,12 @@ class Group < ActiveRecord::Base
     like = Rails.env.production? ? "ILIKE" : "LIKE"
     Group.where("name #{like} ?", "%#{name}%")
   end
+  
+  def self.progress
+    num_groups = Group.count
+    num_pages = Group.includes(:descriptions).select {|g| g.descriptions.length > 0}.length
+    frac = num_pages / num_groups.to_f
+    percent = (frac*100).round
+  end
 
 end

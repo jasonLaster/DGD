@@ -1,7 +1,8 @@
 #splash
   -if current_user.nil?
-    #login-alert.alert.alert-info
-      %h3=link_to "Login and edit a page", "/auth/cas"
+    #login-alert
+      .alert.alert-info
+        %h3=link_to "Login and edit a page", "/auth/cas"
 
   .splash-container{:class => dev_mode}
     %div{ :style => "margin: 75px auto 20px auto; width: 260px;"}
@@ -23,6 +24,19 @@
           = link_to "About", about_path
         %li
         - if @current_user.nil?
-          %li= link_to "Log In", "/auth/cas"
+          %li= link_to "Login", "/auth/cas"
         - else
-          %li= link_to "Log Out", signout_path
+          %li= link_to "Logout", signout_path
+
+  #progress-alert
+    .well
+      %h2
+        %span #{@progress}%
+        .progress.progress-striped.progress-danger
+          .bar{:style => "width:#{@progress}%;"}
+      %h3
+        - if @current_user.present?
+          Add your group!
+        - else
+          = link_to "Login to add your group!", "/auth/cas"
+    
