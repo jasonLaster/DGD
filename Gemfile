@@ -45,7 +45,7 @@ group :development do
 end
 
 group :production do
-  # gem 'thin'
+  gem 'thin'
   # gem 'execjs'
   gem 'pg'
 end
