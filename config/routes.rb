@@ -73,4 +73,7 @@ DGD::Application.routes.draw do
   # Misc
   match "/about" => "static_pages#about", :as => :about
 
+  unless Rails.application.config.consider_all_requests_local
+    match '*not_found', to: 'errors#error_404'
+  end
 end
