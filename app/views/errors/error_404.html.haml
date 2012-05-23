@@ -1,6 +1,11 @@
-%h2 404
+- content_for :sidebar do
+  = render :partial => "sidebar/directory"
+
+#group
+  .title
+    %h1 404
 %div
-  %h3 We're sorry
+  %h3 We're sorry.
   %p
     The content that you requested could not be found.
   %p
