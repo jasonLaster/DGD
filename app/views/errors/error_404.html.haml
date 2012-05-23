@@ -1,16 +1,13 @@
-- content_for :sidebar do
-  = render :partial => "sidebar/directory"
-
-#group
-  .title
-    %h1 404
-%div
-  %h3 We're sorry.
-  %p
-    The content that you requested could not be found.
-  %p
-    You tried to access '#{@not_found_path}', which is not a valid page.
-  %p
-    Want to
-    %a{href: root_path} go back to our home page
-    and try again?
+- cache do
+  #group
+    .title
+      %h1 404
+  %img.pull-right{src: "http://robohash.org/cute?size=200x200"}
+  %div
+    %h3 We're sorry.
+    %p
+      You tried to access '#{@not_found_path}', which is not a valid page.
+    %p
+      Want to
+      %a{href: root_path} go back to our home page
+      and try again?
