@@ -5,31 +5,16 @@
   .title
     %h1 Edit Group
 
-%section
-  .page-header 
-    %h2 Group Information
-  .row
-    %form
+.row
+  .span9
+    %form.form-horizontal
       %fieldset
-        .clearfix
-          %label Group Name
-          .input
-            %span.uneditable-input= @group.name
-        .clearfix
-          %label Group Category
-          .input
-            %span.uneditable-input= @group.category.try(:category)
-        .clearfix
-          %label Group Slug
-          .input
-            %span.uneditable-input= @group.id
-        .clearfix
-          %label Lock Group Page
-          .input{:style => "padding-top:6px"}
-            %input{:type => "checkbox"}
-            %span Only Group Execs and Site Admins can contribute to page
-    
-%section
-  .page-header 
-    %h2 Group Executives
-    %small Group Execs have permission to see all exec pages and make changes
+        .control-group
+          %label.control-label Name
+          .controls
+            %input.input-xlarge{:type =>"text", :placeholder => @group.name}
+        .control-group
+          %label.control-label Category
+          .controls
+            %input.input-xlarge{:type =>"text", :placeholder => @group.category.try(:category)}
+      
