@@ -1,5 +1,4 @@
 class StaticPagesController < ApplicationController
-  caches_page :about
 
   def about
     @leaderboard = Description.leaderboard
