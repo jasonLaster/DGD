@@ -65,7 +65,8 @@ DGD::Application.routes.draw do
     end
 
   end
-
+  
+  match "/auth/cas", :as => :signin
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
   match "/open-sesame" => "sessions#open_sesame"
