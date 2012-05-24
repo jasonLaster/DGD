@@ -67,7 +67,7 @@ class GroupController < ApplicationController
       links = @clean_description.at_css "a"
       if links
         if links['href'].try(:include?, "mailto:")
-          links['href'] = "/auth/cas"
+          links['href'] = signin_path
           links.content = "<login to see email address>"
         end
       end

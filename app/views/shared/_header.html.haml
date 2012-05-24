@@ -15,4 +15,4 @@
             - if current_user
               = link_to "#{current_user.first_name} - Logout", signout_path
             - else
-              = link_to "Login", "/auth/cas"
+              = link_to "Login", signin_path

@@ -66,12 +66,12 @@ DGD::Application.routes.draw do
 
   end
   
-  match "/auth/cas", :as => :signin
-  match "/auth/:provider/callback" => "sessions#create"
+  # Authentication with CAS
+  match '/signin', :to => redirect("/auth/cas"), :as => "signin"
+  match "/auth/cas/callback" => "sessions#create", :provider => "cas"
   match "/signout" => "sessions#destroy", :as => :signout
-  match "/open-sesame" => "sessions#open_sesame"
 
-  # Misc
+  # Static pages
   match "/about" => "static_pages#about", :as => :about
 
   unless Rails.application.config.consider_all_requests_local
