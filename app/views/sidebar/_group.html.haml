@@ -18,7 +18,7 @@
           .btn-group
             = button_to "Petition to be an Exec", petition_group_user_path(@group, @current_user), :class => "btn btn-primary "
       - elsif @group_exec.confirmed
-        %p As a group exec its your responsibility to maintain the group page. If the page is every slandered, you can go into the page history and revert it. If you have any questions, please don't hesitate to contact us. 
+        %p As a group exec its your responsibility to maintain the group page. If the page is every slandered, you can go into the page history and revert it. If you have any questions, please don't hesitate to contact us.
       - elsif !@group_exec.confirmed
         %p Thank you for petitioning to be a group exec. We're currently checking to see if you are actually an exec. We'll get back to you soon.
 

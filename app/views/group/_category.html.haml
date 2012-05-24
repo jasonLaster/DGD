@@ -4,7 +4,7 @@
     = link_to columns == 1 ? c.category.truncate(20) : c.category, "#"
   %ul{:class => "groups #{"columns" if c.two_cols}", :style => "-webkit-column-count: #{columns}"}
     - c.groups.each do |g|
-      %li.group 
+      %li.group
         - t = c.two_cols ? 18 : 45
         - g_name = g.name.sub(/Dartmouth /,"").truncate(t)
         = link_to g_name, group_path(g)

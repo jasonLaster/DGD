@@ -1,8 +1,8 @@
 class SqlTable
   attr_accessor :limit, :nom_rows, :columns, :rows, :column_widths
-  
+
   def initialize(data, opts={})
-    
+
     # GET COLUMNS AND ROWS
     # at this point pretty_print can only handle two formats [cols, rows] && [active record objs]
     if data.first.class == Array && data.length == 2
@@ -13,7 +13,7 @@ class SqlTable
       @columns = model.column_names
       @rows = data.to_column_values
     end
-    
+
     # SET VARIABLES AND PRINT FIRST N ROWS
     @num_rows = @rows.length
     @limit = opts[:limit] || 25
@@ -22,7 +22,7 @@ class SqlTable
     print_rows
     return nil
   end
-  
+
   # PRINT ROWS.
   def print_rows(data=nil)
     rows = (data || @enum.next)
@@ -37,5 +37,5 @@ class SqlTable
     end
     return nil
   end
-  
+
 end

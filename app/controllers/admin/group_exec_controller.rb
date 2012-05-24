@@ -1,5 +1,5 @@
 class Admin::GroupExecController < AdminController
-  def index 
+  def index
     @group_execs = GroupExec.all
   end
 end

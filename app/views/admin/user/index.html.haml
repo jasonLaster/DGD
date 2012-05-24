@@ -6,7 +6,7 @@
   #group
     .title
       %h1= "Users"
-  
+
   .users-table
     = form_tag admin_user_index_path, :method => :post do
       %table#admin-table.table-striped
@@ -16,8 +16,7 @@
           %th.purple Name
           %th.green Email
         = render :partial => "user", :collection => @users
-      
+
       .actions.form
         = submit_tag "Submit", :class => "btn primary"
-    
-    
+

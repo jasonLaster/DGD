@@ -10,6 +10,6 @@ task :import_spreadsheet_data_into_db  => :environment do
       Group.create(:category_id => c.id, :name => l)
     end
   end
-  
+
   puts "done"
 end

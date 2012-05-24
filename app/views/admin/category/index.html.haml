@@ -7,7 +7,7 @@
     .title
       %h1= "Categories"
   .categories-table
-  = form_tag admin_category_index_path, :method => :post do			
+  = form_tag admin_category_index_path, :method => :post do
     %table#admin-table.table.table-striped
       %thead
         %tr
@@ -16,7 +16,6 @@
           %th.red{:width => "70px"} # Groups
           %th.red{:width => "70px"} # Pages
       = render :partial => "category", :collection => @categories
-    
+
     .actions.form
       = submit_tag "Submit", :class => "btn primary"
-    
