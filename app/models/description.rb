@@ -1,5 +1,7 @@
 class Description < ActiveRecord::Base
 
+  include Htmldiff
+
   belongs_to :group
   belongs_to :user
   has_many :flags
@@ -34,7 +36,15 @@ class Description < ActiveRecord::Base
     Description.most_recent.includes(:user).group_by(&:user_id).values.sort_by(&:length).reverse
   end
   
-  
+  def self.diff(old_desc, new_desc)
+    o = old_desc.description
+    n = new_desc.description
+    if o.present? && n.present?
+      Htmldiff::diff(o, n)
+    else
+      n
+    end
+  end
   
   # TODO: KILL METHODS
   def markdown

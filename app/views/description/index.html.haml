@@ -6,15 +6,20 @@
     %h1= "Page History"
 
 #history
-  - @descriptions.each do |d|
-    - if d
+  = @history
+
+  - @description_diffs.each do |d1, d2|
+    - if d1
       %div{ :class => cycle("page stripe","page nostripe") }
         %span.ui-icon.ui-icon-triangle-1-s{ :style => "float: right; margin-right: 14px; margin-top: 3px;"}
         .header
-          %h4= history_title(d)
+          %h4= history_title(d1)
         .body
-          = d.description.try(:html_safe)
+          - if d2.nil?
+            = d1.description.try(:html_safe)
+          - else
+            = Description.diff(d1, d2).html_safe
           %form{ :method => "post", :action => group_description_index_path }
-            = hidden_field_tag 'description', d.description.try(:gsub,"\r\n","\r")
+            = hidden_field_tag 'description', d1.description.try(:gsub,"\r\n","\r")
 /            %input.btn{ :type => "submit", :value => "Revert to this version"}
 

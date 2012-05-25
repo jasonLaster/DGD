@@ -18,6 +18,8 @@
       = check_box_tag "#{name}[events]", "1", description.events
     %td.page{:style => "position:relative"}
       %a.btn.btn-small{"data-toggle"=>"modal", "href"=>"#d-#{description.id}"} Page
+    %td
+      = link_to "history", group_description_index_path(description.group)
 
     .modal{:id => "d-#{description.id}", :style=> "display:none;"}
       .modal-header

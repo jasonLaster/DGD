@@ -6,6 +6,7 @@ class DescriptionController < ApplicationController
   def index
     @group = Group.includes(:descriptions).find(params[:group_id])
     @descriptions = @group.descriptions.order("created_at DESC")
+    @description_diffs = @descriptions[1..-1].zip(@descriptions[0..-2])
   end
   
   def new
