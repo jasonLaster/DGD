@@ -21,7 +21,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-script'
   gem 'uglifier'
-  gem 'less'
+  gem 'less-rails'
 end
 
 
