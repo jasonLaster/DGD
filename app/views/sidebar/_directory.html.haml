@@ -23,6 +23,5 @@
           %li= descriptions.first.user.name
     %p= link_to "More", leaderboard_group_index_path
 
-
 - if @current_user.try(:admin)
   = render :partial => "sidebar/section/admin_toc"
