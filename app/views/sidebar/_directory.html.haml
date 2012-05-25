@@ -19,10 +19,9 @@
   .sidebar-content
     %ol.leaderboard
       - if @leaderboard
-        - @leaderboard[0..4].each do |name, count|
-          %li= name
+        - @leaderboard[0..4].each do |descriptions|
+          %li= descriptions.first.user.name
     %p= link_to "More", leaderboard_group_index_path
-
 
 - if @current_user.try(:admin)
   = render :partial => "sidebar/section/admin_toc"
