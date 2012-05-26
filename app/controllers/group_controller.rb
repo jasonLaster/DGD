@@ -51,8 +51,7 @@ class GroupController < ApplicationController
     end
 
     # other stuff
-    @leaderboard = Description.leaderboard
-
+    @leaderboard = Description.leaderboard_fast
   end
 
   def show
@@ -67,7 +66,7 @@ class GroupController < ApplicationController
       links = @clean_description.at_css "a"
       if links
         if links['href'].try(:include?, "mailto:")
-          links['href'] = signin_path
+          links['href'] = "/auth/cas"
           links.content = "<login to see email address>"
         end
       end
@@ -84,7 +83,7 @@ class GroupController < ApplicationController
   end
 
   def leaderboard
-    @leaderboard = Description.leaderboard
+    @leaderboard = Description.leaderboard_slow
   end
 
   def recently_updated
