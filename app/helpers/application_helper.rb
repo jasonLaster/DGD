@@ -6,7 +6,7 @@ module ApplicationHelper
     action = params[:action]
 
     if controller == "group" && action == "index" then "#{base_title} - Directory"
-    elsif controller == "group" && action == "show" then "#{base_title} - #{@group.name}"
+    elsif controller == "group" && action == "show" && @group.present? then "#{base_title} - #{@group.name}"
     elsif action == "about" then "#{base_title} - About"
     else "#{base_title}"
     end

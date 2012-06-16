@@ -1,26 +1,27 @@
 source 'http://rubygems.org'
 
 
-gem 'rails', '~> 3.1.0'
+gem 'rails', '~> 3.2.0'
 
 gem 'haml'
 gem 'jquery-rails'
 gem 'redcarpet'
-gem 'omniauth', '0.2.6'
-gem 'nokogiri'
+gem 'nokogiri', '~> 1.5'
+gem 'omniauth-cas'
 gem 'bootstrap-wysihtml5-rails'
 gem 'formtastic'
 gem 'dalli'
+gem 'therubyracer'
 
 gem 'exceptional'
 gem 'newrelic_rpm'
 
 
 group :assets do
-  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'sass-rails'
   gem 'coffee-script'
   gem 'uglifier'
-  gem 'less'
+  gem 'less-rails'
 end
 
 

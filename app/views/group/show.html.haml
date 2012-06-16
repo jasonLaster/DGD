@@ -22,7 +22,7 @@
           %span= link_to flag_text, group_description_flag_path(@group,@description), :method => 'post'
       - else
         .action_links
-          %span= link_to "Login to interact with this page", "../auth/cas"
+          %span= link_to "Login to interact with this page", signin_path
       %div{ :style => "margin-top: 20px;"}
         Last updated on #{@description.created_at.strftime("%b %d")} by #{@description.user.try(:name)} <br />
         - if @group.contributors.length > 0
@@ -34,4 +34,4 @@
           = submit_tag "Add Page", :class => "btn primary"
     - else
       .actions.form
-        %div= link_to "Login to create a page for this group", "../auth/cas"
+        %div= link_to "Login to create a page for this group", signin_path
