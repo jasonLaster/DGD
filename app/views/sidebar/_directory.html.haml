@@ -13,15 +13,15 @@
       DGD is a community directory, so feel free to edit any page you feel you can improve. Remember, your name is permanently
       attached to any content you contribute to DGD.
 
-.sidebar-info-box
-  .sidebar-header
-    %h3.title Leaderboard
-  .sidebar-content
-    %ol.leaderboard
-      - if @leaderboard
-        - @leaderboard[0..4].each do |descriptions|
-          %li= descriptions.first.user.name
-    %p= link_to "More", leaderboard_group_index_path
+/ .sidebar-info-box
+/   .sidebar-header
+/     %h3.title Leaderboard
+/   .sidebar-content
+/     %ol.leaderboard
+/       - if @leaderboard
+/         - @leaderboard[0..4].each do |descriptions|
+/           %li= descriptions.first.user.name
+/     %p= link_to "More", leaderboard_group_index_path
 
 - if @current_user.try(:admin)
   = render :partial => "sidebar/section/admin_toc"

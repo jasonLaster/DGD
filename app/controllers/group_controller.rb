@@ -51,7 +51,7 @@ class GroupController < ApplicationController
     end
 
     # other stuff
-    @leaderboard = Description.leaderboard_fast
+    # @leaderboard = Description.leaderboard_fast
   end
 
   def show
