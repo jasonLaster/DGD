@@ -41,6 +41,10 @@ class Group < ActiveRecord::Base
     like = Rails.env.production? ? "ILIKE" : "LIKE"
     Group.where("name #{like} ?", "%#{name}%")
   end
+  
+  def self.like(term)
+    Group.find(:all, :conditions => ["name LIKE ?", "#{term}%"])
+  end
 
   def self.progress
     num_groups = Group.count

@@ -41,7 +41,10 @@ DGD::Application.routes.draw do
     resources :group_exec, :only => [:index]
 
   end
-
+  
+  # Autocomplete route needed for Wordpress plugin
+  get 'group/autocomplete'
+  
   resources :group, :only => [:index, :show, :edit, :update]  do
     collection do
       get 'leaderboard'

@@ -1,6 +1,6 @@
 class GroupController < ApplicationController
   layout 'application'
-  before_filter :group, :except => [:index, :leaderboard]
+  before_filter :group, :except => [:index, :leaderboard, :autocomplete]
   before_filter :group_exec, :only => [:edit]
 
 
@@ -76,6 +76,10 @@ class GroupController < ApplicationController
       @description.description = Description.default_description
       @clean_description = @description
     end
+  end
+  
+  def autocomplete
+    render :json => Group.includes(:descriptions).like(params[:term]).map {|g| {:label => g.name, :value => g.name, :id => g.id}}.to_json
   end
 
   def edit
