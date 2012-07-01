@@ -2,6 +2,8 @@
   #group
     .title
       %h1= "Leaderboard"
+  %p
+    The leaderboard tracks how many contributions (edits) each user has made to the site.
 
   .leaderboard-table
     %table#admin-table.table.table-striped
@@ -9,8 +11,7 @@
         %tr
           %th.yellow Contributer
           %th.green{:width => "150px"} Count
-      - @leaderboard.each do |pages|
-        - if pages.first
-          %tr
-            %td= pages.first.user.name
-            %td= pages.length
+      - @leaderboard.each do |name, contributions|
+        %tr
+          %td= name
+          %td= contributions

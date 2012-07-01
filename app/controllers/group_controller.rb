@@ -51,8 +51,7 @@ class GroupController < ApplicationController
     end
 
     # other stuff
-    @leaderboard = Description.leaderboard
-
+    # @leaderboard = Description.leaderboard_fast
   end
 
   def show
@@ -84,7 +83,7 @@ class GroupController < ApplicationController
   end
 
   def leaderboard
-    @leaderboard = Description.leaderboard
+    @leaderboard = Description.leaderboard_slow
   end
 
   def recently_updated

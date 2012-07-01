@@ -42,6 +42,7 @@ module DGD
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.assets.initialize_on_precompile = false
 
     # Enable dalli memcaching
     config.cache_store = :dalli_store

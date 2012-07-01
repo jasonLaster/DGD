@@ -23,11 +23,17 @@ class Description < ActiveRecord::Base
     where("descriptions.created_at = (select MAX(d2.created_at) from descriptions d2 where descriptions.group_id = d2.group_id)")
   end
 
-  def self.leaderboard
+  def self.leaderboard_slow
+    authors = Group.joins(:descriptions).all.map {|group| [group.author] + group.contributors}.flatten
+    contributors = authors.reject(&:nil?).group_by {|u| u }
+    contributor_counts = contributors.map {|k,v| [k, v.length]}
+    contributor_counts.sort_by {|name, count| -count}
+  end
+  
+  def self.leaderboard_fast
     Description.most_recent.includes(:user).group_by(&:user_id).values.sort_by(&:length).reverse
   end
-
-
+    
   # TODO: KILL METHODS
   def markdown
     return if self.description.nil?
